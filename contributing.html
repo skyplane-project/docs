@@ -108,7 +108,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="skylark_cli.html">
+  <a class="reference internal" href="skyplane_cli.html">
    CLI documentation
   </a>
  </li>
@@ -316,7 +316,7 @@ title="Print to PDF"
 <p>For other proposals or larger features, we ask that you open a new GitHub <a class="reference external" href="https://github.com/skyplane-project/skyplane/issues/new">Issue</a> or <a class="reference external" href="https://github.com/skyplane-project/skyplane/discussions/new">Discussion</a>.</p>
 <section id="setting-up-a-developer-environment">
 <h2>Setting up a developer environment<a class="headerlink" href="#setting-up-a-developer-environment" title="Permalink to this headline">#</a></h2>
-<p>Skyplane is composed of the client (runs locally on a user’s laptop) and gateway VMs (runs in respective clouds). Normally, the gateways use a pre-built nightly Docker image containing the latest build of the Skyplane gateway code (<code class="docutils literal notranslate"><span class="pre">ghcr.io/skyplane-project/skyplane:main</span></code>). However, if you modify the gateway source (under <code class="docutils literal notranslate"><span class="pre">skylark/gateway</span></code>), you will need to rebuild the gateway Docker image and push it to a container registry.</p>
+<p>Skyplane is composed of the client (runs locally on a user’s laptop) and gateway VMs (runs in respective clouds). Normally, the gateways use a pre-built nightly Docker image containing the latest build of the Skyplane gateway code (<code class="docutils literal notranslate"><span class="pre">ghcr.io/skyplane-project/skyplane:main</span></code>). However, if you modify the gateway source (under <code class="docutils literal notranslate"><span class="pre">skyplane/gateway</span></code>), you will need to rebuild the gateway Docker image and push it to a container registry.</p>
 <p><strong>Ensure you have <a class="reference external" href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry">authenticated your Github account with Docker</a></strong>:</p>
 <ul class="simple">
 <li><p>Install docker</p></li>
@@ -335,22 +335,22 @@ title="Print to PDF"
 <section id="building-and-testing-skyplane">
 <h2>Building and testing Skyplane<a class="headerlink" href="#building-and-testing-skyplane" title="Permalink to this headline">#</a></h2>
 <p>After making a change to the Skyplane source, we need to rebuild the gateway Docker image:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span> docker build -t skylark .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span> docker build -t skyplane .
 </pre></div>
 </div>
 <p>We now need to push the Docker image to a container registry. Replace <code class="docutils literal notranslate"><span class="pre">ghcr.io/skyplane-project/skyplane</span></code> with your container registry if you are developing against a fork. We autogenerate a short random hash for the image tag.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">SKYLARK_DOCKER_IMAGE</span><span class="o">=</span><span class="s2">&quot;ghcr.io/skyplane-project/skyplane:local-</span><span class="k">$(</span>openssl rand -hex <span class="m">16</span><span class="k">)</span><span class="s2">&quot;</span>
-$ sudo docker tag skylark <span class="nv">$SKYLARK_DOCKER_IMAGE</span>
-$ sudo docker push <span class="nv">$SKYLARK_DOCKER_IMAGE</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">SKYPLANE_DOCKER_IMAGE</span><span class="o">=</span><span class="s2">&quot;ghcr.io/skyplane-project/skyplane:local-</span><span class="k">$(</span>openssl rand -hex <span class="m">16</span><span class="k">)</span><span class="s2">&quot;</span>
+$ sudo docker tag skyplane <span class="nv">$SKYPLANE_DOCKER_IMAGE</span>
+$ sudo docker push <span class="nv">$SKYPLANE_DOCKER_IMAGE</span>
 </pre></div>
 </div>
-<p>To build the client, install the Skyplane package in development mode. The package points to your current checked-out version of the code, and any edits to the Skyplane client will immediately apply to the <code class="docutils literal notranslate"><span class="pre">skylark</span></code> CLI command.</p>
+<p>To build the client, install the Skyplane package in development mode. The package points to your current checked-out version of the code, and any edits to the Skyplane client will immediately apply to the <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> CLI command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -e .
 </pre></div>
 </div>
-<p>We can run the <code class="docutils literal notranslate"><span class="pre">skylark</span></code> CLI to test a transfer. The CLI will read your <code class="docutils literal notranslate"><span class="pre">SKYLARK_DOCKER_IMAGE</span></code> environment variable and use that Docker image when launching gateways.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skylark init
-$ skylark cp s3://... s3://...
+<p>We can run the <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> CLI to test a transfer. The CLI will read your <code class="docutils literal notranslate"><span class="pre">SKYPLANE_DOCKER_IMAGE</span></code> environment variable and use that Docker image when launching gateways.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane init
+$ skyplane cp s3://... s3://...
 </pre></div>
 </div>
 </section>
@@ -361,9 +361,9 @@ $ skylark cp s3://... s3://...
 <li><p>Fork the Skyplane repository to create a copy of the project in your own account.</p></li>
 <li><p>Set up a developer environment as described as above.</p></li>
 <li><p>Create a development branch (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">feature_name</span></code>)</p></li>
-<li><p>Test your changes manually using <code class="docutils literal notranslate"><span class="pre">skylark</span> <span class="pre">cp</span></code> and with the unit test suite:</p></li>
+<li><p>Test your changes manually using <code class="docutils literal notranslate"><span class="pre">skyplane</span> <span class="pre">cp</span></code> and with the unit test suite:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -n auto skylark/test
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -n auto skyplane/test
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
@@ -371,7 +371,7 @@ $ skylark cp s3://... s3://...
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install black pytype
 $ black -l <span class="m">140</span> .
-$ pytype --config .pytype.cfg skylark
+$ pytype --config .pytype.cfg skyplane
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">

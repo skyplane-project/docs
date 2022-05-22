@@ -107,7 +107,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="skylark_cli.html">
+  <a class="reference internal" href="skyplane_cli.html">
    CLI documentation
   </a>
  </li>
@@ -333,31 +333,31 @@ $ pip install skyplane
 </div>
 <p>Skyplane autodetects cloud credentials and valid regions from your CLI environment.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; Setup cloud provider connectors:
-$ skylark init
+$ skyplane init
 </pre></div>
 </div>
-<p>We’re ready to use Skyplane! Let’s use <cite>skylark cp</cite> to copy files from AWS to GCP:</p>
+<p>We’re ready to use Skyplane! Let’s use <cite>skyplane cp</cite> to copy files from AWS to GCP:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; 🎸 Ready to rock and roll! Copy some files:
-$ skylark cp s3://... gs://...
+$ skyplane cp s3://... gs://...
 </pre></div>
 </div>
 </section>
 <section id="what-can-you-do-with-skyplane">
 <h2>What can you do with Skyplane?<a class="headerlink" href="#what-can-you-do-with-skyplane" title="Permalink to this headline">#</a></h2>
 <p>Skyplane’s cp command supports copying large datasets between cloud regions within a single provider:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skylark cp s3://mybucket/big_dataset s3://mybucket2/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane cp s3://mybucket/big_dataset s3://mybucket2/
 </pre></div>
 </div>
 <p>Skyplane also supports copying between providers:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skylark cp s3://mybucket/big_dataset gs://mybucket2/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane cp s3://mybucket/big_dataset gs://mybucket2/
 </pre></div>
 </div>
 <p>For convenience, Skyplane also supports copying to and from your local filesystem:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skylark cp /path/to/dir s3://mybucket/big_dataset
-$ skylark cp s3://mybucket/big_dataset /path/to/dir
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane cp /path/to/dir s3://mybucket/big_dataset
+$ skyplane cp s3://mybucket/big_dataset /path/to/dir
 </pre></div>
 </div>
-<p>For cloud-to-cloud transfers, once <code class="docutils literal notranslate"><span class="pre">skylark</span></code> provisions all gateway VMs, transfers can complete at up to 50Gb/s.</p>
+<p>For cloud-to-cloud transfers, once <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> provisions all gateway VMs, transfers can complete at up to 50Gb/s.</p>
 </section>
 <section id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h2>
@@ -376,7 +376,7 @@ $ skylark cp s3://mybucket/big_dataset /path/to/dir
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="skylark_cli.html">CLI documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skyplane_cli.html">CLI documentation</a></li>
 </ul>
 </div>
 </section>
