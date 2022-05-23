@@ -253,6 +253,23 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#building-and-testing-skyplane">
    Building and testing Skyplane
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-docker-image-for-gateway">
+     Building Docker image for gateway
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-the-skyplane-client">
+     Building the Skyplane client
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-a-transfer">
+     Testing a transfer
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#submitting-pull-requests">
@@ -287,6 +304,23 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#building-and-testing-skyplane">
    Building and testing Skyplane
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-docker-image-for-gateway">
+     Building Docker image for gateway
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-the-skyplane-client">
+     Building the Skyplane client
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-a-transfer">
+     Testing a transfer
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#submitting-pull-requests">
@@ -334,6 +368,8 @@ title="Print to PDF"
 </section>
 <section id="building-and-testing-skyplane">
 <h2>Building and testing Skyplane<a class="headerlink" href="#building-and-testing-skyplane" title="Permalink to this headline">#</a></h2>
+<section id="building-docker-image-for-gateway">
+<h3>Building Docker image for gateway<a class="headerlink" href="#building-docker-image-for-gateway" title="Permalink to this headline">#</a></h3>
 <p>After making a change to the Skyplane source, we need to rebuild the gateway Docker image:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span> docker build -t skyplane .
 </pre></div>
@@ -344,15 +380,22 @@ $ sudo docker tag skyplane <span class="nv">$SKYPLANE_DOCKER_IMAGE</span>
 $ sudo docker push <span class="nv">$SKYPLANE_DOCKER_IMAGE</span>
 </pre></div>
 </div>
-<p>To build the client, install the Skyplane package in development mode. The package points to your current checked-out version of the code, and any edits to the Skyplane client will immediately apply to the <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> CLI command.</p>
+</section>
+<section id="building-the-skyplane-client">
+<h3>Building the Skyplane client<a class="headerlink" href="#building-the-skyplane-client" title="Permalink to this headline">#</a></h3>
+<p>We use <a class="reference external" href="https://python-poetry.org/">Poetry</a> to manage package dependencies during development. For convenience, we provide a Poetry wrapper via <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>. To build the client, install the Skyplane package in development mode. The package points to your current checked-out version of the code, and any edits to the Skyplane client will immediately apply to the <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> CLI command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -e .
 </pre></div>
 </div>
+</section>
+<section id="testing-a-transfer">
+<h3>Testing a transfer<a class="headerlink" href="#testing-a-transfer" title="Permalink to this headline">#</a></h3>
 <p>We can run the <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> CLI to test a transfer. The CLI will read your <code class="docutils literal notranslate"><span class="pre">SKYPLANE_DOCKER_IMAGE</span></code> environment variable and use that Docker image when launching gateways.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane init
 $ skyplane cp s3://... s3://...
 </pre></div>
 </div>
+</section>
 </section>
 <section id="submitting-pull-requests">
 <h2>Submitting pull requests<a class="headerlink" href="#submitting-pull-requests" title="Permalink to this headline">#</a></h2>
