@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to Skyplane! &#8212; Skyplane 0.1 documentation</title>
+    <title>setup module &#8212; Skyplane 0.1 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -36,7 +36,6 @@
     <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Contributing to Skyplane" href="contributing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -71,7 +70,7 @@
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="#">
+    <a class="navbar-brand text-wrap" href="index.html">
       
       
       
@@ -189,7 +188,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/index.rst.txt"
+        <a href="_sources/setup.rst.txt"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -226,84 +225,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-install-skyplane">
-   How to install Skyplane
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-can-you-do-with-skyplane">
-   What can you do with Skyplane?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contents">
-   Contents
-  </a>
-  <ul class="visible nav section-nav flex-column">
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Welcome to Skyplane!</h1>
+                <h1>setup module</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-install-skyplane">
-   How to install Skyplane
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-can-you-do-with-skyplane">
-   What can you do with Skyplane?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contents">
-   Contents
-  </a>
-  <ul class="visible nav section-nav flex-column">
-  </ul>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -311,86 +249,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="welcome-to-skyplane">
-<h1>Welcome to Skyplane!<a class="headerlink" href="#welcome-to-skyplane" title="Permalink to this headline">#</a></h1>
-<p><strong>Skyplane</strong> efficiently transports data between cloud regions and providers.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This project is under active development.</p>
-</div>
-<section id="how-to-install-skyplane">
-<h2>How to install Skyplane<a class="headerlink" href="#how-to-install-skyplane" title="Permalink to this headline">#</a></h2>
-<p>Before using Skyplane, you should log into each cloud provider’s CLI:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; For AWS:
-$ aws configure
-
----&gt; For Google Cloud:
-$ gcloud auth application-default login
-
----&gt; For Azure:
-$ az login
-</pre></div>
-</div>
-<p>We’re ready to install Skyplane. It’s as easy as:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; Install skyplane from PyPI:
-$ pip install skyplane
-</pre></div>
-</div>
-<p>Skyplane autodetects cloud credentials and valid regions from your CLI environment.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; Setup cloud provider connectors:
-$ skyplane init
-</pre></div>
-</div>
-<p>We’re ready to use Skyplane! Let’s use <cite>skyplane cp</cite> to copy files from AWS to GCP:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; 🎸 Ready to rock and roll! Copy some files:
-$ skyplane cp s3://... gs://...
-</pre></div>
-</div>
-</section>
-<section id="what-can-you-do-with-skyplane">
-<h2>What can you do with Skyplane?<a class="headerlink" href="#what-can-you-do-with-skyplane" title="Permalink to this headline">#</a></h2>
-<p>Skyplane’s cp command supports copying large datasets between cloud regions within a single provider:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane cp s3://mybucket/big_dataset s3://mybucket2/
-</pre></div>
-</div>
-<p>Skyplane also supports copying between providers:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane cp s3://mybucket/big_dataset gs://mybucket2/
-</pre></div>
-</div>
-<p>For convenience, Skyplane also supports copying to and from your local filesystem:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane cp /path/to/dir s3://mybucket/big_dataset
-$ skyplane cp s3://mybucket/big_dataset /path/to/dir
-</pre></div>
-</div>
-<p>For cloud-to-cloud transfers, once <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> provisions all gateway VMs, transfers can complete at up to 50Gb/s.</p>
-</section>
-<section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h2>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#setting-up-a-developer-environment">Setting up a developer environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#building-and-testing-skyplane">Building and testing Skyplane</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#submitting-pull-requests">Submitting pull requests</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="build_guide.html">Building Skyplane from source</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="skyplane_cli.html">CLI documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="skyplane_internal.html">Internal package documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#module-skyplane.chunk">skyplane.chunk module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#module-skyplane.config">skyplane.config module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#module-skyplane.exceptions">skyplane.exceptions module</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
+  <section id="module-setup">
+<span id="setup-module"></span><h1>setup module<a class="headerlink" href="#module-setup" title="Permalink to this headline">#</a></h1>
 </section>
 
 
@@ -401,13 +261,6 @@ $ skyplane cp s3://mybucket/big_dataset /path/to/dir
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="contributing.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contributing to Skyplane</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

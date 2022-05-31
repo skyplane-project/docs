@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skyplane.chunk &#8212; Skyplane 0.1 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Skyplane 0.1 documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Developer documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contributing.html">
+   Contributing to Skyplane
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../build_guide.html">
+   Building Skyplane from source
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Package documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../skyplane_cli.html">
+   CLI documentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../skyplane_internal.html">
+   Internal package documentation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for skyplane.chunk</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">asdict</span><span class="p">,</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">total_ordering</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+
+
+<div class="viewcode-block" id="Chunk"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.Chunk">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Chunk</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A Chunk is a contiguous piece of a file (a file may be one or more chunks).&quot;&quot;&quot;</span>
+
+    <span class="n">src_key</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># human readable path where object is stored</span>
+    <span class="n">dest_key</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># human readable path where object is stored</span>
+    <span class="n">chunk_id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">chunk_length_bytes</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="c1"># multi-part upload/download info</span>
+    <span class="n">file_offset_bytes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">part_number</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">upload_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Chunk.to_wire_header"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.Chunk.to_wire_header">[docs]</a>    <span class="k">def</span> <span class="nf">to_wire_header</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_chunks_left_on_socket</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">compressed_len_bytes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">data_len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_length_bytes</span> <span class="k">if</span> <span class="n">compressed_len_bytes</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">compressed_len_bytes</span>
+        <span class="k">return</span> <span class="n">WireProtocolHeader</span><span class="p">(</span>
+            <span class="n">chunk_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chunk_id</span><span class="p">,</span>
+            <span class="n">data_len</span><span class="o">=</span><span class="n">data_len</span><span class="p">,</span>
+            <span class="n">is_compressed</span><span class="o">=</span><span class="n">compressed_len_bytes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">n_chunks_left_on_socket</span><span class="o">=</span><span class="n">n_chunks_left_on_socket</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Chunk.as_dict"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.Chunk.as_dict">[docs]</a>    <span class="k">def</span> <span class="nf">as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Chunk.from_dict"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.Chunk.from_dict">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Chunk</span><span class="p">(</span><span class="o">**</span><span class="n">d</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ChunkRequest"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.ChunkRequest">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">ChunkRequest</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A ChunkRequest stores all local state in the Gateway pertaining to a ChunkRequest.&quot;&quot;&quot;</span>
+
+    <span class="n">chunk</span><span class="p">:</span> <span class="n">Chunk</span>
+    <span class="n">src_region</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">dst_region</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">src_type</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># enum of {&quot;object_store&quot;, &quot;random&quot;, &quot;read_local&quot;}</span>
+    <span class="n">dst_type</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># enum of {&quot;object_store&quot;, &quot;save_local&quot;}</span>
+    <span class="n">src_random_size_mb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">src_object_store_bucket</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">dst_object_store_bucket</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">src_type</span> <span class="o">==</span> <span class="s2">&quot;object_store&quot;</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">src_object_store_bucket</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">src_type</span> <span class="o">==</span> <span class="s2">&quot;random&quot;</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">src_random_size_mb</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst_type</span> <span class="o">==</span> <span class="s2">&quot;object_store&quot;</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst_object_store_bucket</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="ChunkRequest.as_dict"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.ChunkRequest.as_dict">[docs]</a>    <span class="k">def</span> <span class="nf">as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dict_out</span> <span class="o">=</span> <span class="n">asdict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">dict_out</span><span class="p">[</span><span class="s2">&quot;chunk&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">dict_out</span></div>
+
+<div class="viewcode-block" id="ChunkRequest.from_dict"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.ChunkRequest.from_dict">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="n">in_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+        <span class="n">in_dict</span><span class="p">[</span><span class="s2">&quot;chunk&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Chunk</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">in_dict</span><span class="p">[</span><span class="s2">&quot;chunk&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">ChunkRequest</span><span class="p">(</span><span class="o">**</span><span class="n">in_dict</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ChunkState"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.ChunkState">[docs]</a><span class="nd">@total_ordering</span>
+<span class="k">class</span> <span class="nc">ChunkState</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="n">registered</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">download_queued</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">download_in_progress</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">downloaded</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">upload_queued</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">upload_in_progress</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">upload_complete</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+    <span class="n">failed</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ChunkState.from_str"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.ChunkState.from_str">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_str</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ChunkState</span><span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span></div>
+
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="WireProtocolHeader"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.WireProtocolHeader">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">WireProtocolHeader</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Lightweight wire protocol header for chunk transfers along socket.&quot;&quot;&quot;</span>
+
+    <span class="n">chunk_id</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># long</span>
+    <span class="n">data_len</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># long</span>
+    <span class="n">is_compressed</span><span class="p">:</span> <span class="nb">bool</span>  <span class="c1"># char</span>
+    <span class="n">n_chunks_left_on_socket</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># long</span>
+
+<div class="viewcode-block" id="WireProtocolHeader.magic_hex"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.WireProtocolHeader.magic_hex">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">magic_hex</span><span class="p">():</span>
+        <span class="k">return</span> <span class="mh">0x534B595F4C41524B</span>  <span class="c1"># &quot;SKY_LARK&quot;</span></div>
+
+<div class="viewcode-block" id="WireProtocolHeader.protocol_version"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.WireProtocolHeader.protocol_version">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">protocol_version</span><span class="p">():</span>
+        <span class="c1"># v1 = base protocol</span>
+        <span class="c1"># v2 = compression</span>
+        <span class="k">return</span> <span class="mi">2</span></div>
+
+<div class="viewcode-block" id="WireProtocolHeader.length_bytes"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.WireProtocolHeader.length_bytes">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">length_bytes</span><span class="p">():</span>
+        <span class="c1"># magic (8) + protocol_version (4) + chunk_id (8) + data_len (8) + is_compressed (1) + n_chunks_left_on_socket (8)</span>
+        <span class="k">return</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">8</span></div>
+
+<div class="viewcode-block" id="WireProtocolHeader.from_bytes"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.WireProtocolHeader.from_bytes">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">length_bytes</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">length_bytes</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">magic</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">8</span><span class="p">],</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">magic</span> <span class="o">!=</span> <span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">magic_hex</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid magic number, got </span><span class="si">{</span><span class="n">magic</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2"> but expected </span><span class="si">{</span><span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">magic_hex</span><span class="p">()</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">12</span><span class="p">],</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">version</span> <span class="o">!=</span> <span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">protocol_version</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid protocol version, got </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2"> but expected </span><span class="si">{</span><span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">protocol_version</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">chunk_id</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">20</span><span class="p">],</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="n">chunk_len</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">28</span><span class="p">],</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="n">is_compressed</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">28</span><span class="p">:</span><span class="mi">29</span><span class="p">],</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">))</span>
+        <span class="n">n_chunks_left_on_socket</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">29</span><span class="p">:</span><span class="mi">37</span><span class="p">],</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">WireProtocolHeader</span><span class="p">(</span>
+            <span class="n">chunk_id</span><span class="o">=</span><span class="n">chunk_id</span><span class="p">,</span> <span class="n">data_len</span><span class="o">=</span><span class="n">chunk_len</span><span class="p">,</span> <span class="n">is_compressed</span><span class="o">=</span><span class="n">is_compressed</span><span class="p">,</span> <span class="n">n_chunks_left_on_socket</span><span class="o">=</span><span class="n">n_chunks_left_on_socket</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="WireProtocolHeader.to_bytes"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.WireProtocolHeader.to_bytes">[docs]</a>    <span class="k">def</span> <span class="nf">to_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">out_bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+        <span class="n">out_bytes</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">magic_hex</span><span class="p">()</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="n">out_bytes</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">protocol_version</span><span class="p">()</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="n">out_bytes</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_id</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="n">out_bytes</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_len</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="n">out_bytes</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_compressed</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="n">out_bytes</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_chunks_left_on_socket</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s2">&quot;big&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">out_bytes</span><span class="p">)</span> <span class="o">==</span> <span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">length_bytes</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">out_bytes</span><span class="p">)</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">length_bytes</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">out_bytes</span></div>
+
+<div class="viewcode-block" id="WireProtocolHeader.from_socket"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.WireProtocolHeader.from_socket">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_socket</span><span class="p">(</span><span class="n">sock</span><span class="p">:</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">):</span>
+        <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">length_bytes</span><span class="p">()</span>
+        <span class="n">header_bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">header_bytes</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">num_bytes</span><span class="p">:</span>
+            <span class="n">header_bytes</span> <span class="o">+=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">num_bytes</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">header_bytes</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">header_bytes</span><span class="p">)</span> <span class="o">==</span> <span class="n">num_bytes</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">header_bytes</span><span class="p">)</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">num_bytes</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">WireProtocolHeader</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">header_bytes</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="WireProtocolHeader.to_socket"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.chunk.WireProtocolHeader.to_socket">[docs]</a>    <span class="k">def</span> <span class="nf">to_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sock</span><span class="p">:</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">sock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">())</span> <span class="ow">is</span> <span class="kc">None</span></div></div>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Skyplane authors<br/>
+  
+      &copy; Copyright 2021, The Skyplane authors.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
