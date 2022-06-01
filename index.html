@@ -333,8 +333,15 @@ $ az login
 </div>
 <p>We’re ready to install Skyplane. It’s as easy as:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; Install skyplane from PyPI:
-$ pip install skyplane
+$ pip install skyplane-nightly
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using an M1 Macbook with the arm64 architecture, you will need to install skyplane as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">GRPC_PYTHON_BUILD_SYSTEM_OPENSSL</span><span class="o">=</span><span class="m">1</span> <span class="nv">GRPC_PYTHON_BUILD_SYSTEM_ZLIB</span><span class="o">=</span><span class="m">1</span> pip install skyplane-nightly
+</pre></div>
+</div>
 </div>
 <p>Skyplane autodetects cloud credentials and valid regions from your CLI environment.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; Setup cloud provider connectors:
@@ -349,6 +356,7 @@ $ skyplane cp s3://... gs://...
 </section>
 <section id="what-can-you-do-with-skyplane">
 <h2>What can you do with Skyplane?<a class="headerlink" href="#what-can-you-do-with-skyplane" title="Permalink to this headline">#</a></h2>
+<p><strong>skyplane cp copies files from one cloud provider to another</strong></p>
 <p>Skyplane’s cp command supports copying large datasets between cloud regions within a single provider:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane cp s3://mybucket/big_dataset s3://mybucket2/
 </pre></div>
@@ -363,6 +371,12 @@ $ skyplane cp s3://mybucket/big_dataset /path/to/dir
 </pre></div>
 </div>
 <p>For cloud-to-cloud transfers, once <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> provisions all gateway VMs, transfers can complete at up to 50Gb/s.</p>
+<p><strong>skyplane sync only copies new objects</strong></p>
+<p>Skyplane’s sync command will diff the contents of two buckets and only copy new objects:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane sync s3://mybucket/big_dataset gs://mybucket2/
+</pre></div>
+</div>
+<p>It determines if an object is new by comparing the last modified time as well as the size of the object (similar to <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html#examples">AWS S3 sync</a>). Skyplane sync is safe to run as it will <em>NOT</em> delete objects that are no longer present in the source bucket.</p>
 </section>
 <section id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h2>
