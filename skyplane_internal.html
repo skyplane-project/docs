@@ -544,7 +544,7 @@ title="Print to PDF"
 <span id="skyplane-config-module"></span><h2>skyplane.config module<a class="headerlink" href="#module-skyplane.config" title="Permalink to this headline">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.config.</span></span><span class="sig-name descname"><span class="pre">SkyplaneConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aws_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_subscription_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_project_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#SkyplaneConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config.SkyplaneConfig" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.config.</span></span><span class="sig-name descname"><span class="pre">SkyplaneConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aws_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_subscription_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_project_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag_autoconfirm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#SkyplaneConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config.SkyplaneConfig" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.aws_enabled">
@@ -572,6 +572,11 @@ title="Print to PDF"
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.flag_autoconfirm">
+<span class="sig-name descname"><span class="pre">flag_autoconfirm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#skyplane.config.SkyplaneConfig.flag_autoconfirm" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.gcp_enabled">
 <span class="sig-name descname"><span class="pre">gcp_enabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></em><a class="headerlink" href="#skyplane.config.SkyplaneConfig.gcp_enabled" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
@@ -579,6 +584,11 @@ title="Print to PDF"
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.gcp_project_id">
 <span class="sig-name descname"><span class="pre">gcp_project_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.config.SkyplaneConfig.gcp_project_id" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.get_flag">
+<span class="sig-name descname"><span class="pre">get_flag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#SkyplaneConfig.get_flag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config.SkyplaneConfig.get_flag" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -593,11 +603,26 @@ title="Print to PDF"
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.set_flag">
+<span class="sig-name descname"><span class="pre">set_flag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#SkyplaneConfig.set_flag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config.SkyplaneConfig.set_flag" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.to_config_file">
 <span class="sig-name descname"><span class="pre">to_config_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#SkyplaneConfig.to_config_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config.SkyplaneConfig.to_config_file" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.valid_flags">
+<span class="sig-name descname"><span class="pre">valid_flags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#SkyplaneConfig.valid_flags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config.SkyplaneConfig.valid_flags" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyplane.config._map_type">
+<span class="sig-prename descclassname"><span class="pre">skyplane.config.</span></span><span class="sig-name descname"><span class="pre">_map_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#_map_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config._map_type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 
 </section>
 <section id="module-skyplane.exceptions">
