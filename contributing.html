@@ -234,6 +234,13 @@
 <h2>Building and testing Skyplane<a class="headerlink" href="#building-and-testing-skyplane" title="Permalink to this headline">#</a></h2>
 <section id="building-docker-image-for-gateway">
 <h3>Building Docker image for gateway<a class="headerlink" href="#building-docker-image-for-gateway" title="Permalink to this headline">#</a></h3>
+<p><strong>TLDR:</strong> We’ve packaged the code to build and push the gateway Docker image into a single script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">scripts</span><span class="o">/</span><span class="n">pack_docker</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">source</span></code> will run the script and capture the exported <code class="docutils literal notranslate"><span class="pre">SKYPLANE_DOCKER_IMAGE</span></code> environment variable.</p>
+<section id="manual-steps-to-build-and-push-the-skyplane-gateway-docker-image">
+<h4>Manual steps to build and push the Skyplane gateway Docker image<a class="headerlink" href="#manual-steps-to-build-and-push-the-skyplane-gateway-docker-image" title="Permalink to this headline">#</a></h4>
 <p>After making a change to the Skyplane source, we need to rebuild the gateway Docker image:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span> docker build -t skyplane .
 </pre></div>
@@ -244,6 +251,7 @@ $ sudo docker tag skyplane <span class="nv">$SKYPLANE_DOCKER_IMAGE</span>
 $ sudo docker push <span class="nv">$SKYPLANE_DOCKER_IMAGE</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="building-the-skyplane-client">
 <h3>Building the Skyplane client<a class="headerlink" href="#building-the-skyplane-client" title="Permalink to this headline">#</a></h3>
@@ -348,7 +356,10 @@ $ pytype --config .pytype.cfg skyplane
 <li><a class="reference internal" href="#">Contributing to Skyplane</a><ul>
 <li><a class="reference internal" href="#setting-up-a-developer-environment">Setting up a developer environment</a></li>
 <li><a class="reference internal" href="#building-and-testing-skyplane">Building and testing Skyplane</a><ul>
-<li><a class="reference internal" href="#building-docker-image-for-gateway">Building Docker image for gateway</a></li>
+<li><a class="reference internal" href="#building-docker-image-for-gateway">Building Docker image for gateway</a><ul>
+<li><a class="reference internal" href="#manual-steps-to-build-and-push-the-skyplane-gateway-docker-image">Manual steps to build and push the Skyplane gateway Docker image</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#building-the-skyplane-client">Building the Skyplane client</a></li>
 <li><a class="reference internal" href="#testing-a-transfer">Testing a transfer</a></li>
 </ul>
