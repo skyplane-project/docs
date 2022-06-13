@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Contributing to Skyplane" href="contributing.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.06.04.1"/>
+    <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
         <title>Skyplane 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
@@ -202,14 +202,14 @@
         </div>
         <article role="main">
           <section id="welcome-to-skyplane">
-<h1>Welcome to Skyplane!<a class="headerlink" href="#welcome-to-skyplane" title="Permalink to this headline">#</a></h1>
+<h1>Welcome to Skyplane!<a class="headerlink" href="#welcome-to-skyplane" title="Permalink to this heading">#</a></h1>
 <p><strong>Skyplane</strong> efficiently transports data between cloud regions and providers.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This project is under active development.</p>
 </div>
 <section id="how-to-install-skyplane">
-<h2>How to install Skyplane<a class="headerlink" href="#how-to-install-skyplane" title="Permalink to this headline">#</a></h2>
+<h2>How to install Skyplane<a class="headerlink" href="#how-to-install-skyplane" title="Permalink to this heading">#</a></h2>
 <p>Before using Skyplane, you should log into each cloud provider’s CLI:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; For AWS:
 $ aws configure
@@ -245,7 +245,7 @@ $ skyplane cp s3://... gs://...
 </div>
 </section>
 <section id="what-can-you-do-with-skyplane">
-<h2>What can you do with Skyplane?<a class="headerlink" href="#what-can-you-do-with-skyplane" title="Permalink to this headline">#</a></h2>
+<h2>What can you do with Skyplane?<a class="headerlink" href="#what-can-you-do-with-skyplane" title="Permalink to this heading">#</a></h2>
 <p><strong>skyplane cp copies files from one cloud provider to another</strong></p>
 <p>Skyplane’s cp command supports copying large datasets between cloud regions within a single provider:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane cp s3://mybucket/big_dataset s3://mybucket2/
@@ -269,7 +269,7 @@ $ skyplane cp s3://mybucket/big_dataset /path/to/dir
 <p>It determines if an object is new by comparing the last modified time as well as the size of the object (similar to <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html#examples">AWS S3 sync</a>). Skyplane sync is safe to run as it will <em>NOT</em> delete objects that are no longer present in the source bucket.</p>
 </section>
 <section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h2>
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
@@ -364,6 +364,7 @@ $ skyplane cp s3://mybucket/big_dataset /path/to/dir
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>

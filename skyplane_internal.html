@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="CLI documentation" href="skyplane_cli.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.06.04.1"/>
+    <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
         <title>Internal package documentation - Skyplane 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
@@ -202,9 +202,9 @@
         </div>
         <article role="main">
           <section id="internal-package-documentation">
-<h1>Internal package documentation<a class="headerlink" href="#internal-package-documentation" title="Permalink to this headline">#</a></h1>
+<h1>Internal package documentation<a class="headerlink" href="#internal-package-documentation" title="Permalink to this heading">#</a></h1>
 <section id="module-skyplane.chunk">
-<span id="skyplane-chunk-module"></span><h2>skyplane.chunk module<a class="headerlink" href="#module-skyplane.chunk" title="Permalink to this headline">#</a></h2>
+<span id="skyplane-chunk-module"></span><h2>skyplane.chunk module<a class="headerlink" href="#module-skyplane.chunk" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="skyplane.chunk.Chunk">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.chunk.</span></span><span class="sig-name descname"><span class="pre">Chunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_length_bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_offset_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">part_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upload_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/chunk.html#Chunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.chunk.Chunk" title="Permalink to this definition">#</a></dt>
@@ -232,7 +232,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.chunk.Chunk.file_offset_bytes">
-<span class="sig-name descname"><span class="pre">file_offset_bytes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.Chunk.file_offset_bytes" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">file_offset_bytes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.Chunk.file_offset_bytes" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -242,7 +242,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.chunk.Chunk.part_number">
-<span class="sig-name descname"><span class="pre">part_number</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.Chunk.part_number" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">part_number</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.Chunk.part_number" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -257,7 +257,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.chunk.Chunk.upload_id">
-<span class="sig-name descname"><span class="pre">upload_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.Chunk.upload_id" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">upload_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.Chunk.upload_id" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -274,12 +274,12 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.chunk.ChunkRequest.chunk">
-<span class="sig-name descname"><span class="pre">chunk</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#skyplane.chunk.Chunk" title="skyplane.chunk.Chunk"><span class="pre">skyplane.chunk.Chunk</span></a></em><a class="headerlink" href="#skyplane.chunk.ChunkRequest.chunk" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">chunk</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#skyplane.chunk.Chunk" title="skyplane.chunk.Chunk"><span class="pre">Chunk</span></a></em><a class="headerlink" href="#skyplane.chunk.ChunkRequest.chunk" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.chunk.ChunkRequest.dst_object_store_bucket">
-<span class="sig-name descname"><span class="pre">dst_object_store_bucket</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.ChunkRequest.dst_object_store_bucket" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">dst_object_store_bucket</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.ChunkRequest.dst_object_store_bucket" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -299,12 +299,12 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.chunk.ChunkRequest.src_object_store_bucket">
-<span class="sig-name descname"><span class="pre">src_object_store_bucket</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.ChunkRequest.src_object_store_bucket" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">src_object_store_bucket</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.ChunkRequest.src_object_store_bucket" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.chunk.ChunkRequest.src_random_size_mb">
-<span class="sig-name descname"><span class="pre">src_random_size_mb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.ChunkRequest.src_random_size_mb" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">src_random_size_mb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.ChunkRequest.src_random_size_mb" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -322,7 +322,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="skyplane.chunk.ChunkState">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.chunk.</span></span><span class="sig-name descname"><span class="pre">ChunkState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/chunk.html#ChunkState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.chunk.ChunkState" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a></p>
 <p>An enumeration.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.chunk.ChunkState.download_in_progress">
@@ -435,7 +435,7 @@
 
 </section>
 <section id="module-skyplane.config">
-<span id="skyplane-config-module"></span><h2>skyplane.config module<a class="headerlink" href="#module-skyplane.config" title="Permalink to this headline">#</a></h2>
+<span id="skyplane-config-module"></span><h2>skyplane.config module<a class="headerlink" href="#module-skyplane.config" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.config.</span></span><span class="sig-name descname"><span class="pre">SkyplaneConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aws_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_subscription_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_project_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag_autoconfirm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#SkyplaneConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config.SkyplaneConfig" title="Permalink to this definition">#</a></dt>
@@ -452,7 +452,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.azure_subscription_id">
-<span class="sig-name descname"><span class="pre">azure_subscription_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.config.SkyplaneConfig.azure_subscription_id" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">azure_subscription_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.config.SkyplaneConfig.azure_subscription_id" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -477,7 +477,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.gcp_project_id">
-<span class="sig-name descname"><span class="pre">gcp_project_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.config.SkyplaneConfig.gcp_project_id" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">gcp_project_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.config.SkyplaneConfig.gcp_project_id" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -520,7 +520,7 @@
 
 </section>
 <section id="module-skyplane.exceptions">
-<span id="skyplane-exceptions-module"></span><h2>skyplane.exceptions module<a class="headerlink" href="#module-skyplane.exceptions" title="Permalink to this headline">#</a></h2>
+<span id="skyplane-exceptions-module"></span><h2>skyplane.exceptions module<a class="headerlink" href="#module-skyplane.exceptions" title="Permalink to this heading">#</a></h2>
 <dl class="py exception">
 <dt class="sig sig-object py" id="skyplane.exceptions.InsufficientVCPUException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.exceptions.</span></span><span class="sig-name descname"><span class="pre">InsufficientVCPUException</span></span><a class="reference internal" href="_modules/skyplane/exceptions.html#InsufficientVCPUException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.exceptions.InsufficientVCPUException" title="Permalink to this definition">#</a></dt>
@@ -645,6 +645,7 @@ set self.__traceback__ to tb and return self.</p>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>
