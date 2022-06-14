@@ -207,7 +207,7 @@
 <span id="skyplane-chunk-module"></span><h2>skyplane.chunk module<a class="headerlink" href="#module-skyplane.chunk" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="skyplane.chunk.Chunk">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.chunk.</span></span><span class="sig-name descname"><span class="pre">Chunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_length_bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_offset_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">part_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upload_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/chunk.html#Chunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.chunk.Chunk" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.chunk.</span></span><span class="sig-name descname"><span class="pre">Chunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_length_bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">md5_hash</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_offset_bytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">part_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upload_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/chunk.html#Chunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.chunk.Chunk" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A Chunk is a contiguous piece of a file (a file may be one or more chunks).</p>
 <dl class="py method">
@@ -238,6 +238,11 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="skyplane.chunk.Chunk.from_dict">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/chunk.html#Chunk.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.chunk.Chunk.from_dict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="skyplane.chunk.Chunk.md5_hash">
+<span class="sig-name descname"><span class="pre">md5_hash</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><span class="pre">bytes</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#skyplane.chunk.Chunk.md5_hash" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -524,7 +529,7 @@
 <dl class="py exception">
 <dt class="sig sig-object py" id="skyplane.exceptions.InsufficientVCPUException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.exceptions.</span></span><span class="sig-name descname"><span class="pre">InsufficientVCPUException</span></span><a class="reference internal" href="_modules/skyplane/exceptions.html#InsufficientVCPUException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.exceptions.InsufficientVCPUException" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#skyplane.exceptions.SkyplaneException" title="skyplane.exceptions.SkyplaneException"><code class="xref py py-class docutils literal notranslate"><span class="pre">SkyplaneException</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.exceptions.InsufficientVCPUException.args">
 <span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#skyplane.exceptions.InsufficientVCPUException.args" title="Permalink to this definition">#</a></dt>
@@ -542,7 +547,7 @@ set self.__traceback__ to tb and return self.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="skyplane.exceptions.MissingBucketException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.exceptions.</span></span><span class="sig-name descname"><span class="pre">MissingBucketException</span></span><a class="reference internal" href="_modules/skyplane/exceptions.html#MissingBucketException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.exceptions.MissingBucketException" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#skyplane.exceptions.SkyplaneException" title="skyplane.exceptions.SkyplaneException"><code class="xref py py-class docutils literal notranslate"><span class="pre">SkyplaneException</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.exceptions.MissingBucketException.args">
 <span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#skyplane.exceptions.MissingBucketException.args" title="Permalink to this definition">#</a></dt>
@@ -560,7 +565,7 @@ set self.__traceback__ to tb and return self.</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="skyplane.exceptions.MissingObjectException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.exceptions.</span></span><span class="sig-name descname"><span class="pre">MissingObjectException</span></span><a class="reference internal" href="_modules/skyplane/exceptions.html#MissingObjectException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.exceptions.MissingObjectException" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#skyplane.exceptions.SkyplaneException" title="skyplane.exceptions.SkyplaneException"><code class="xref py py-class docutils literal notranslate"><span class="pre">SkyplaneException</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.exceptions.MissingObjectException.args">
 <span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#skyplane.exceptions.MissingObjectException.args" title="Permalink to this definition">#</a></dt>
@@ -569,6 +574,42 @@ set self.__traceback__ to tb and return self.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="skyplane.exceptions.MissingObjectException.with_traceback">
 <span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skyplane.exceptions.MissingObjectException.with_traceback" title="Permalink to this definition">#</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="skyplane.exceptions.ObjectStoreException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.exceptions.</span></span><span class="sig-name descname"><span class="pre">ObjectStoreException</span></span><a class="reference internal" href="_modules/skyplane/exceptions.html#ObjectStoreException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.exceptions.ObjectStoreException" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyplane.exceptions.SkyplaneException" title="skyplane.exceptions.SkyplaneException"><code class="xref py py-class docutils literal notranslate"><span class="pre">SkyplaneException</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="skyplane.exceptions.ObjectStoreException.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#skyplane.exceptions.ObjectStoreException.args" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.exceptions.ObjectStoreException.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skyplane.exceptions.ObjectStoreException.with_traceback" title="Permalink to this definition">#</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="skyplane.exceptions.SkyplaneException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.exceptions.</span></span><span class="sig-name descname"><span class="pre">SkyplaneException</span></span><a class="reference internal" href="_modules/skyplane/exceptions.html#SkyplaneException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.exceptions.SkyplaneException" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="skyplane.exceptions.SkyplaneException.args">
+<span class="sig-name descname"><span class="pre">args</span></span><a class="headerlink" href="#skyplane.exceptions.SkyplaneException.args" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.exceptions.SkyplaneException.with_traceback">
+<span class="sig-name descname"><span class="pre">with_traceback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skyplane.exceptions.SkyplaneException.with_traceback" title="Permalink to this definition">#</a></dt>
 <dd><p>Exception.with_traceback(tb) –
 set self.__traceback__ to tb and return self.</p>
 </dd></dl>

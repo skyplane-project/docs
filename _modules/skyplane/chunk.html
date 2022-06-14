@@ -216,6 +216,10 @@
     <span class="n">dest_key</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># human readable path where object is stored</span>
     <span class="n">chunk_id</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">chunk_length_bytes</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="c1"># checksum</span>
+    <span class="n">md5_hash</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># 128 bits</span>
+
     <span class="c1"># multi-part upload/download info</span>
     <span class="n">file_offset_bytes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">part_number</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
