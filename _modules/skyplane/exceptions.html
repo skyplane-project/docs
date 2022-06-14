@@ -219,6 +219,21 @@
 
 <div class="viewcode-block" id="ObjectStoreException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.ObjectStoreException">[docs]</a><span class="k">class</span> <span class="nc">ObjectStoreException</span><span class="p">(</span><span class="n">SkyplaneException</span><span class="p">):</span>
     <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="TransferFailedException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.TransferFailedException">[docs]</a><span class="k">class</span> <span class="nc">TransferFailedException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">failed_objects</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span> <span class="o">=</span> <span class="n">failed_objects</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">failed_obj_str</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">16</span>
+                <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">[:</span><span class="mi">16</span><span class="p">])</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot; and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">)</span> <span class="o">-</span> <span class="mi">16</span><span class="si">}</span><span class="s2"> more&quot;</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Failed objects: &quot;</span> <span class="o">+</span> <span class="n">failed_obj_str</span></div>
 </pre></div>
         </article>
       </div>
