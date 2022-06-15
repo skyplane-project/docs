@@ -2,9 +2,12 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="#" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Debugging Tools" href="debugging.html" /><link rel="prev" title="Contributing to Skyplane" href="contributing.html" />
 
-    <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/><title>Search - Skyplane 0.1 documentation</title><link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
+        <title>Development Guide - Skyplane 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -136,7 +139,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -150,7 +153,7 @@
   
   <span class="sidebar-brand-text">Skyplane 0.1 documentation</span>
   
-</a><form class="sidebar-search-container" method="get" action="#" role="search">
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
@@ -162,9 +165,9 @@
 <li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
@@ -198,31 +201,103 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          
-<noscript>
-<div class="admonition error">
-  <p class="admonition-title">Error</p>
-  <p>
-    Please activate JavaScript to enable the search functionality.
-  </p>
+          <section id="development-guide">
+<h1>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this heading">#</a></h1>
+<section id="setting-up-a-developer-environment">
+<h2>Setting up a developer environment<a class="headerlink" href="#setting-up-a-developer-environment" title="Permalink to this heading">#</a></h2>
+<p>Skyplane is composed of the client (runs locally on a user’s laptop) and gateway VMs (runs in respective clouds). Normally, the gateways use a pre-built nightly Docker image containing the latest build of the Skyplane gateway code (<code class="docutils literal notranslate"><span class="pre">ghcr.io/skyplane-project/skyplane:main</span></code>). However, if you modify the gateway source (under <code class="docutils literal notranslate"><span class="pre">skyplane/gateway</span></code>), you will need to rebuild the gateway Docker image and push it to a container registry.</p>
+<p><strong>Ensure you have <a class="reference external" href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry">authenticated your Github account with Docker</a></strong>:</p>
+<ul class="simple">
+<li><p>Install docker</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -fsSL https://get.docker.com -o get-docker.sh <span class="o">&amp;&amp;</span> sh get-docker.sh
+</pre></div>
 </div>
-</noscript>
-
-<div id="search-results"></div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/settings/tokens/new">Create a Personal Access Token</a> with “write:packages” permissions</p></li>
+<li><p>Register the token with Docker:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> &lt;PERSONAL_ACCESS_TOKEN&gt; <span class="p">|</span> sudo docker login ghcr.io -u &lt;GITHUB_USERNAME&gt; --password-stdin
+</pre></div>
+</div>
+</section>
+<section id="building-and-testing-skyplane">
+<h2>Building and testing Skyplane<a class="headerlink" href="#building-and-testing-skyplane" title="Permalink to this heading">#</a></h2>
+<section id="building-docker-image-for-gateway">
+<h3>Building Docker image for gateway<a class="headerlink" href="#building-docker-image-for-gateway" title="Permalink to this heading">#</a></h3>
+<p><strong>TLDR:</strong> We’ve packaged the code to build and push the gateway Docker image into a single script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">scripts</span><span class="o">/</span><span class="n">pack_docker</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">source</span></code> will run the script and capture the exported <code class="docutils literal notranslate"><span class="pre">SKYPLANE_DOCKER_IMAGE</span></code> environment variable.</p>
+<section id="manual-steps-to-build-and-push-the-skyplane-gateway-docker-image">
+<h4>Manual steps to build and push the Skyplane gateway Docker image<a class="headerlink" href="#manual-steps-to-build-and-push-the-skyplane-gateway-docker-image" title="Permalink to this heading">#</a></h4>
+<p>After making a change to the Skyplane source, we need to rebuild the gateway Docker image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span> docker build -t skyplane .
+</pre></div>
+</div>
+<p>We now need to push the Docker image to a container registry. Replace <code class="docutils literal notranslate"><span class="pre">ghcr.io/skyplane-project/skyplane</span></code> with your container registry if you are developing against a fork. We autogenerate a short random hash for the image tag.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">SKYPLANE_DOCKER_IMAGE</span><span class="o">=</span><span class="s2">&quot;ghcr.io/skyplane-project/skyplane:local-</span><span class="k">$(</span>openssl rand -hex <span class="m">16</span><span class="k">)</span><span class="s2">&quot;</span>
+$ sudo docker tag skyplane <span class="nv">$SKYPLANE_DOCKER_IMAGE</span>
+$ sudo docker push <span class="nv">$SKYPLANE_DOCKER_IMAGE</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="building-the-skyplane-client">
+<h3>Building the Skyplane client<a class="headerlink" href="#building-the-skyplane-client" title="Permalink to this heading">#</a></h3>
+<p>We use <a class="reference external" href="https://python-poetry.org/">Poetry</a> to manage package dependencies during development. For convenience, we provide a Poetry wrapper via <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>. To build the client, install the Skyplane package in development mode. The package points to your current checked-out version of the code, and any edits to the Skyplane client will immediately apply to the <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> CLI command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -e .
+</pre></div>
+</div>
+</section>
+<section id="testing-a-transfer">
+<h3>Testing a transfer<a class="headerlink" href="#testing-a-transfer" title="Permalink to this heading">#</a></h3>
+<p>We can run the <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> CLI to test a transfer. The CLI will read your <code class="docutils literal notranslate"><span class="pre">SKYPLANE_DOCKER_IMAGE</span></code> environment variable and use that Docker image when launching gateways.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane init
+$ skyplane cp s3://... s3://...
+</pre></div>
+</div>
+</section>
+</section>
+<section id="development-tips">
+<h2>Development Tips<a class="headerlink" href="#development-tips" title="Permalink to this heading">#</a></h2>
+<p>If testing transfers repeatedly, we recommend using the <code class="docutils literal notranslate"><span class="pre">--reuse-gateways</span></code> to reduce setup time.</p>
+<p>Skyplane has debugging tools to <code class="docutils literal notranslate"><span class="pre">ssh</span></code> into gateway instances, view detailed transfer logs, and query chunk states during transfers. See <a class="reference internal" href="debugging.html"><span class="doc std std-doc">Debugging Tools</span></a> for more.</p>
+</section>
+</section>
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="debugging.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Debugging Tools</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="contributing.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Contributing to Skyplane</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -243,8 +318,37 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Development Guide</a><ul>
+<li><a class="reference internal" href="#setting-up-a-developer-environment">Setting up a developer environment</a></li>
+<li><a class="reference internal" href="#building-and-testing-skyplane">Building and testing Skyplane</a><ul>
+<li><a class="reference internal" href="#building-docker-image-for-gateway">Building Docker image for gateway</a><ul>
+<li><a class="reference internal" href="#manual-steps-to-build-and-push-the-skyplane-gateway-docker-image">Manual steps to build and push the Skyplane gateway Docker image</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-the-skyplane-client">Building the Skyplane client</a></li>
+<li><a class="reference internal" href="#testing-a-transfer">Testing a transfer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#development-tips">Development Tips</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -257,8 +361,5 @@
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    
-<script src="_static/searchtools.js"></script>
-<script src="_static/language_data.js"></script>
-<script src="searchindex.js"></script></body>
+    </body>
 </html>
