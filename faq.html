@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Getting Started" href="quickstart.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Contributing to Skyplane" href="contributing.html" /><link rel="prev" title="Achitecture" href="overview.html" />
 
     <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
-        <title>Skyplane 0.1 documentation</title>
+        <title>FAQ - Skyplane 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -128,7 +128,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">Skyplane 0.1 documentation</div></a>
+      <a href="index.html"><div class="brand">Skyplane 0.1 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -139,7 +139,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -148,7 +148,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
   <span class="sidebar-brand-text">Skyplane 0.1 documentation</span>
@@ -160,11 +160,11 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Achitecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
@@ -203,100 +203,16 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="welcome-to-skyplane">
-<h1>Welcome to Skyplane!<a class="headerlink" href="#welcome-to-skyplane" title="Permalink to this heading">#</a></h1>
-<p><strong>Skyplane</strong> is an secure, open-source tool for blazingly fast data transfers cloud object stores.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This project is under active development.</p>
-</div>
-<p><strong>skyplane cp copies files from one cloud provider to another</strong></p>
-<p>Skyplane’s cp command supports copying large datasets between cloud regions within a single provider:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane <span class="o">[</span>sync/cp<span class="o">]</span> <span class="o">[</span>local/s3/gcp/azure<span class="o">]</span>://mybucket/big_dataset <span class="o">[</span>local/s3/gcp/azure<span class="o">]</span>://mybucket2/
-</pre></div>
-</div>
-<p>TODO: Insert performance table here</p>
-<section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Overview</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#cloud-credentials">Cloud Credentials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#transferring-data">Transferring Data</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configure.html#resource-limits">Resource Limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configure.html#transfer-options">Transfer Options</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Achitecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#components">Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#transfer-integrity">Transfer Integrity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#security">Security</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#large-objects">Large Objects</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#ways-to-contribute">Ways to Contribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-contributions">Code Contributions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contributing.html#submitting-pull-requests">Submitting pull requests</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#setting-up-a-developer-environment">Setting up a developer environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#building-and-testing-skyplane">Building and testing Skyplane</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="development_guide.html#building-docker-image-for-gateway">Building Docker image for gateway</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="development_guide.html#manual-steps-to-build-and-push-the-skyplane-gateway-docker-image">Manual steps to build and push the Skyplane gateway Docker image</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="development_guide.html#building-the-skyplane-client">Building the Skyplane client</a></li>
-<li class="toctree-l3"><a class="reference internal" href="development_guide.html#testing-a-transfer">Testing a transfer</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#development-tips">Development Tips</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="debugging.html#gateway-logs">Gateway Logs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="debugging.html#dozzle">Dozzle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="debugging.html#gateway-ssh">Gateway <code class="docutils literal notranslate"><span class="pre">ssh</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="debugging.html#chunk-api">Chunk API</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="skyplane_cli.html">CLI documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="skyplane_internal.html">Internal package documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#module-skyplane.chunk">skyplane.chunk module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#module-skyplane.config">skyplane.config module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#module-skyplane.exceptions">skyplane.exceptions module</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
+          <section id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading">#</a></h1>
+<p>Why is Skyplane not parsing my filepaths properly?</p>
+<p>Does Skyplane support VM-to-VM transfers?</p>
 </section>
 
         </article>
@@ -304,16 +220,26 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="quickstart.html">
+          <a class="next-page" href="contributing.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Getting Started</div>
+                <div class="title">Contributing to Skyplane</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          
+          <a class="prev-page" href="overview.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Achitecture</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -334,29 +260,8 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Welcome to Skyplane!</a><ul>
-<li><a class="reference internal" href="#contents">Contents</a><ul>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
