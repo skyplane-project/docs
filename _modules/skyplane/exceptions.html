@@ -210,38 +210,50 @@
         <article role="main">
           <h1>Source code for skyplane.exceptions</h1><div class="highlight"><pre>
 <div class="viewcode-block" id="SkyplaneException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.SkyplaneException">[docs]</a><span></span><span class="k">class</span> <span class="nc">SkyplaneException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="k">pass</span></div>
+<div class="viewcode-block" id="SkyplaneException.pretty_print_str"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.SkyplaneException.pretty_print_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_print_str</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[bold][red]SkyplaneException: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">[/red][/bold]&quot;</span>
+        <span class="k">return</span> <span class="n">err</span></div></div>
 
 
 <div class="viewcode-block" id="MissingBucketException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.MissingBucketException">[docs]</a><span class="k">class</span> <span class="nc">MissingBucketException</span><span class="p">(</span><span class="n">SkyplaneException</span><span class="p">):</span>
-    <span class="k">pass</span></div>
+<div class="viewcode-block" id="MissingBucketException.pretty_print_str"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.MissingBucketException.pretty_print_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_print_str</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[red][bold]:x: MissingBucketException:[/bold] </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">[/red]&quot;</span>
+        <span class="n">err</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[bold][red]Please ensure that the bucket exists and is accessible.[/red][/bold]&quot;</span>
+        <span class="k">return</span> <span class="n">err</span></div></div>
 
 
 <div class="viewcode-block" id="MissingObjectException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.MissingObjectException">[docs]</a><span class="k">class</span> <span class="nc">MissingObjectException</span><span class="p">(</span><span class="n">SkyplaneException</span><span class="p">):</span>
-    <span class="k">pass</span></div>
+<div class="viewcode-block" id="MissingObjectException.pretty_print_str"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.MissingObjectException.pretty_print_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_print_str</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[red][bold]:x: MissingObjectException:[/bold] </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">[/red]&quot;</span>
+        <span class="n">err</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[bold][red]Please ensure that the object exists and is accessible.[/red][/bold]&quot;</span>
+        <span class="k">return</span> <span class="n">err</span></div></div>
+
+
+<div class="viewcode-block" id="ChecksumMismatchException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.ChecksumMismatchException">[docs]</a><span class="k">class</span> <span class="nc">ChecksumMismatchException</span><span class="p">(</span><span class="n">SkyplaneException</span><span class="p">):</span>
+<div class="viewcode-block" id="ChecksumMismatchException.pretty_print_str"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.ChecksumMismatchException.pretty_print_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_print_str</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[red][bold]:x: ChecksumMismatchException:[/bold] </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">[/red]&quot;</span>
+        <span class="n">err</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[bold][red]Please re-run the transfer due to checksum mismatch at the destination object store.[/red][/bold]&quot;</span>
+        <span class="k">return</span> <span class="n">err</span></div></div>
 
 
 <div class="viewcode-block" id="InsufficientVCPUException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.InsufficientVCPUException">[docs]</a><span class="k">class</span> <span class="nc">InsufficientVCPUException</span><span class="p">(</span><span class="n">SkyplaneException</span><span class="p">):</span>
-    <span class="k">pass</span></div>
+<div class="viewcode-block" id="InsufficientVCPUException.pretty_print_str"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.InsufficientVCPUException.pretty_print_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_print_str</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[red][bold]:x: InsufficientVCPUException:[/bold] </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">[/red]&quot;</span>
+        <span class="n">err</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[bold][red]Please ensure that you have enough vCPUs in the given region.[/red][/bold]&quot;</span>
+        <span class="c1"># todo print link to a documentation page to request more vCPUs</span>
+        <span class="k">return</span> <span class="n">err</span></div></div>
 
 
-<div class="viewcode-block" id="ObjectStoreException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.ObjectStoreException">[docs]</a><span class="k">class</span> <span class="nc">ObjectStoreException</span><span class="p">(</span><span class="n">SkyplaneException</span><span class="p">):</span>
-    <span class="k">pass</span></div>
-
-
-<div class="viewcode-block" id="TransferFailedException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.TransferFailedException">[docs]</a><span class="k">class</span> <span class="nc">TransferFailedException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<div class="viewcode-block" id="TransferFailedException"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.TransferFailedException">[docs]</a><span class="k">class</span> <span class="nc">TransferFailedException</span><span class="p">(</span><span class="n">SkyplaneException</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">failed_objects</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span> <span class="o">=</span> <span class="n">failed_objects</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TransferFailedException.pretty_print_str"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.exceptions.TransferFailedException.pretty_print_str">[docs]</a>    <span class="k">def</span> <span class="nf">pretty_print_str</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[red][bold]:x: TransferFailedException:[/bold] </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">[/red]&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">failed_obj_str</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">)</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">16</span>
-                <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">[:</span><span class="mi">16</span><span class="p">])</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot; and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">)</span> <span class="o">-</span> <span class="mi">16</span><span class="si">}</span><span class="s2"> more&quot;</span>
-            <span class="p">)</span>
-            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Failed objects: &quot;</span> <span class="o">+</span> <span class="n">failed_obj_str</span></div>
+            <span class="n">err</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[bold][red]Failed objects:[/red][/bold] &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">failed_objects</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">err</span></div></div>
 </pre></div>
         </article>
       </div>
