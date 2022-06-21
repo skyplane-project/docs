@@ -162,12 +162,16 @@
   <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="configure.html">Configuration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html">Increasing cloud vCPU limits</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
@@ -451,7 +455,7 @@
 <span id="skyplane-config-module"></span><h2>skyplane.config module<a class="headerlink" href="#module-skyplane.config" title="Permalink to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.config.</span></span><span class="sig-name descname"><span class="pre">SkyplaneConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aws_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_subscription_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_project_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag_autoconfirm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#SkyplaneConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config.SkyplaneConfig" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.config.</span></span><span class="sig-name descname"><span class="pre">SkyplaneConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aws_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_subscription_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_project_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/config.html#SkyplaneConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.config.SkyplaneConfig" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.aws_enabled">
@@ -477,11 +481,6 @@
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.flag_autoconfirm">
-<span class="sig-name descname"><span class="pre">flag_autoconfirm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#skyplane.config.SkyplaneConfig.flag_autoconfirm" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="skyplane.config.SkyplaneConfig.gcp_enabled">

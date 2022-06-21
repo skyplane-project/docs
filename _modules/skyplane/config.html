@@ -161,12 +161,16 @@
   <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../configure.html">Configuration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../configure.html">Configuration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../increase_vcpus.html">Increasing cloud vCPU limits</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq.html">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to Skyplane</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../development_guide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../debugging.html">Debugging Tools</a></li>
@@ -213,10 +217,46 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
 
 <span class="n">_FLAG_TYPES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;autoconfirm&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">&quot;bbr&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">&quot;compress&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">&quot;encrypt_e2e&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">&quot;encrypt_socket_tls&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">&quot;verify_checksums&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">&quot;multipart_enabled&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="s2">&quot;multipart_max_chunk_size_mb&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="c1"># &quot;multipart_min_threshold_mb&quot;: int,</span>
+    <span class="c1"># &quot;multipart_min_size_mb&quot;: int,</span>
+    <span class="c1"># &quot;multipart_max_chunks&quot;: int,</span>
+    <span class="s2">&quot;num_connections&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;max_instances&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="s2">&quot;aws_instance_class&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;azure_instance_class&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;gcp_instance_class&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s2">&quot;gcp_use_premium_network&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_DEFAULT_FLAGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;autoconfirm&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;bbr&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;compress&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;encrypt_e2e&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;encrypt_socket_tls&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;verify_checksums&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;multipart_enabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;multipart_max_chunk_size_mb&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="c1"># &quot;multipart_min_threshold_mb&quot;: 128,</span>
+    <span class="c1"># &quot;multipart_min_size_mb&quot;: 8,</span>
+    <span class="c1"># &quot;multipart_max_chunks&quot;: 9990,  # AWS limit is 10k chunks</span>
+    <span class="s2">&quot;num_connections&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="s2">&quot;max_instances&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;aws_instance_class&quot;</span><span class="p">:</span> <span class="s2">&quot;m5.8xlarge&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;azure_instance_class&quot;</span><span class="p">:</span> <span class="s2">&quot;Standard_D32_v4&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gcp_instance_class&quot;</span><span class="p">:</span> <span class="s2">&quot;n2-standard-32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gcp_use_premium_network&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">}</span>
 
 
@@ -240,18 +280,12 @@
     <span class="n">azure_subscription_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">gcp_project_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="c1"># skyplane flags</span>
-    <span class="n">flag_autoconfirm</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-
 <div class="viewcode-block" id="SkyplaneConfig.default_config"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.config.SkyplaneConfig.default_config">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">default_config</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="s2">&quot;SkyplaneConfig&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">SkyplaneConfig</span><span class="p">(</span>
             <span class="n">aws_enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">azure_enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">gcp_enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">azure_subscription_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-            <span class="n">gcp_project_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-            <span class="n">flag_autoconfirm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SkyplaneConfig.load_config"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.config.SkyplaneConfig.load_config">[docs]</a>    <span class="nd">@staticmethod</span>
@@ -284,18 +318,12 @@
             <span class="k">if</span> <span class="s2">&quot;project_id&quot;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;gcp&quot;</span><span class="p">]:</span>
                 <span class="n">gcp_project_id</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;gcp&quot;</span><span class="p">,</span> <span class="s2">&quot;project_id&quot;</span><span class="p">)</span>
 
-        <span class="n">flag_autoconfirm</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="k">if</span> <span class="s2">&quot;flags&quot;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s2">&quot;autoconfirm&quot;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;flags&quot;</span><span class="p">]:</span>
-                <span class="n">flag_autoconfirm</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s2">&quot;flags&quot;</span><span class="p">,</span> <span class="s2">&quot;autoconfirm&quot;</span><span class="p">)</span>
-
         <span class="k">return</span> <span class="n">SkyplaneConfig</span><span class="p">(</span>
             <span class="n">aws_enabled</span><span class="o">=</span><span class="n">aws_enabled</span><span class="p">,</span>
             <span class="n">azure_enabled</span><span class="o">=</span><span class="n">azure_enabled</span><span class="p">,</span>
             <span class="n">gcp_enabled</span><span class="o">=</span><span class="n">gcp_enabled</span><span class="p">,</span>
             <span class="n">azure_subscription_id</span><span class="o">=</span><span class="n">azure_subscription_id</span><span class="p">,</span>
             <span class="n">gcp_project_id</span><span class="o">=</span><span class="n">gcp_project_id</span><span class="p">,</span>
-            <span class="n">flag_autoconfirm</span><span class="o">=</span><span class="n">flag_autoconfirm</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="SkyplaneConfig.to_config_file"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.config.SkyplaneConfig.to_config_file">[docs]</a>    <span class="k">def</span> <span class="nf">to_config_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
@@ -324,7 +352,14 @@
 
         <span class="k">if</span> <span class="s2">&quot;flags&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
             <span class="n">config</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s2">&quot;flags&quot;</span><span class="p">)</span>
-        <span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;flags&quot;</span><span class="p">,</span> <span class="s2">&quot;autoconfirm&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flag_autoconfirm</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">flag_name</span> <span class="ow">in</span> <span class="n">_FLAG_TYPES</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;flag_</span><span class="si">{</span><span class="n">flag_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;flags&quot;</span><span class="p">,</span> <span class="n">flag_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;flags&quot;</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="n">flag_name</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;flags&quot;</span><span class="p">]:</span>
+                    <span class="n">config</span><span class="o">.</span><span class="n">remove_option</span><span class="p">(</span><span class="s2">&quot;flags&quot;</span><span class="p">,</span> <span class="n">flag_name</span><span class="p">)</span>
 
         <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
@@ -335,12 +370,15 @@
 <div class="viewcode-block" id="SkyplaneConfig.get_flag"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.config.SkyplaneConfig.get_flag">[docs]</a>    <span class="k">def</span> <span class="nf">get_flag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag_name</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">flag_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_flags</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid flag: </span><span class="si">{</span><span class="n">flag_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;flag_</span><span class="si">{</span><span class="n">flag_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;flag_</span><span class="si">{</span><span class="n">flag_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">_DEFAULT_FLAGS</span><span class="p">[</span><span class="n">flag_name</span><span class="p">])</span></div>
 
-<div class="viewcode-block" id="SkyplaneConfig.set_flag"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.config.SkyplaneConfig.set_flag">[docs]</a>    <span class="k">def</span> <span class="nf">set_flag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag_name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="SkyplaneConfig.set_flag"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.config.SkyplaneConfig.set_flag">[docs]</a>    <span class="k">def</span> <span class="nf">set_flag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag_name</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]):</span>
         <span class="k">if</span> <span class="n">flag_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_flags</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid flag: </span><span class="si">{</span><span class="n">flag_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;flag_</span><span class="si">{</span><span class="n">flag_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">_map_type</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">_FLAG_TYPES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">flag_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)))</span></div></div>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;flag_</span><span class="si">{</span><span class="n">flag_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">_map_type</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">_FLAG_TYPES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">flag_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;flag_</span><span class="si">{</span><span class="n">flag_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div></div>
 </pre></div>
         </article>
       </div>

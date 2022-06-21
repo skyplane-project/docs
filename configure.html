@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Architecture" href="overview.html" /><link rel="prev" title="Getting Started" href="quickstart.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Increasing cloud vCPU limits" href="increase_vcpus.html" /><link rel="prev" title="Getting Started" href="quickstart.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.04.1"/>
         <title>Configuration - Skyplane 0.1 documentation</title>
@@ -162,12 +162,16 @@
   <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Configuration</a></li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Configuration</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html">Increasing cloud vCPU limits</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
@@ -211,29 +215,99 @@
         <article role="main">
           <section id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h1>
-<section id="resource-limits">
-<h2>Resource Limits<a class="headerlink" href="#resource-limits" title="Permalink to this heading">#</a></h2>
+<p>Skyplane comes with a variety of knobs to tune to adjust performance or change how VMs are provisioned. You can configure these options using the <code class="docutils literal notranslate"><span class="pre">skyplane</span> <span class="pre">config</span> <span class="pre">set</span> <span class="pre">&lt;key&gt;</span> <span class="pre">&lt;value&gt;</span></code> command.</p>
+<div class="admonition-full-list-of-transfer-options admonition">
+<p class="admonition-title">Full list of transfer options</p>
 <ul class="simple">
-<li><p>Setting more aggressive VCPU limits</p></li>
+<li><p>CLI configuration</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">autoconfirm</span></code>: If set, it will not ask for you to confirm the transfers from the CLI. (default False)</p></li>
 </ul>
-</section>
-<section id="transfer-options">
-<h2>Transfer Options<a class="headerlink" href="#transfer-options" title="Permalink to this heading">#</a></h2>
-<p>You can configure transfer parameters (TODO: link to CLI documentation)</p>
-<section id="transfer-chunk-sizes">
-<h3>Transfer Chunk Sizes<a class="headerlink" href="#transfer-chunk-sizes" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Skyplane will break up large objects into smaller chunk sizes to parallelize transfers more efficiently (AWS and GCP only).</p></li>
-<li><p>Recommended to use default (TODO: figure out what we should set this to)</p></li>
+</li>
+<li><p>Transfer parallelism</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_instances</span></code>: Maximum number of instances to use for parallel transfers. (default 10)</p></li>
 </ul>
+</li>
+<li><p>Network configuration</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">compress</span></code>: If set, gateway VMs will compress data before egress to reduce costs. (default True)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encrypt_e2e</span></code>: If set, gateway VMs will encrypt data end-to-end. (default True)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encrypt_socket_tls</span></code>: If set, all sockets between gateways will be encrypted with TLS. (default False)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verify_checksums</span></code>: If set, gateway VMs will compute checksums at the source and verify checksums at the destination. (default True)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_connections</span></code>: Number of connections to use between each gateway. (default 32)</p></li>
+</ul>
+</li>
+<li><p>Multipart transfer configuration</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">multipart_enabled</span></code>: If set, multipart transfers will be enabled. (default False)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multipart_max_chunk_size_mb</span></code>: Maximum chunk size in MB for multipart transfers. (default 8).</p></li>
+</ul>
+</li>
+<li><p>Instance provisioning configuration</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">aws_instance_class</span></code>: AWS instance class to use for provisioning. (default m5.8xlarge)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">azure_instance_class</span></code>: Azure instance class to use for provisioning. (default Standard_D32_v4)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gcp_instance_class</span></code>: GCP instance class to use for provisioning. (default n2-standard-32)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gcp_use_premium_network</span></code>: If set, will provision VMs on GCP’s premium network tier. (default True)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="increasing-performance-of-transfers-via-paralllelism">
+<h2>Increasing performance of transfers via paralllelism<a class="headerlink" href="#increasing-performance-of-transfers-via-paralllelism" title="Permalink to this heading">#</a></h2>
+<p>Skyplane transfers files in parallel across a set of <em>gateway VMs</em>. The total bandwidth of a transfer is mostly determined by the number of VMs used. Skyplane will automatically partition and distribute the transfer across the set of gateway VMs.</p>
+<p>To increase the parallelism of a transfer, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane config <span class="nb">set</span> max_instances &lt;number&gt;
+</pre></div>
+</div>
+<p>By default, Skyplane will use a maximum of 1 VM in each region. This limit is conservative since too many VMs can potentially result failed transfers due to VCPU limits and other resource constraints.</p>
+<p>If you encounter VCPU limits, increase your VCPU limits following this guide:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="increase_vcpus.html">Increasing cloud vCPU limits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html#increasing-aws-quotas">Increasing AWS quotas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html#increasing-azure-quotas">Increasing Azure quotas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html#increasing-gcp-quotas">Increasing GCP quotas</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- ### Transfer Chunk Sizes 
+* Skyplane will break up large objects into smaller chunk sizes to parallelize transfers more efficiently (AWS and GCP only). 
+* Recommended to use default (TODO: figure out what we should set this to)  -->
 </section>
 <section id="reusing-gateways">
-<h3>Reusing Gateways<a class="headerlink" href="#reusing-gateways" title="Permalink to this heading">#</a></h3>
-<p>If you are running repeated transfers between the same source and destination, you can reduce the transfer time by using the <code class="docutils literal notranslate"><span class="pre">--reuse-gateways</span></code> flag, which will keep gateway instances running even after the transfer is completed. Make sure to run <code class="docutils literal notranslate"><span class="pre">skyplane</span> <span class="pre">deprovision</span></code> once you’re done to prevent unnecessary charges.</p>
+<h2>Reusing Gateways<a class="headerlink" href="#reusing-gateways" title="Permalink to this heading">#</a></h2>
+<p>It can take 45s to 2m to provision gateway VMs for a transfer. If you are repeatedly transferring data between the same pair of regions, you can reuse gateway VMs. By default, Skyplane terminates these VMs to avoid unnecessary VM costs.</p>
+<p>When running a <code class="docutils literal notranslate"><span class="pre">cp</span></code> or <code class="docutils literal notranslate"><span class="pre">sync</span></code> command, pass the <code class="docutils literal notranslate"><span class="pre">--reuse-gateways</span></code> flag to Skyplane to reuse gateway VMs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane cp --reuse-gateways &lt;source&gt; &lt;destination&gt;
+$ skyplane sync --reuse-gateways &lt;source&gt; &lt;destination&gt;
+</pre></div>
+</div>
+<p>We will attempt to automatically deprovision these gateways after 30 minutes. To ensure that all gateways are stopped and no longer incur charges, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane deprovision
+</pre></div>
+</div>
 </section>
-<section id="compression">
-<h3>Compression<a class="headerlink" href="#compression" title="Permalink to this heading">#</a></h3>
-</section>
+<section id="configuring-networking-between-gateways">
+<h2>Configuring networking between gateways<a class="headerlink" href="#configuring-networking-between-gateways" title="Permalink to this heading">#</a></h2>
+<p>Skyplane supports encrypting data end-to-end. This is useful for encrypting data that is stored on a local disk. We enable end-to-end encryption by default. To disable it, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane config <span class="nb">set</span> encrypt_e2e <span class="nb">false</span>
+</pre></div>
+</div>
+<p>Skyplane automatically compresses data at the source region to reduce egress fees from data transfer. We use the <a class="reference external" href="https://lz4.org/">LZ4</a> compression algorithm by default as it can compress data at line rate. To disable compression, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane config <span class="nb">set</span> compress <span class="nb">false</span>
+</pre></div>
+</div>
+<p>Skyplane continually computes checksums at the source region to verify data integrity. We use the <a class="reference external" href="https://en.wikipedia.org/wiki/MD5">MD5</a> checksum algorithm by default. To disable checksum verification, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane config <span class="nb">set</span> verify_checksums <span class="nb">false</span>
+</pre></div>
+</div>
+<p>Optionally and in addition to end-to-end encryption, Skyplane supports sending data over a TLS encrypted socket. We don’t generally recommend using this unless you have a specific security requirement as it can increase performance variablity of transfers. To enable further TLS socket encryption, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane config <span class="nb">set</span> encrypt_socket_tls <span class="nb">true</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -242,12 +316,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="overview.html">
+          <a class="next-page" href="increase_vcpus.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Architecture</div>
+                <div class="title">Increasing cloud vCPU limits</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -295,13 +369,9 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Configuration</a><ul>
-<li><a class="reference internal" href="#resource-limits">Resource Limits</a></li>
-<li><a class="reference internal" href="#transfer-options">Transfer Options</a><ul>
-<li><a class="reference internal" href="#transfer-chunk-sizes">Transfer Chunk Sizes</a></li>
+<li><a class="reference internal" href="#increasing-performance-of-transfers-via-paralllelism">Increasing performance of transfers via paralllelism</a></li>
 <li><a class="reference internal" href="#reusing-gateways">Reusing Gateways</a></li>
-<li><a class="reference internal" href="#compression">Compression</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#configuring-networking-between-gateways">Configuring networking between gateways</a></li>
 </ul>
 </li>
 </ul>

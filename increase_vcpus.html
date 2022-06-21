@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Architecture" href="overview.html" /><link rel="prev" title="Configuration" href="configure.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.04.1"/>
-        <title>Skyplane Documentation - Skyplane 0.1 documentation</title>
+        <title>Increasing cloud vCPU limits - Skyplane 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -139,7 +139,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -160,14 +160,18 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="configure.html">Configuration</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Increasing cloud vCPU limits</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
@@ -203,24 +207,81 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="skyplane-documentation">
-<h1>Skyplane Documentation<a class="headerlink" href="#skyplane-documentation" title="Permalink to this heading">#</a></h1>
-<p>Install packages for docs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">docs</span><span class="o">/</span><span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">autobuild</span>
-</pre></div>
-</div>
-<p>Run <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">docs/</span></code> to make sure you’re in the documentation directory. Then, build the docs with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">autobuild</span> <span class="o">-</span><span class="n">b</span> <span class="n">html</span> <span class="o">-</span><span class="n">d</span> <span class="n">build</span><span class="o">/</span><span class="n">doctrees</span> <span class="o">.</span> <span class="n">build</span><span class="o">/</span><span class="n">html</span>
-</pre></div>
-</div>
-<p>which will output a localhost port where you can view the docs.</p>
+          <section id="increasing-cloud-vcpu-limits">
+<h1>Increasing cloud vCPU limits<a class="headerlink" href="#increasing-cloud-vcpu-limits" title="Permalink to this heading">#</a></h1>
+<p>Skyplane utilizes parallel VMs to transfer data at high rates. However, if you do not have sufficient vCPU limits to support the number of VMs you need, you can increase the number of VMs you can use by requesting a quota increase from each respective cloud.</p>
+<section id="increasing-aws-quotas">
+<h2>Increasing AWS quotas<a class="headerlink" href="#increasing-aws-quotas" title="Permalink to this heading">#</a></h2>
+<p>To increase your AWS quota, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1">AWS EC2 console</a></p></li>
+<li><p>Select the region you want to increase your quota for from the top right corner of the page.</p></li>
+<li><p>Select the <strong>Quotas</strong> tab.</p></li>
+<li><p>Search for “Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances” and select the radio button on the left.</p></li>
+<li><p>Click “Request quota increase”.</p></li>
+<li><p>In the form, request a higher vCPU allocation.</p>
+<ul class="simple">
+<li><p>By default, each Skyplane VM uses 32 vCPUs and provides up to 5Gbps of network throughput on AWS.</p></li>
+<li><p>Example: If you’d like to use 8 VMs per region, request 256 vCPUs.</p></li>
+</ul>
+</li>
+<li><p>Click “Request”. AWS can take up to a few days to review the request.</p></li>
+</ol>
+</section>
+<section id="increasing-azure-quotas">
+<h2>Increasing Azure quotas<a class="headerlink" href="#increasing-azure-quotas" title="Permalink to this heading">#</a></h2>
+<p>To increase your Azure quota, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://portal.azure.com/#blade/Microsoft_Azure_Capacity/QuotaMenuBlade/myQuotas">Azure Quota request page</a> in the Azure portal.</p></li>
+<li><p>Filter the quotas by your subscription:</p>
+<ul class="simple">
+<li><p>Under Search, enter “Standard Dv4 Family vCPUs”.</p></li>
+<li><p>Under the service dropdown, select “Compute”.</p></li>
+<li><p>Under the subscription dropdown, select your Azure subscription.</p></li>
+<li><p>Under region, select the regions you want to increase your quota for.</p></li>
+</ul>
+</li>
+<li><p>Checkmark all the quotas you want to increase.</p></li>
+<li><p>Click “Request quota increase” and select “Enter a new limit”.</p></li>
+<li><p>Enter the number of vCPUs you want to increase your quota for.</p>
+<ul class="simple">
+<li><p>By default, each Skyplane VM uses 32 vCPUs and provides up to 12.5Gbps on Azure.</p></li>
+<li><p>Example: If you’d like to use 8 VMs per region, enter 256 vCPUs.</p></li>
+</ul>
+</li>
+<li><p>Click “Submit”. Azure can take up to a few days to review the request.</p></li>
+</ol>
+</section>
+<section id="increasing-gcp-quotas">
+<h2>Increasing GCP quotas<a class="headerlink" href="#increasing-gcp-quotas" title="Permalink to this heading">#</a></h2>
+<p>To increase your GCP quotas, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://console.cloud.google.com/">GCP Console</a>.</p></li>
+<li><p>Select your project from the top dropdown.</p></li>
+<li><p>Search for “All quotas” and navigate to the All quotas page.</p></li>
+<li><p>Filter the quota list:</p>
+<ul class="simple">
+<li><p>Under “Service”, select “Compute Engine API”.</p></li>
+<li><p>Under “Quota”, select “N2 CPUs”</p></li>
+</ul>
+</li>
+<li><p>Select all regions you want to increase your quota for.</p></li>
+<li><p>Click “Edit quotas”.</p></li>
+<li><p>Increase the number of vCPUs you want to increase your quota for.</p>
+<ul class="simple">
+<li><p>By default, each Skyplane VM uses 32 vCPUs and provides up to 7Gbps of network throughput on GCP.</p></li>
+<li><p>Example: If you’d like to use 8 VMs per region, request 256 vCPUs.</p></li>
+</ul>
+</li>
+<li><p>Click “Submit request”. GCP can take up to a few days to review the request. In some cases, limit increases are approved immediately via automated review.</p></li>
+</ol>
+</section>
 </section>
 
         </article>
@@ -228,8 +289,26 @@
       <footer>
         
         <div class="related-pages">
-          
-          
+          <a class="next-page" href="overview.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Architecture</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="configure.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Configuration</div>
+                
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -250,8 +329,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Increasing cloud vCPU limits</a><ul>
+<li><a class="reference internal" href="#increasing-aws-quotas">Increasing AWS quotas</a></li>
+<li><a class="reference internal" href="#increasing-azure-quotas">Increasing Azure quotas</a></li>
+<li><a class="reference internal" href="#increasing-gcp-quotas">Increasing GCP quotas</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
