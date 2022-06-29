@@ -216,30 +216,43 @@
           <section id="debugging-tools">
 <h1>Debugging Tools<a class="headerlink" href="#debugging-tools" title="Permalink to this heading">#</a></h1>
 <p>Skyplane has built-in tools for debugging during development.</p>
+<section id="logs">
+<h2>Logs<a class="headerlink" href="#logs" title="Permalink to this heading">#</a></h2>
+<section id="client-logs">
+<h3>Client Logs<a class="headerlink" href="#client-logs" title="Permalink to this heading">#</a></h3>
+<p>When you run a transfer, the client logs will be written to a folder inside of the <code class="docutils literal notranslate"><span class="pre">/tmp/skyplane/transfer_logs/</span></code> directory.</p>
+</section>
 <section id="gateway-logs">
-<h2>Gateway Logs<a class="headerlink" href="#gateway-logs" title="Permalink to this heading">#</a></h2>
-<section id="dozzle">
-<h3>Dozzle<a class="headerlink" href="#dozzle" title="Permalink to this heading">#</a></h3>
-<p>You can view gateway logs at ???.</p>
+<h3>Gateway Logs<a class="headerlink" href="#gateway-logs" title="Permalink to this heading">#</a></h3>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">client.log</span></code> file, for each provisioned Skyplane gateway there will be the lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">INFO</span><span class="p">]</span>     <span class="n">Log</span> <span class="n">viewer</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0.0.1</span><span class="p">:[</span><span class="n">PORT</span><span class="p">]</span><span class="o">/</span><span class="n">container</span><span class="o">/</span><span class="p">[</span><span class="n">CONTAINER_ID</span><span class="p">]</span> 
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span>     <span class="n">API</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0.0.1</span><span class="p">:[</span><span class="n">PORT</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>which correspond to the gateway log viewer and the gateway chunk API. You can view the logs for each gateway by going to the “Log viewer” address for that gateway.</p>
+</section>
+<section id="chunk-api">
+<h3>Chunk API<a class="headerlink" href="#chunk-api" title="Permalink to this heading">#</a></h3>
+<p>The gateway chunk API allows for status of chunks on each gateway to be queried externally, and is used by the Skyplane client to monitor transfers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">*</span> <span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">status</span> <span class="o">-</span> <span class="n">returns</span> <span class="n">status</span> <span class="n">of</span> <span class="n">API</span>
+    <span class="o">*</span> <span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">servers</span> <span class="o">-</span> <span class="n">returns</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">running</span> <span class="n">servers</span>
+    <span class="o">*</span> <span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chunk_requests</span> <span class="o">-</span> <span class="n">returns</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">chunk</span> <span class="n">requests</span> <span class="p">(</span><span class="n">use</span> <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;state&gt;&#39;</span><span class="p">}</span> <span class="n">to</span> <span class="nb">filter</span><span class="p">)</span>
+    <span class="o">*</span> <span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chunk_requests</span><span class="o">/&lt;</span><span class="nb">int</span><span class="p">:</span><span class="n">chunk_id</span><span class="o">&gt;</span> <span class="o">-</span> <span class="n">returns</span> <span class="n">chunk</span> <span class="n">request</span>
+    <span class="o">*</span> <span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chunk_requests</span> <span class="o">-</span> <span class="n">adds</span> <span class="n">a</span> <span class="n">new</span> <span class="n">chunk</span> <span class="n">request</span>
+    <span class="o">*</span> <span class="n">PUT</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chunk_requests</span><span class="o">/&lt;</span><span class="nb">int</span><span class="p">:</span><span class="n">chunk_id</span><span class="o">&gt;</span> <span class="o">-</span> <span class="n">updates</span> <span class="n">chunk</span> <span class="n">request</span>
+    <span class="o">*</span> <span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">chunk_status_log</span> <span class="o">-</span> <span class="n">returns</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">chunk</span> <span class="n">status</span> <span class="n">log</span> <span class="n">entries</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="gateway-ssh">
-<h3>Gateway <code class="docutils literal notranslate"><span class="pre">ssh</span></code><a class="headerlink" href="#gateway-ssh" title="Permalink to this heading">#</a></h3>
+<h2>Gateway <code class="docutils literal notranslate"><span class="pre">ssh</span></code><a class="headerlink" href="#gateway-ssh" title="Permalink to this heading">#</a></h2>
 <p>You can <code class="docutils literal notranslate"><span class="pre">ssh</span></code> into a gateway with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">skyplane</span> <span class="n">ssh</span>
 </pre></div>
 </div>
-<p>which will list running gateways you can <code class="docutils literal notranslate"><span class="pre">ssh</span></code> into.</p>
-<p>To view the gateway logs on the instance, you can view the docker logs with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker logs ??
-</pre></div>
-</div>
-<p>You can view downloaded chunks in the ?? folder.</p>
-</section>
-</section>
-<section id="chunk-api">
-<h2>Chunk API<a class="headerlink" href="#chunk-api" title="Permalink to this heading">#</a></h2>
-<p>For a running gateway, you can use HTTP requests to view the chunk state on that gateway.</p>
-<p>TODO: can we auto-document the chunk API?</p>
+<p>which will list available gateways that you can select to ssh into.</p>
+<p>Once you’ve ssh-ed into a gateway instance, you can interact with the Skyplane docker image (??).</p>
 </section>
 </section>
 
@@ -301,12 +314,13 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Debugging Tools</a><ul>
-<li><a class="reference internal" href="#gateway-logs">Gateway Logs</a><ul>
-<li><a class="reference internal" href="#dozzle">Dozzle</a></li>
-<li><a class="reference internal" href="#gateway-ssh">Gateway <code class="docutils literal notranslate"><span class="pre">ssh</span></code></a></li>
+<li><a class="reference internal" href="#logs">Logs</a><ul>
+<li><a class="reference internal" href="#client-logs">Client Logs</a></li>
+<li><a class="reference internal" href="#gateway-logs">Gateway Logs</a></li>
+<li><a class="reference internal" href="#chunk-api">Chunk API</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#chunk-api">Chunk API</a></li>
+<li><a class="reference internal" href="#gateway-ssh">Gateway <code class="docutils literal notranslate"><span class="pre">ssh</span></code></a></li>
 </ul>
 </li>
 </ul>
