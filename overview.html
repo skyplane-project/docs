@@ -234,11 +234,25 @@
 <section id="security">
 <h2>Security<a class="headerlink" href="#security" title="Permalink to this heading">#</a></h2>
 <p>TODO &#64; Sam</p>
+</section>
 <section id="encryption">
-<h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this heading">#</a></h3>
+<h2>Encryption<a class="headerlink" href="#encryption" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="firewalls">
-<h3>Firewalls<a class="headerlink" href="#firewalls" title="Permalink to this heading">#</a></h3>
+<h2>Firewalls<a class="headerlink" href="#firewalls" title="Permalink to this heading">#</a></h2>
+<p>Skyplane adopts best practices to ensure data and gateway nodes are secure during transfers. In this section, we describe the design in-brief. Firewalls are enabled by default, and we advise you not to turn them off. This ensures not only is the data secure in flight, but also prevents gateways from being compromised.  Our approach of having unique <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> VPC and firewalls  guarantees that your default networks remain untouched, and we have also architected it to allow for multiple simultaneous transfers! If you have any questions regarding the design and/or implementation we encourage you to open an issue with <code class="docutils literal notranslate"><span class="pre">[Firewall]</span></code> in the title.</p>
+<section id="gcp">
+<h3>GCP<a class="headerlink" href="#gcp" title="Permalink to this heading">#</a></h3>
+<p>Skyplane creates a global VPC called <a class="reference external" href="https://github.com/skyplane-project/skyplane/blob/e5c97e007b69673558ade0396df490a98227dcc0/skyplane/compute/gcp/gcp_cloud_provider.py#L154"><code class="docutils literal notranslate"><span class="pre">skyplane</span></code></a> when it is invoked for the first time with a new subscription-id. Instances and firewall rules are applied on this VPC and do NOT interfere with the <code class="docutils literal notranslate"><span class="pre">default</span></code> GCP VPC. This ensures all the changes that Skyplane introduces are localized within the skyplane VPC - all instances and our firewalls rules only apply within the <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> VPC. The <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> global VPC consists of <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> sub-nets for each region.</p>
+<p>During every <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> transfer, a new set of firewalls are <a class="reference external" href="https://github.com/skyplane-project/skyplane/blob/e5c97e007b69673558ade0396df490a98227dcc0/skyplane/compute/gcp/gcp_cloud_provider.py#L218">created</a> that allow IPs of all instances that are involved in the transfer to exchange data with each other. These firewalls are set with priority 1000, and are revoked after the transfer completes. All instances can be accessed via <code class="docutils literal notranslate"><span class="pre">ssh</span></code> on port 22, and respond to <code class="docutils literal notranslate"><span class="pre">ICMP</span></code> packets to aid debugging.</p>
+</section>
+<section id="aws">
+<h3>AWS<a class="headerlink" href="#aws" title="Permalink to this heading">#</a></h3>
+<p>While GCP VPCs are Global, in AWS for every region that is involved in a transfer, Skyplane creates a <code class="docutils literal notranslate"><span class="pre">skyplane</span></code> <a class="reference external" href="https://github.com/skyplane-project/skyplane/blob/e5c97e007b69673558ade0396df490a98227dcc0/skyplane/compute/aws/aws_cloud_provider.py#L93">VPC</a>, and a <a class="reference external" href="https://github.com/skyplane-project/skyplane/blob/e5c97e007b69673558ade0396df490a98227dcc0/skyplane/compute/aws/aws_cloud_provider.py#L153">security group</a> (SG). During transfers, firewall rules are <a class="reference external" href="https://github.com/skyplane-project/skyplane/blob/e5c97e007b69673558ade0396df490a98227dcc0/skyplane/compute/aws/aws_cloud_provider.py#L267">instantiated</a> that allow all IPs of gateway instances involved in the transfer to relay data with each other. Post the transfer, the firewalls are <a class="reference external" href="https://github.com/skyplane-project/skyplane/blob/e5c97e007b69673558ade0396df490a98227dcc0/skyplane/compute/aws/aws_cloud_provider.py#L283">deleted</a>.</p>
+</section>
+<section id="azure">
+<h3>Azure<a class="headerlink" href="#azure" title="Permalink to this heading">#</a></h3>
+<p>Firewall support for Azure is in the roadmap.</p>
 </section>
 </section>
 <section id="large-objects">
@@ -307,9 +321,12 @@
 <li><a class="reference internal" href="#">Architecture</a><ul>
 <li><a class="reference internal" href="#components">Components</a></li>
 <li><a class="reference internal" href="#transfer-integrity">Transfer Integrity</a></li>
-<li><a class="reference internal" href="#security">Security</a><ul>
+<li><a class="reference internal" href="#security">Security</a></li>
 <li><a class="reference internal" href="#encryption">Encryption</a></li>
-<li><a class="reference internal" href="#firewalls">Firewalls</a></li>
+<li><a class="reference internal" href="#firewalls">Firewalls</a><ul>
+<li><a class="reference internal" href="#gcp">GCP</a></li>
+<li><a class="reference internal" href="#aws">AWS</a></li>
+<li><a class="reference internal" href="#azure">Azure</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#large-objects">Large Objects</a></li>
