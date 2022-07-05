@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Roadmap" href="roadmap.html" /><link rel="prev" title="Architecture" href="overview.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Contributing to Skyplane" href="contributing.html" /><link rel="prev" title="Architecture" href="architecture.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
         <title>FAQ - Skyplane 0.1 documentation</title>
@@ -139,7 +139,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -166,14 +166,14 @@
 <li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html">Increasing cloud vCPU limits</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Building from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
@@ -207,7 +207,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -215,8 +215,13 @@
         <article role="main">
           <section id="faq">
 <h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading">#</a></h1>
-<p>Why is Skyplane not parsing my filepaths properly?</p>
-<p>Does Skyplane support VM-to-VM transfers?</p>
+<section id="i-get-insufficientvcpuexception-when-running-a-transfer">
+<h2>I get <code class="docutils literal notranslate"><span class="pre">InsufficientVCPUException</span></code> when running a transfer<a class="headerlink" href="#i-get-insufficientvcpuexception-when-running-a-transfer" title="Permalink to this heading">#</a></h2>
+<p>Skyplane needs to provision VMs in each cloud to complete a transfer. The VMs read data from the source object store and send it along sockets to the destination.
+By default, Skyplane will provision 1 VM in each region where each VM has 32 vCPUs. If you do not have sufficient quota to provision these VMs, please see <a class="reference internal" href="increase_vcpus.html"><span class="doc std std-doc">our guide to requesting cloud limit increases</span></a>.</p>
+<p>Alternatively, you can <a class="reference internal" href="configure.html"><span class="doc std std-doc">configure Skyplane</span></a> to use fewer resources per transfer. You can reduce the default number of VMs used via <code class="docutils literal notranslate"><span class="pre">max_instances</span></code> and change the instance class for gateways by configuring <code class="docutils literal notranslate"><span class="pre">aws_instance_class</span></code>, <code class="docutils literal notranslate"><span class="pre">azure_instance_class</span></code> or <code class="docutils literal notranslate"><span class="pre">gcp_instance_class</span></code> with a smaller instance class.</p>
+<!-- ## How does Skyplane map object keys from source to destination? -->
+<!-- ## Does Skyplane support VM-to-VM transfers? --></section>
 </section>
 
         </article>
@@ -224,16 +229,16 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="roadmap.html">
+          <a class="next-page" href="contributing.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Roadmap</div>
+                <div class="title">Contributing to Skyplane</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="overview.html">
+          <a class="prev-page" href="architecture.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
@@ -264,8 +269,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">FAQ</a><ul>
+<li><a class="reference internal" href="#i-get-insufficientvcpuexception-when-running-a-transfer">I get <code class="docutils literal notranslate"><span class="pre">InsufficientVCPUException</span></code> when running a transfer</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

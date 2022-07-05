@@ -166,14 +166,14 @@
 <li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html">Increasing cloud vCPU limits</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Building from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
@@ -243,22 +243,24 @@
 <li class="toctree-l2"><a class="reference internal" href="configure.html#configuring-networking-between-gateways">Configuring networking between gateways</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#components">Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#transfer-integrity">Transfer Integrity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#security">Security</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#encryption">Encryption</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#firewalls">Firewalls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#large-objects">Large Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#components">Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#transfer-integrity-and-checksumming">Transfer Integrity and Checksumming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#security">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#encryption">Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#firewalls">Firewalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#large-objects">Large Objects</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#i-get-insufficientvcpuexception-when-running-a-transfer">I get <code class="docutils literal notranslate"><span class="pre">InsufficientVCPUException</span></code> when running a transfer</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#ways-to-contribute">Ways to Contribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#code-contributions">Code Contributions</a><ul>
@@ -267,7 +269,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Building from source</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="development_guide.html#setting-up-a-developer-environment">Setting up a developer environment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development_guide.html#building-and-testing-skyplane">Building and testing Skyplane</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="development_guide.html#building-docker-image-for-gateway">Building Docker image for gateway</a><ul>
@@ -279,6 +281,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="development_guide.html#development-tips">Development Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#skyplane-0-1-release-current">Skyplane 0.1 release (current)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#skyplane-0-2-release">Skyplane 0.2 release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roadmap.html#upcoming">Upcoming</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a><ul>
@@ -298,6 +306,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="skyplane_cli.html">CLI documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="skyplane_internal.html">Internal package documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#skyplane-replicate-replicator-client-module">skyplane.replicate.replicator_client module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#module-skyplane.chunk">skyplane.chunk module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#module-skyplane.config">skyplane.config module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="skyplane_internal.html#module-skyplane.exceptions">skyplane.exceptions module</a></li>

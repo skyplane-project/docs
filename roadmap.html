@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Contributing to Skyplane" href="contributing.html" /><link rel="prev" title="FAQ" href="faq.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Debugging Tools" href="debugging.html" /><link rel="prev" title="Building from source" href="development_guide.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
         <title>Roadmap - Skyplane 0.1 documentation</title>
@@ -139,7 +139,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -166,14 +166,14 @@
 <li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html">Increasing cloud vCPU limits</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Building from source</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
@@ -207,7 +207,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -215,6 +215,35 @@
         <article role="main">
           <section id="roadmap">
 <h1>Roadmap<a class="headerlink" href="#roadmap" title="Permalink to this heading">#</a></h1>
+<p>Skyplane is an actively developed project. It will have 🔪 SHARP EDGES 🔪. Please file an issue if you encounter bugs.</p>
+<p>If you are interested in contributing, please see our <a class="reference internal" href="contributing.html"><span class="doc std std-doc">contributor guide</span></a>.</p>
+<section id="skyplane-0-1-release-current">
+<h2>Skyplane 0.1 release (current)<a class="headerlink" href="#skyplane-0-1-release-current" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">skyplane</span> <span class="pre">cp</span></code> and <code class="docutils literal notranslate"><span class="pre">skyplane</span> <span class="pre">sync</span></code> CLI commands to move bulk (&gt;10GB) of data point-to-point.</p></li>
+<li><p>Support for intra-cloud (two regions in same cloud) and inter-cloud copies for AWS, GCP and Azure clouds.</p></li>
+<li><p>Large object transfer support for AWS and GCP.</p></li>
+<li><p>Compression to reduce egress costs.</p></li>
+<li><p>End-to-end encryption and optional socket TLS encryption.</p></li>
+<li><p>Firewalled VM-to-VM VPCs for AWS and GCP.</p></li>
+</ul>
+</section>
+<section id="skyplane-0-2-release">
+<h2>Skyplane 0.2 release<a class="headerlink" href="#skyplane-0-2-release" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Firewalled VM-to-VM VPCs for Azure.</p></li>
+<li><p>Large object transfer support for Azure.</p></li>
+<li><p>Integration testing suite in CI.</p></li>
+</ul>
+</section>
+<section id="upcoming">
+<h2>Upcoming<a class="headerlink" href="#upcoming" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Improvements to the scalability of transfers with many files (&gt;10000).</p></li>
+<li><p>On-prem transfer support (design needed).</p></li>
+<li><p>Broadcast support to multiple destinations.</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -222,23 +251,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="contributing.html">
+          <a class="next-page" href="debugging.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Contributing to Skyplane</div>
+                <div class="title">Debugging Tools</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="faq.html">
+          <a class="prev-page" href="development_guide.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">FAQ</div>
+                <div class="title">Building from source</div>
                 
               </div>
             </a>
@@ -262,8 +291,29 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Roadmap</a><ul>
+<li><a class="reference internal" href="#skyplane-0-1-release-current">Skyplane 0.1 release (current)</a></li>
+<li><a class="reference internal" href="#skyplane-0-2-release">Skyplane 0.2 release</a></li>
+<li><a class="reference internal" href="#upcoming">Upcoming</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

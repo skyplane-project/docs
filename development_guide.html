@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Debugging Tools" href="debugging.html" /><link rel="prev" title="Contributing to Skyplane" href="contributing.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Roadmap" href="roadmap.html" /><link rel="prev" title="Contributing to Skyplane" href="contributing.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Development Guide - Skyplane 0.1 documentation</title>
+        <title>Building from source - Skyplane 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -166,14 +166,14 @@
 <li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html">Increasing cloud vCPU limits</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Development Guide</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Building from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
@@ -213,8 +213,8 @@
           </label>
         </div>
         <article role="main">
-          <section id="development-guide">
-<h1>Development Guide<a class="headerlink" href="#development-guide" title="Permalink to this heading">#</a></h1>
+          <section id="building-from-source">
+<h1>Building from source<a class="headerlink" href="#building-from-source" title="Permalink to this heading">#</a></h1>
 <section id="setting-up-a-developer-environment">
 <h2>Setting up a developer environment<a class="headerlink" href="#setting-up-a-developer-environment" title="Permalink to this heading">#</a></h2>
 <p>Skyplane is composed of the client (runs locally on a user’s laptop) and gateway VMs (runs in respective clouds). Normally, the gateways use a pre-built nightly Docker image containing the latest build of the Skyplane gateway code (<code class="docutils literal notranslate"><span class="pre">ghcr.io/skyplane-project/skyplane:main</span></code>). However, if you modify the gateway source (under <code class="docutils literal notranslate"><span class="pre">skyplane/gateway</span></code>), you will need to rebuild the gateway Docker image and push it to a container registry.</p>
@@ -284,12 +284,12 @@ $ skyplane cp s3://... s3://...
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="debugging.html">
+          <a class="next-page" href="roadmap.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Debugging Tools</div>
+                <div class="title">Roadmap</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -336,7 +336,7 @@ $ skyplane cp s3://... s3://...
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Development Guide</a><ul>
+<li><a class="reference internal" href="#">Building from source</a><ul>
 <li><a class="reference internal" href="#setting-up-a-developer-environment">Setting up a developer environment</a></li>
 <li><a class="reference internal" href="#building-and-testing-skyplane">Building and testing Skyplane</a><ul>
 <li><a class="reference internal" href="#building-docker-image-for-gateway">Building Docker image for gateway</a><ul>

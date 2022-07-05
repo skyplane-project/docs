@@ -171,9 +171,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Skyplane</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Development Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide.html">Building from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
@@ -227,9 +227,9 @@
 <li><p>Overlay Path: A path consisting of gateways and gateway links to optimize for a transfer.</p></li>
 </ul>
 </section>
-<section id="transfer-integrity">
-<h2>Transfer Integrity<a class="headerlink" href="#transfer-integrity" title="Permalink to this heading">#</a></h2>
-<p>TODO &#64; Paras</p>
+<section id="transfer-integrity-and-checksumming">
+<h2>Transfer Integrity and Checksumming<a class="headerlink" href="#transfer-integrity-and-checksumming" title="Permalink to this heading">#</a></h2>
+<p>Skyplane takes several steps to ensure the correctness of transfers. To ensure that data is transferred without corruption (e.g. bit flips or missing byte ranges), Skyplane will compute checksums for data at the source region and verify data matches the checksum before writing back to the destination region. To ensure that no files are dropped during the transfer, Skyplane will query the destination object store after a transfer and check all files were copied with the correct file size. To verify checksums for whole-file transfers, Skyplane computes MD5 hashes at the source region. Upon writing data at the destination, hashes are validated directly in the destintation object store. For multipart transfers, hashses are validated at the destination VM before writing to the object store.</p>
 </section>
 <section id="security">
 <h2>Security<a class="headerlink" href="#security" title="Permalink to this heading">#</a></h2>
@@ -320,7 +320,7 @@
             <ul>
 <li><a class="reference internal" href="#">Architecture</a><ul>
 <li><a class="reference internal" href="#components">Components</a></li>
-<li><a class="reference internal" href="#transfer-integrity">Transfer Integrity</a></li>
+<li><a class="reference internal" href="#transfer-integrity-and-checksumming">Transfer Integrity and Checksumming</a></li>
 <li><a class="reference internal" href="#security">Security</a></li>
 <li><a class="reference internal" href="#encryption">Encryption</a></li>
 <li><a class="reference internal" href="#firewalls">Firewalls</a><ul>
