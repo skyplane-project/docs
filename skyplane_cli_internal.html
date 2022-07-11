@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Configuration" href="configure.html" /><link rel="prev" title="Welcome to Skyplane!" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Internal package documentation" href="skyplane_internal.html" /><link rel="prev" title="CLI documentation" href="skyplane_cli.html" />
 
     <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
-        <title>Getting Started - Skyplane 0.1 documentation</title>
+        <title>Internal CLI documentation - Skyplane 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -139,7 +139,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -160,8 +160,8 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
-<ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Getting Started</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Getting Started</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="configure.html">Configuration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="increase_vcpus.html">Increasing cloud vCPU limits</a></li>
 </ul>
@@ -177,9 +177,9 @@
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging Tools</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="skyplane_cli.html">CLI documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="skyplane_cli_internal.html">Internal CLI documentation</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Internal CLI documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="skyplane_internal.html">Internal package documentation</a></li>
 </ul>
 
@@ -208,72 +208,14 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h1>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
-<p>We’re ready to install Skyplane. It’s as easy as:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; Install skyplane from PyPI:
-$ pip install skyplane-nightly
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are using an M1 Macbook with the arm64 architecture, you will need to install skyplane as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">GRPC_PYTHON_BUILD_SYSTEM_OPENSSL</span><span class="o">=</span><span class="m">1</span> <span class="nv">GRPC_PYTHON_BUILD_SYSTEM_ZLIB</span><span class="o">=</span><span class="m">1</span> pip install skyplane-nightly
-</pre></div>
-</div>
-</div>
-</section>
-<section id="cloud-credentials">
-<h2>Cloud Credentials<a class="headerlink" href="#cloud-credentials" title="Permalink to this heading">#</a></h2>
-<p>Skyplane needs access to cloud credentials to perform transfers. To get started with setting up credentials, make sure you have cloud provider CLI tools installed:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; For AWS:
-$ pip install aws-cli
-
----&gt; For Google Cloud:
-$ pip install gcloud
-
----&gt; For Azure:
-$ pip install azure
-</pre></div>
-</div>
-<p>Once you have the CLI tools setup, log into each cloud provider’s CLI:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; For AWS:
-$ aws configure
-
----&gt; For Google Cloud:
-$ gcloud auth application-default login
-
----&gt; For Azure:
-$ az login
-</pre></div>
-</div>
-<p>Now, you can initialize Skyplane with your desired cloud providers. Skyplane autodetects cloud credentials and valid regions from your CLI environment.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; Setup cloud provider connectors:
-$ skyplane init
-</pre></div>
-</div>
-</section>
-<section id="transferring-data">
-<h2>Transferring Data<a class="headerlink" href="#transferring-data" title="Permalink to this heading">#</a></h2>
-<p>We’re ready to use Skyplane! Let’s use <cite>skyplane cp</cite> to copy files from AWS to GCP:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; 🎸 Ready to rock and roll! Copy some files:
-$ skyplane cp s3://... gs://...
-</pre></div>
-</div>
-<p>To transfer only new objects, you can instead use <cite>skyplane sync</cite>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>---&gt; Copy only diff
-$ skyplane sync s3://... gs://...
-</pre></div>
-</div>
-</section>
+          <section id="internal-cli-documentation">
+<h1>Internal CLI documentation<a class="headerlink" href="#internal-cli-documentation" title="Permalink to this heading">#</a></h1>
 </section>
 
         </article>
@@ -281,23 +223,23 @@ $ skyplane sync s3://... gs://...
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="configure.html">
+          <a class="next-page" href="skyplane_internal.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Configuration</div>
+                <div class="title">Internal package documentation</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="index.html">
+          <a class="prev-page" href="skyplane_cli.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">CLI documentation</div>
                 
               </div>
             </a>
@@ -321,29 +263,8 @@ $ skyplane sync s3://... gs://...
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Getting Started</a><ul>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#cloud-credentials">Cloud Credentials</a></li>
-<li><a class="reference internal" href="#transferring-data">Transferring Data</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>
