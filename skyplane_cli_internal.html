@@ -1026,6 +1026,24 @@ AWS, Azure, and GCP region list configurations.</p>
 <dt class="field-even">type reinit_gcp</dt>
 <dd class="field-even"><p>bool</p>
 </dd>
+<dt class="field-odd">param disable_config_aws</dt>
+<dd class="field-odd"><p>If true, will disable AWS configuration (may still be enabled if environment variables are set)</p>
+</dd>
+<dt class="field-even">type disable_config_aws</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param disable_config_azure</dt>
+<dd class="field-odd"><p>If true, will disable Azure configuration (may still be enabled if environment variables are set)</p>
+</dd>
+<dt class="field-even">type disable_config_azure</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param disable_config_gcp</dt>
+<dd class="field-odd"><p>If true, will disable GCP configuration (may still be enabled if environment variables are set)</p>
+</dd>
+<dt class="field-even">type disable_config_gcp</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
 </dl>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane init <span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
@@ -1055,6 +1073,36 @@ AWS, Azure, and GCP region list configurations.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-skyplane-init-reinit-gcp">
 <span id="cmdoption-skyplane-init-no-reinit-gcp"></span><span class="sig-name descname"><span class="pre">--reinit-gcp</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-reinit-gcp</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-init-reinit-gcp" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-init-disable-config-aws">
+<span id="cmdoption-skyplane-init-no-disable-config-aws"></span><span class="sig-name descname"><span class="pre">--disable-config-aws</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-disable-config-aws</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-init-disable-config-aws" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-init-disable-config-azure">
+<span id="cmdoption-skyplane-init-no-disable-config-azure"></span><span class="sig-name descname"><span class="pre">--disable-config-azure</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-disable-config-azure</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-init-disable-config-azure" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-init-disable-config-gcp">
+<span id="cmdoption-skyplane-init-no-disable-config-gcp"></span><span class="sig-name descname"><span class="pre">--disable-config-gcp</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-disable-config-gcp</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-init-disable-config-gcp" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Default</dt>
 <dd class="field-odd"><p>False</p>
