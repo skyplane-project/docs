@@ -223,6 +223,7 @@
 <li><p>CLI configuration</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">autoconfirm</span></code>: If set, it will not ask for you to confirm the transfers from the CLI. (default False)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">autoshutdown_minutes</span></code>: If set, VMs will automatically shut down after this time in minutes. (default 15)</p></li>
 </ul>
 </li>
 <li><p>Transfer parallelism</p>
@@ -286,7 +287,8 @@
 $ skyplane sync --reuse-gateways &lt;source&gt; &lt;destination&gt;
 </pre></div>
 </div>
-<p>We will attempt to automatically deprovision these gateways after 30 minutes. To ensure that all gateways are stopped and no longer incur charges, run:</p>
+<p>We will attempt to automatically deprovision these gateways after 15 minutes by default. Change this interval via <code class="docutils literal notranslate"><span class="pre">skyplane</span> <span class="pre">config</span> <span class="pre">set</span> <span class="pre">autoshutdown_minutes</span> <span class="pre">&lt;minutes&gt;</span></code>. With <code class="docutils literal notranslate"><span class="pre">--reuse-gateways</span></code>, Skyplane will start a background job on each gateway VM that triggers a VM shutdown after the specified delay. Note you will still pay for associated VM costs such as storage and network IPs even if VMs are shut down.</p>
+<p>To ensure that all gateways are stopped and no longer incur charges, run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ skyplane deprovision
 </pre></div>
 </div>
@@ -341,7 +343,7 @@ $ skyplane sync --reuse-gateways &lt;source&gt; &lt;destination&gt;
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2021, The Skyplane authors
+                Copyright &#169; 2022, The Skyplane authors
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
