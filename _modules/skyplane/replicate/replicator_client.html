@@ -1,0 +1,987 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="generator" content="sphinx-5.0.2, furo 2022.06.21"/>
+        <title>skyplane.replicate.replicator_client - Skyplane 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DPRKFYT3T9"></script>
+<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-DPRKFYT3T9');</script>
+
+</head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">Skyplane 0.1 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Skyplane 0.1 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Getting Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../configure.html">Configuration</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../increase_vcpus.html">Increasing cloud vCPU limits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq.html">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing to Skyplane</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development_guide.html">Building from source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../debugging.html">Debugging Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../skyplane_cli.html">CLI documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../skyplane_cli_internal.html">Internal CLI documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../skyplane_internal.html">Internal package documentation</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for skyplane.replicate.replicator_client</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Iterable</span>
+<span class="kn">import</span> <span class="nn">nacl.secret</span>
+<span class="kn">import</span> <span class="nn">nacl.utils</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">rich.progress</span> <span class="kn">import</span> <span class="n">Progress</span><span class="p">,</span> <span class="n">SpinnerColumn</span><span class="p">,</span> <span class="n">TextColumn</span><span class="p">,</span> <span class="n">TimeRemainingColumn</span><span class="p">,</span> <span class="n">DownloadColumn</span><span class="p">,</span> <span class="n">BarColumn</span><span class="p">,</span> <span class="n">TransferSpeedColumn</span>
+<span class="kn">import</span> <span class="nn">urllib3</span>
+
+<span class="kn">from</span> <span class="nn">skyplane</span> <span class="kn">import</span> <span class="n">GB</span><span class="p">,</span> <span class="n">MB</span><span class="p">,</span> <span class="n">tmp_log_dir</span>
+<span class="kn">from</span> <span class="nn">skyplane</span> <span class="kn">import</span> <span class="n">exceptions</span>
+<span class="kn">from</span> <span class="nn">skyplane.chunk</span> <span class="kn">import</span> <span class="n">Chunk</span><span class="p">,</span> <span class="n">ChunkRequest</span><span class="p">,</span> <span class="n">ChunkState</span>
+<span class="kn">from</span> <span class="nn">skyplane.compute.aws.aws_cloud_provider</span> <span class="kn">import</span> <span class="n">AWSCloudProvider</span>
+<span class="kn">from</span> <span class="nn">skyplane.compute.azure.azure_cloud_provider</span> <span class="kn">import</span> <span class="n">AzureCloudProvider</span>
+<span class="kn">from</span> <span class="nn">skyplane.compute.azure.azure_server</span> <span class="kn">import</span> <span class="n">AzureServer</span>
+<span class="kn">from</span> <span class="nn">skyplane.compute.cloud_providers</span> <span class="kn">import</span> <span class="n">CloudProvider</span>
+<span class="kn">from</span> <span class="nn">skyplane.compute.gcp.gcp_cloud_provider</span> <span class="kn">import</span> <span class="n">GCPCloudProvider</span>
+<span class="kn">from</span> <span class="nn">skyplane.compute.server</span> <span class="kn">import</span> <span class="n">Server</span><span class="p">,</span> <span class="n">ServerState</span>
+<span class="kn">from</span> <span class="nn">skyplane.obj_store.object_store_interface</span> <span class="kn">import</span> <span class="n">ObjectStoreInterface</span><span class="p">,</span> <span class="n">NoSuchObjectException</span>
+<span class="kn">from</span> <span class="nn">skyplane.replicate.profiler</span> <span class="kn">import</span> <span class="n">status_df_to_traceevent</span>
+<span class="kn">from</span> <span class="nn">skyplane.replicate.replication_plan</span> <span class="kn">import</span> <span class="n">ReplicationJob</span><span class="p">,</span> <span class="n">ReplicationTopology</span><span class="p">,</span> <span class="n">ReplicationTopologyGateway</span>
+<span class="kn">from</span> <span class="nn">skyplane.utils</span> <span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">skyplane.utils.fn</span> <span class="kn">import</span> <span class="n">PathLike</span><span class="p">,</span> <span class="n">do_parallel</span>
+<span class="kn">from</span> <span class="nn">skyplane.utils.timer</span> <span class="kn">import</span> <span class="n">Timer</span>
+
+
+<div class="viewcode-block" id="ReplicatorClient"><a class="viewcode-back" href="../../../skyplane_internal.html#skyplane.replicate.replicator_client.ReplicatorClient">[docs]</a><span class="k">class</span> <span class="nc">ReplicatorClient</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">topology</span><span class="p">:</span> <span class="n">ReplicationTopology</span><span class="p">,</span>
+        <span class="n">gateway_docker_image</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ghcr.io/skyplane-project/skyplane:latest&quot;</span><span class="p">,</span>
+        <span class="n">aws_instance_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;m5.4xlarge&quot;</span><span class="p">,</span>  <span class="c1"># set to None to disable AWS</span>
+        <span class="n">azure_instance_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Standard_D2_v5&quot;</span><span class="p">,</span>  <span class="c1"># set to None to disable Azure</span>
+        <span class="n">gcp_instance_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;n2-standard-16&quot;</span><span class="p">,</span>  <span class="c1"># set to None to disable GCP</span>
+        <span class="n">gcp_use_premium_network</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">http_pool</span> <span class="o">=</span> <span class="n">urllib3</span><span class="o">.</span><span class="n">PoolManager</span><span class="p">(</span><span class="n">retries</span><span class="o">=</span><span class="n">urllib3</span><span class="o">.</span><span class="n">Retry</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topology</span> <span class="o">=</span> <span class="n">topology</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gateway_docker_image</span> <span class="o">=</span> <span class="n">gateway_docker_image</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aws_instance_class</span> <span class="o">=</span> <span class="n">aws_instance_class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">azure_instance_class</span> <span class="o">=</span> <span class="n">azure_instance_class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gcp_instance_class</span> <span class="o">=</span> <span class="n">gcp_instance_class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gcp_use_premium_network</span> <span class="o">=</span> <span class="n">gcp_use_premium_network</span>
+
+        <span class="c1"># provisioning</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aws</span> <span class="o">=</span> <span class="n">AWSCloudProvider</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">azure</span> <span class="o">=</span> <span class="n">AzureCloudProvider</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gcp</span> <span class="o">=</span> <span class="n">GCPCloudProvider</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">ReplicationTopologyGateway</span><span class="p">,</span> <span class="n">Server</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temp_nodes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Server</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># saving nodes that are not yet bound so they can be deprovisioned later</span>
+
+        <span class="c1"># logging</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span> <span class="o">=</span> <span class="n">tmp_log_dir</span> <span class="o">/</span> <span class="s2">&quot;transfer_logs&quot;</span> <span class="o">/</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">_%H%M%S&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">open_log_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span> <span class="o">/</span> <span class="s2">&quot;client.log&quot;</span><span class="p">)</span>
+
+        <span class="c1"># upload requests</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">multipart_upload_requests</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="ReplicatorClient.provision_gateways"><a class="viewcode-back" href="../../../skyplane_internal.html#skyplane.replicate.replicator_client.ReplicatorClient.provision_gateways">[docs]</a>    <span class="k">def</span> <span class="nf">provision_gateways</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">reuse_instances</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">log_dir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">PathLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">authorize_ssh_pub_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">PathLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">use_bbr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">use_compression</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">use_e2ee</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">use_socket_tls</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">regions_to_provision</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">region</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">gateway_nodes</span><span class="p">]</span>
+        <span class="n">aws_regions_to_provision</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">regions_to_provision</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;aws:&quot;</span><span class="p">)]</span>
+        <span class="n">azure_regions_to_provision</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">regions_to_provision</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;azure:&quot;</span><span class="p">)]</span>
+        <span class="n">gcp_regions_to_provision</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">regions_to_provision</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;gcp:&quot;</span><span class="p">)]</span>
+
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">aws_regions_to_provision</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">enabled</span><span class="p">()</span>
+        <span class="p">),</span> <span class="s2">&quot;AWS credentials not configured but job provisions AWS gateways&quot;</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">azure_regions_to_provision</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">azure</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">enabled</span><span class="p">()</span>
+        <span class="p">),</span> <span class="s2">&quot;Azure credentials not configured but job provisions Azure gateways&quot;</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">gcp_regions_to_provision</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">enabled</span><span class="p">()</span>
+        <span class="p">),</span> <span class="s2">&quot;GCP credentials not configured but job provisions GCP gateways&quot;</span>
+
+        <span class="c1"># reuse existing AWS instances</span>
+        <span class="k">if</span> <span class="n">reuse_instances</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">enabled</span><span class="p">():</span>
+                <span class="n">aws_instance_filter</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skyplane&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">},</span>
+                    <span class="s2">&quot;instance_type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">aws_instance_class</span><span class="p">,</span>
+                    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ServerState</span><span class="o">.</span><span class="n">PENDING</span><span class="p">,</span> <span class="n">ServerState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">],</span>
+                <span class="p">}</span>
+                <span class="n">current_aws_instances</span> <span class="o">=</span> <span class="n">refresh_instance_list</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">aws_regions_to_provision</span><span class="p">]),</span> <span class="n">aws_instance_filter</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">ilist</span> <span class="ow">in</span> <span class="n">current_aws_instances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ilist</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;aws:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">aws_regions_to_provision</span><span class="p">:</span>
+                            <span class="n">aws_regions_to_provision</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;aws:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_aws_instances</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">azure</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">enabled</span><span class="p">():</span>
+                <span class="n">azure_instance_filter</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skyplane&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">},</span>
+                    <span class="s2">&quot;instance_type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">azure_instance_class</span><span class="p">,</span>
+                    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ServerState</span><span class="o">.</span><span class="n">PENDING</span><span class="p">,</span> <span class="n">ServerState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">],</span>
+                <span class="p">}</span>
+                <span class="n">current_azure_instances</span> <span class="o">=</span> <span class="n">refresh_instance_list</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">azure</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">azure_regions_to_provision</span><span class="p">]),</span> <span class="n">azure_instance_filter</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">ilist</span> <span class="ow">in</span> <span class="n">current_azure_instances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ilist</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;azure:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">azure_regions_to_provision</span><span class="p">:</span>
+                            <span class="n">azure_regions_to_provision</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;azure:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_azure_instances</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">enabled</span><span class="p">():</span>
+                <span class="n">gcp_instance_filter</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skyplane&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">},</span>
+                    <span class="s2">&quot;instance_type&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gcp_instance_class</span><span class="p">,</span>
+                    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ServerState</span><span class="o">.</span><span class="n">PENDING</span><span class="p">,</span> <span class="n">ServerState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">],</span>
+                <span class="p">}</span>
+                <span class="n">current_gcp_instances</span> <span class="o">=</span> <span class="n">refresh_instance_list</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">gcp_regions_to_provision</span><span class="p">]),</span> <span class="n">gcp_instance_filter</span>
+                <span class="p">)</span>
+                <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">ilist</span> <span class="ow">in</span> <span class="n">current_gcp_instances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ilist</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;gcp:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">gcp_regions_to_provision</span><span class="p">:</span>
+                            <span class="n">gcp_regions_to_provision</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;gcp:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_gcp_instances</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># init clouds</span>
+        <span class="n">jobs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">aws_regions_to_provision</span><span class="p">:</span>
+            <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">create_iam</span><span class="p">,</span> <span class="n">attach_policy_arn</span><span class="o">=</span><span class="s2">&quot;arn:aws:iam::aws:policy/AmazonS3FullAccess&quot;</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">aws_regions_to_provision</span><span class="p">):</span>
+
+                <span class="k">def</span> <span class="nf">init_aws_vpc</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">make_vpc</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">authorize_client</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;0.0.0.0/0&quot;</span><span class="p">)</span>
+
+                <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">init_aws_vpc</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">ensure_keyfile_exists</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="n">azure_regions_to_provision</span><span class="p">:</span>
+            <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">azure</span><span class="o">.</span><span class="n">create_ssh_key</span><span class="p">)</span>
+            <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">azure</span><span class="o">.</span><span class="n">set_up_resource_group</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">gcp_regions_to_provision</span><span class="p">:</span>
+            <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="o">.</span><span class="n">create_ssh_key</span><span class="p">)</span>
+            <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="o">.</span><span class="n">configure_skyplane_network</span><span class="p">)</span>
+            <span class="n">jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="o">.</span><span class="n">configure_skyplane_firewall</span><span class="p">)</span>
+        <span class="n">do_parallel</span><span class="p">(</span><span class="k">lambda</span> <span class="n">fn</span><span class="p">:</span> <span class="n">fn</span><span class="p">(),</span> <span class="n">jobs</span><span class="p">,</span> <span class="n">spinner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spinner_persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Initializing cloud keys&quot;</span><span class="p">)</span>
+
+        <span class="c1"># provision instances</span>
+        <span class="k">def</span> <span class="nf">provision_gateway_instance</span><span class="p">(</span><span class="n">region</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Server</span><span class="p">:</span>
+            <span class="n">provider</span><span class="p">,</span> <span class="n">subregion</span> <span class="o">=</span> <span class="n">region</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;aws&quot;</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">enabled</span><span class="p">()</span>
+                <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">provision_instance</span><span class="p">(</span><span class="n">subregion</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">aws_instance_class</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;azure&quot;</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">azure</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">enabled</span><span class="p">()</span>
+                <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">azure</span><span class="o">.</span><span class="n">provision_instance</span><span class="p">(</span><span class="n">subregion</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">azure_instance_class</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;gcp&quot;</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">enabled</span><span class="p">()</span>
+                <span class="c1"># todo specify network tier in ReplicationTopology</span>
+                <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="o">.</span><span class="n">provision_instance</span><span class="p">(</span><span class="n">subregion</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gcp_instance_class</span><span class="p">,</span> <span class="n">premium_network</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">gcp_use_premium_network</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown provider </span><span class="si">{</span><span class="n">provider</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">enable_auto_shutdown</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">temp_nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">server</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="n">do_parallel</span><span class="p">(</span>
+            <span class="n">provision_gateway_instance</span><span class="p">,</span>
+            <span class="nb">list</span><span class="p">(</span><span class="n">aws_regions_to_provision</span> <span class="o">+</span> <span class="n">azure_regions_to_provision</span> <span class="o">+</span> <span class="n">gcp_regions_to_provision</span><span class="p">),</span>
+            <span class="n">spinner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">spinner_persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Provisioning gateway instances&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">instances_by_region</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">r</span><span class="p">:</span> <span class="p">[</span><span class="n">instance</span> <span class="k">for</span> <span class="n">instance_region</span><span class="p">,</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">if</span> <span class="n">instance_region</span> <span class="o">==</span> <span class="n">r</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">regions_to_provision</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="c1"># add existing instances</span>
+        <span class="k">if</span> <span class="n">reuse_instances</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">ilist</span> <span class="ow">in</span> <span class="n">current_aws_instances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;aws:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">instances_by_region</span><span class="p">:</span>
+                    <span class="n">instances_by_region</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;aws:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">instances_by_region</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;aws:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ilist</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">temp_nodes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ilist</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">ilist</span> <span class="ow">in</span> <span class="n">current_azure_instances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;azure:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">instances_by_region</span><span class="p">:</span>
+                    <span class="n">instances_by_region</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;azure:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">instances_by_region</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;azure:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ilist</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">temp_nodes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ilist</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">ilist</span> <span class="ow">in</span> <span class="n">current_gcp_instances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;gcp:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">instances_by_region</span><span class="p">:</span>
+                    <span class="n">instances_by_region</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;gcp:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">instances_by_region</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;gcp:</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ilist</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">temp_nodes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ilist</span><span class="p">)</span>
+
+        <span class="c1"># bind instances to nodes</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">gateway_nodes</span><span class="p">:</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="n">instances_by_region</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">region</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">temp_nodes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+
+        <span class="c1"># Firewall rules</span>
+        <span class="c1"># todo add firewall rules for Azure</span>
+        <span class="n">public_ips</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">public_ip</span><span class="p">()</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">gateway_nodes</span><span class="p">]</span>
+        <span class="n">authorize_ip_jobs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">authorize_ip_jobs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">add_ips_to_security_group</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">public_ips</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">aws_regions_to_provision</span><span class="p">)]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">gcp_regions_to_provision</span><span class="p">:</span>
+            <span class="n">authorize_ip_jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="o">.</span><span class="n">add_ips_to_firewall</span><span class="p">,</span> <span class="n">public_ips</span><span class="p">))</span>
+        <span class="n">do_parallel</span><span class="p">(</span><span class="k">lambda</span> <span class="n">fn</span><span class="p">:</span> <span class="n">fn</span><span class="p">(),</span> <span class="n">authorize_ip_jobs</span><span class="p">,</span> <span class="n">spinner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Applying firewall rules&quot;</span><span class="p">)</span>
+
+        <span class="c1"># generate E2EE key</span>
+        <span class="k">if</span> <span class="n">use_e2ee</span><span class="p">:</span>
+            <span class="n">e2ee_key_bytes</span> <span class="o">=</span> <span class="n">nacl</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">nacl</span><span class="o">.</span><span class="n">secret</span><span class="o">.</span><span class="n">SecretBox</span><span class="o">.</span><span class="n">KEY_SIZE</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">e2ee_key_bytes</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># setup instances</span>
+        <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Server</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">bool</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]):</span>
+            <span class="n">server</span><span class="p">,</span> <span class="n">outgoing_ports</span><span class="p">,</span> <span class="n">am_source</span><span class="p">,</span> <span class="n">am_sink</span> <span class="o">=</span> <span class="n">args</span>
+            <span class="k">if</span> <span class="n">log_dir</span><span class="p">:</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">init_log_files</span><span class="p">(</span><span class="n">log_dir</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">authorize_ssh_pub_key</span><span class="p">:</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">copy_public_key</span><span class="p">(</span><span class="n">authorize_ssh_pub_key</span><span class="p">)</span>
+            <span class="n">server</span><span class="o">.</span><span class="n">start_gateway</span><span class="p">(</span>
+                <span class="n">outgoing_ports</span><span class="p">,</span>
+                <span class="n">gateway_docker_image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">gateway_docker_image</span><span class="p">,</span>
+                <span class="n">use_bbr</span><span class="o">=</span><span class="n">use_bbr</span><span class="p">,</span>
+                <span class="n">use_compression</span><span class="o">=</span><span class="n">use_compression</span><span class="p">,</span>
+                <span class="n">e2ee_key_bytes</span><span class="o">=</span><span class="n">e2ee_key_bytes</span> <span class="k">if</span> <span class="p">(</span><span class="n">am_source</span> <span class="ow">or</span> <span class="n">am_sink</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">use_socket_tls</span><span class="o">=</span><span class="n">use_socket_tls</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sources</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">source_instances</span><span class="p">()</span>
+        <span class="n">sinks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">sink_instances</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">server</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">setup_args</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">public_ip</span><span class="p">():</span> <span class="n">v</span>
+                <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">get_outgoing_paths</span><span class="p">(</span><span class="n">node</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ReplicationTopologyGateway</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">server</span><span class="p">,</span> <span class="n">setup_args</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">sinks</span><span class="p">))</span>
+        <span class="n">do_parallel</span><span class="p">(</span><span class="n">setup</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spinner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spinner_persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Installing gateway package&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ReplicatorClient.deprovision_gateways"><a class="viewcode-back" href="../../../skyplane_internal.html#skyplane.replicate.replicator_client.ReplicatorClient.deprovision_gateways">[docs]</a>    <span class="k">def</span> <span class="nf">deprovision_gateways</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># This is a good place to tear down Security Groups and the instance since this is invoked by CLI too.</span>
+        <span class="k">def</span> <span class="nf">deprovision_gateway_instance</span><span class="p">(</span><span class="n">server</span><span class="p">:</span> <span class="n">Server</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">server</span><span class="o">.</span><span class="n">instance_state</span><span class="p">()</span> <span class="o">==</span> <span class="n">ServerState</span><span class="o">.</span><span class="n">RUNNING</span><span class="p">:</span>
+                <span class="n">server</span><span class="o">.</span><span class="n">terminate_instance</span><span class="p">()</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deprovisioned </span><span class="si">{</span><span class="n">server</span><span class="o">.</span><span class="n">uuid</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Clear IPs from security groups</span>
+        <span class="c1"># todo remove firewall rules for Azure</span>
+        <span class="n">public_ips</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">public_ip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span> <span class="o">+</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">public_ip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp_nodes</span><span class="p">]</span>
+        <span class="n">aws_regions</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">region</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">gateway_nodes</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;aws:&quot;</span><span class="p">)]</span>
+        <span class="n">aws_jobs</span> <span class="o">=</span> <span class="p">[</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aws</span><span class="o">.</span><span class="n">remove_ips_from_security_group</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">public_ips</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">aws_regions</span><span class="p">)]</span>
+        <span class="n">gcp_regions</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">region</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">gateway_nodes</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;gcp:&quot;</span><span class="p">)]</span>
+        <span class="n">gcp_jobs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">gcp</span><span class="o">.</span><span class="n">remove_ips_from_firewall</span><span class="p">(</span><span class="n">public_ips</span><span class="p">)]</span> <span class="k">if</span> <span class="n">gcp_regions</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="n">do_parallel</span><span class="p">(</span><span class="k">lambda</span> <span class="n">fn</span><span class="p">:</span> <span class="n">fn</span><span class="p">(),</span> <span class="n">aws_jobs</span> <span class="o">+</span> <span class="n">gcp_jobs</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Removing firewall rules&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Terminate instances</span>
+        <span class="n">instances</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">temp_nodes</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deprovisioning </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">instances</span><span class="p">)</span><span class="si">}</span><span class="s2"> instances&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">provider</span> <span class="o">==</span> <span class="s2">&quot;azure&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">instances</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;NOTE: Azure is very slow to terminate instances. Consider using --reuse-instances and then deprovisioning the instances manually with `skyplane deprovision`.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">do_parallel</span><span class="p">(</span><span class="n">deprovision_gateway_instance</span><span class="p">,</span> <span class="n">instances</span><span class="p">,</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">spinner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spinner_persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Deprovisioning instances&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temp_nodes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Deprovisioned instances&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ReplicatorClient.run_replication_plan"><a class="viewcode-back" href="../../../skyplane_internal.html#skyplane.replicate.replicator_client.ReplicatorClient.run_replication_plan">[docs]</a>    <span class="k">def</span> <span class="nf">run_replication_plan</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">job</span><span class="p">:</span> <span class="n">ReplicationJob</span><span class="p">,</span>
+        <span class="n">multipart_enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">multipart_max_chunk_size_mb</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplicationJob</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">job</span><span class="o">.</span><span class="n">source_region</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">&quot;aws&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;azure&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gcp&quot;</span><span class="p">,</span>
+        <span class="p">],</span> <span class="sa">f</span><span class="s2">&quot;Only AWS, Azure, and GCP are supported, but got </span><span class="si">{</span><span class="n">job</span><span class="o">.</span><span class="n">source_region</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">assert</span> <span class="n">job</span><span class="o">.</span><span class="n">dest_region</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">&quot;aws&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;azure&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gcp&quot;</span><span class="p">,</span>
+        <span class="p">],</span> <span class="sa">f</span><span class="s2">&quot;Only AWS, Azure, and GCP are supported, but got </span><span class="si">{</span><span class="n">job</span><span class="o">.</span><span class="n">dest_region</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="c1"># assign source and destination gateways permission to buckets</span>
+        <span class="n">assign_jobs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">job</span><span class="o">.</span><span class="n">source_region</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;azure&quot;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">gateway</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gateway</span><span class="p">,</span> <span class="n">AzureServer</span><span class="p">):</span>
+                    <span class="n">assign_jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gateway</span><span class="o">.</span><span class="n">authorize_subscription</span><span class="p">)</span>
+        <span class="n">do_parallel</span><span class="p">(</span><span class="k">lambda</span> <span class="n">fn</span><span class="p">:</span> <span class="n">fn</span><span class="p">(),</span> <span class="n">assign_jobs</span><span class="p">,</span> <span class="n">spinner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spinner_persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Assigning gateways permissions to buckets&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">Progress</span><span class="p">(</span>
+            <span class="n">SpinnerColumn</span><span class="p">(),</span>
+            <span class="n">TextColumn</span><span class="p">(</span><span class="s2">&quot;Preparing replication plan</span><span class="si">{task.description}</span><span class="s2">&quot;</span><span class="p">),</span>
+            <span class="n">transient</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">progress</span><span class="p">:</span>
+            <span class="n">prepare_task</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+            <span class="c1"># pre-fetch instance IPs for all gateways</span>
+            <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">prepare_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Fetching instance IPs&quot;</span><span class="p">)</span>
+            <span class="n">gateway_ips</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Server</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">public_ip</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">()}</span>
+
+            <span class="c1"># make list of chunks</span>
+            <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">prepare_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Querying source object store for matching keys&quot;</span><span class="p">)</span>
+            <span class="n">chunks</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">src_object</span><span class="p">,</span> <span class="n">dest_object</span><span class="p">)</span> <span class="ow">in</span> <span class="n">job</span><span class="o">.</span><span class="n">transfer_pairs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">job</span><span class="o">.</span><span class="n">random_chunk_size_mb</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">multipart_enabled</span><span class="p">:</span>
+                        <span class="n">chunk_size_bytes</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">multipart_max_chunk_size_mb</span> <span class="o">*</span> <span class="n">MB</span><span class="p">)</span>
+                        <span class="n">num_chunks</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">src_object</span><span class="o">.</span><span class="n">size</span> <span class="o">/</span> <span class="n">chunk_size_bytes</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+                        <span class="c1"># TODO: figure out what to do on # part limits per object</span>
+                        <span class="c1"># TODO: only do if num_chunks &gt; 1</span>
+                        <span class="c1"># TODO: potentially do this in a seperate thread, and/or after chunks sent</span>
+                        <span class="n">obj_store_interface</span> <span class="o">=</span> <span class="n">ObjectStoreInterface</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">dest_region</span><span class="p">,</span> <span class="n">job</span><span class="o">.</span><span class="n">dest_bucket</span><span class="p">)</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initiate multipart upload on </span><span class="si">{</span><span class="n">dest_object</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="n">upload_id</span> <span class="o">=</span> <span class="n">obj_store_interface</span><span class="o">.</span><span class="n">initiate_multipart_upload</span><span class="p">(</span><span class="n">dest_object</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+
+                        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="n">part_num</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="n">parts</span> <span class="o">=</span> <span class="p">[]</span>
+                        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_chunks</span><span class="p">):</span>
+                            <span class="c1"># size is min(chunk_size, remaining data)</span>
+                            <span class="n">file_size_bytes</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">chunk_size_bytes</span><span class="p">,</span> <span class="n">src_object</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="n">offset</span><span class="p">)</span>
+                            <span class="k">assert</span> <span class="n">file_size_bytes</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;File size &lt;= 0 </span><span class="si">{</span><span class="n">file_size_bytes</span><span class="si">}</span><span class="s2">&quot;</span>
+                            <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">Chunk</span><span class="p">(</span>
+                                    <span class="n">src_key</span><span class="o">=</span><span class="n">src_object</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                                    <span class="n">dest_key</span><span class="o">=</span><span class="n">dest_object</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                                    <span class="n">chunk_id</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span>
+                                    <span class="n">file_offset_bytes</span><span class="o">=</span><span class="n">offset</span><span class="p">,</span>
+                                    <span class="n">chunk_length_bytes</span><span class="o">=</span><span class="n">file_size_bytes</span><span class="p">,</span>
+                                    <span class="n">part_number</span><span class="o">=</span><span class="n">part_num</span><span class="p">,</span>
+                                    <span class="n">upload_id</span><span class="o">=</span><span class="n">upload_id</span><span class="p">,</span>
+                                <span class="p">)</span>
+                            <span class="p">)</span>
+                            <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">part_num</span><span class="p">)</span>
+
+                            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+                            <span class="n">part_num</span> <span class="o">+=</span> <span class="mi">1</span>
+                            <span class="n">offset</span> <span class="o">+=</span> <span class="n">chunk_size_bytes</span>
+                        <span class="c1"># add multipart upload request</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">multipart_upload_requests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="p">{</span>
+                                <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="n">job</span><span class="o">.</span><span class="n">dest_region</span><span class="p">,</span>
+                                <span class="s2">&quot;bucket&quot;</span><span class="p">:</span> <span class="n">job</span><span class="o">.</span><span class="n">dest_bucket</span><span class="p">,</span>
+                                <span class="s2">&quot;upload_id&quot;</span><span class="p">:</span> <span class="n">upload_id</span><span class="p">,</span>
+                                <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="n">dest_object</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                                <span class="s2">&quot;parts&quot;</span><span class="p">:</span> <span class="n">parts</span><span class="p">,</span>
+                            <span class="p">}</span>
+                        <span class="p">)</span>
+                    <span class="c1"># transfer entire object</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="n">Chunk</span><span class="p">(</span>
+                                <span class="n">src_key</span><span class="o">=</span><span class="n">src_object</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                                <span class="n">dest_key</span><span class="o">=</span><span class="n">dest_object</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                                <span class="n">chunk_id</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span>
+                                <span class="n">file_offset_bytes</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                <span class="n">chunk_length_bytes</span><span class="o">=</span><span class="n">src_object</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="p">)</span>
+                        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="c1"># random data replication</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="n">Chunk</span><span class="p">(</span>
+                            <span class="n">src_key</span><span class="o">=</span><span class="n">src_object</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                            <span class="n">dest_key</span><span class="o">=</span><span class="n">dest_object</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+                            <span class="n">chunk_id</span><span class="o">=</span><span class="n">idx</span><span class="p">,</span>
+                            <span class="n">file_offset_bytes</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                            <span class="n">chunk_length_bytes</span><span class="o">=</span><span class="n">job</span><span class="o">.</span><span class="n">random_chunk_size_mb</span> <span class="o">*</span> <span class="n">MB</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># partition chunks into roughly equal-sized batches (by bytes)</span>
+            <span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Chunk</span><span class="p">],</span> <span class="n">n_batches</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Chunk</span><span class="p">]]:</span>
+                <span class="n">batches</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_batches</span><span class="p">)]</span>
+                <span class="n">items</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="o">.</span><span class="n">chunk_length_bytes</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">batch_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_batches</span><span class="p">)]</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                    <span class="n">min_batch</span> <span class="o">=</span> <span class="n">batch_sizes</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">))</span>
+                    <span class="n">batches</span><span class="p">[</span><span class="n">min_batch</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                    <span class="n">batch_sizes</span><span class="p">[</span><span class="n">min_batch</span><span class="p">]</span> <span class="o">+=</span> <span class="n">item</span><span class="o">.</span><span class="n">chunk_length_bytes</span>
+                <span class="k">return</span> <span class="n">batches</span>
+
+            <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">prepare_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Partitioning chunks into batches&quot;</span><span class="p">)</span>
+            <span class="n">src_instances</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">source_instances</span><span class="p">()]</span>
+            <span class="n">chunk_batches</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">src_instances</span><span class="p">))</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk_batches</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">src_instances</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">chunk_batches</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">src_instances</span><span class="p">)</span>
+            <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk_batches</span><span class="p">)</span><span class="si">}</span><span class="s2"> batches, expected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">src_instances</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunk_batches</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Batch </span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2"> size: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">chunk_length_bytes</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">)</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span><span class="si">}</span><span class="s2"> chunks&quot;</span><span class="p">)</span>
+
+            <span class="c1"># make list of ChunkRequests</span>
+            <span class="k">with</span> <span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;Building chunk requests&quot;</span><span class="p">):</span>
+                <span class="c1"># make list of ChunkRequests</span>
+                <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">prepare_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Building list of chunk requests&quot;</span><span class="p">)</span>
+                <span class="n">chunk_requests_sharded</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">ChunkRequest</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">for</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunk_batches</span><span class="p">):</span>
+                    <span class="n">chunk_requests_sharded</span><span class="p">[</span><span class="n">batch_idx</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">:</span>
+                        <span class="n">chunk_requests_sharded</span><span class="p">[</span><span class="n">batch_idx</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="n">ChunkRequest</span><span class="p">(</span>
+                                <span class="n">chunk</span><span class="o">=</span><span class="n">chunk</span><span class="p">,</span>
+                                <span class="n">src_region</span><span class="o">=</span><span class="n">job</span><span class="o">.</span><span class="n">source_region</span><span class="p">,</span>
+                                <span class="n">dst_region</span><span class="o">=</span><span class="n">job</span><span class="o">.</span><span class="n">dest_region</span><span class="p">,</span>
+                                <span class="n">src_type</span><span class="o">=</span><span class="s2">&quot;object_store&quot;</span> <span class="k">if</span> <span class="n">job</span><span class="o">.</span><span class="n">dest_bucket</span> <span class="k">else</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
+                                <span class="n">dst_type</span><span class="o">=</span><span class="s2">&quot;object_store&quot;</span> <span class="k">if</span> <span class="n">job</span><span class="o">.</span><span class="n">dest_bucket</span> <span class="k">else</span> <span class="s2">&quot;save_local&quot;</span><span class="p">,</span>
+                                <span class="n">src_random_size_mb</span><span class="o">=</span><span class="n">job</span><span class="o">.</span><span class="n">random_chunk_size_mb</span><span class="p">,</span>
+                                <span class="n">src_object_store_bucket</span><span class="o">=</span><span class="n">job</span><span class="o">.</span><span class="n">source_bucket</span><span class="p">,</span>
+                                <span class="n">dst_object_store_bucket</span><span class="o">=</span><span class="n">job</span><span class="o">.</span><span class="n">dest_bucket</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="p">)</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Batch </span><span class="si">{</span><span class="n">batch_idx</span><span class="si">}</span><span class="s2"> size: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">chunk_length_bytes</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">)</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span><span class="si">}</span><span class="s2"> chunks&quot;</span><span class="p">)</span>
+
+                <span class="c1"># send chunk requests to start gateways in parallel</span>
+                <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">prepare_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Dispatching chunk requests to source gateways&quot;</span><span class="p">)</span>
+
+                <span class="k">def</span> <span class="nf">send_chunk_requests</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Server</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">ChunkRequest</span><span class="p">]]):</span>
+                    <span class="n">hop_instance</span><span class="p">,</span> <span class="n">chunk_requests</span> <span class="o">=</span> <span class="n">args</span>
+                    <span class="k">while</span> <span class="n">chunk_requests</span><span class="p">:</span>
+                        <span class="n">batch</span><span class="p">,</span> <span class="n">chunk_requests</span> <span class="o">=</span> <span class="n">chunk_requests</span><span class="p">[:</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">16</span><span class="p">],</span> <span class="n">chunk_requests</span><span class="p">[</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">16</span> <span class="p">:]</span>
+                        <span class="n">reply</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_pool</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+                            <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hop_instance</span><span class="o">.</span><span class="n">gateway_api_url</span><span class="si">}</span><span class="s2">/api/v1/chunk_requests&quot;</span><span class="p">,</span>
+                            <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">batch</span><span class="p">])</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span>
+                            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">},</span>
+                        <span class="p">)</span>
+                        <span class="k">if</span> <span class="n">reply</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+                            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                                <span class="sa">f</span><span class="s2">&quot;Failed to send chunk requests to gateway instance </span><span class="si">{</span><span class="n">hop_instance</span><span class="o">.</span><span class="n">instance_name</span><span class="p">()</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">reply</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                            <span class="p">)</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;Sent </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span><span class="si">}</span><span class="s2"> chunk requests to </span><span class="si">{</span><span class="n">hop_instance</span><span class="o">.</span><span class="n">instance_name</span><span class="p">()</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk_requests</span><span class="p">)</span><span class="si">}</span><span class="s2"> remaining&quot;</span>
+                        <span class="p">)</span>
+
+                <span class="n">start_instances</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">src_instances</span><span class="p">,</span> <span class="n">chunk_requests_sharded</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+                <span class="n">do_parallel</span><span class="p">(</span><span class="n">send_chunk_requests</span><span class="p">,</span> <span class="n">start_instances</span><span class="p">,</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">job</span><span class="o">.</span><span class="n">chunk_requests</span> <span class="o">=</span> <span class="p">[</span><span class="n">cr</span> <span class="k">for</span> <span class="n">crlist</span> <span class="ow">in</span> <span class="n">chunk_requests_sharded</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">crlist</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">job</span></div>
+
+<div class="viewcode-block" id="ReplicatorClient.get_chunk_status_log_df"><a class="viewcode-back" href="../../../skyplane_internal.html#skyplane.replicate.replicator_client.ReplicatorClient.get_chunk_status_log_df">[docs]</a>    <span class="k">def</span> <span class="nf">get_chunk_status_log_df</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">get_chunk_status</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+            <span class="n">node</span><span class="p">,</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">args</span>
+            <span class="n">reply</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_pool</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">gateway_api_url</span><span class="si">}</span><span class="s2">/api/v1/chunk_status_log&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">reply</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Failed to get chunk status from gateway instance </span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">instance_name</span><span class="p">()</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">reply</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="n">logs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">log_entry</span> <span class="ow">in</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">reply</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))[</span><span class="s2">&quot;chunk_status_log&quot;</span><span class="p">]:</span>
+                <span class="n">log_entry</span><span class="p">[</span><span class="s2">&quot;region&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">region</span>
+                <span class="n">log_entry</span><span class="p">[</span><span class="s2">&quot;instance&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">instance</span>
+                <span class="n">log_entry</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">log_entry</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
+                <span class="n">log_entry</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ChunkState</span><span class="o">.</span><span class="n">from_str</span><span class="p">(</span><span class="n">log_entry</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])</span>
+                <span class="n">logs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">logs</span>
+
+        <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">do_parallel</span><span class="p">(</span><span class="n">get_chunk_status</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_args</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ReplicatorClient.check_error_logs"><a class="viewcode-back" href="../../../skyplane_internal.html#skyplane.replicate.replicator_client.ReplicatorClient.check_error_logs">[docs]</a>    <span class="k">def</span> <span class="nf">check_error_logs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="k">def</span> <span class="nf">get_error_logs</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">instance</span> <span class="o">=</span> <span class="n">args</span>
+            <span class="n">reply</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_pool</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">gateway_api_url</span><span class="si">}</span><span class="s2">/api/v1/errors&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">reply</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to get error logs from gateway instance </span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">instance_name</span><span class="p">()</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">reply</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">reply</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))[</span><span class="s2">&quot;errors&quot;</span><span class="p">]</span>
+
+        <span class="n">errors</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">instance</span><span class="p">),</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">do_parallel</span><span class="p">(</span><span class="n">get_error_logs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">errors</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">errors</span></div>
+
+<div class="viewcode-block" id="ReplicatorClient.monitor_transfer"><a class="viewcode-back" href="../../../skyplane_internal.html#skyplane.replicate.replicator_client.ReplicatorClient.monitor_transfer">[docs]</a>    <span class="k">def</span> <span class="nf">monitor_transfer</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">job</span><span class="p">:</span> <span class="n">ReplicationJob</span><span class="p">,</span>
+        <span class="n">show_spinner</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">log_interval_s</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">time_limit_seconds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">cleanup_gateway</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">save_log</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">write_profile</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">write_socket_profile</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># slow but useful for debugging</span>
+        <span class="n">copy_gateway_logs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">multipart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># multipart object uploads/downloads</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
+        <span class="k">assert</span> <span class="n">job</span><span class="o">.</span><span class="n">chunk_requests</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="n">total_bytes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">cr</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">chunk_length_bytes</span> <span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">job</span><span class="o">.</span><span class="n">chunk_requests</span><span class="p">])</span>
+        <span class="n">last_log</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">sources</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">source_instances</span><span class="p">()</span>
+        <span class="n">source_regions</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">region</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sources</span><span class="p">)</span>
+        <span class="n">sinks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">topology</span><span class="o">.</span><span class="n">sink_instances</span><span class="p">()</span>
+        <span class="n">sink_regions</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">region</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sinks</span><span class="p">)</span>
+
+        <span class="n">completed_chunk_ids</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="n">save_log</span><span class="p">:</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span> <span class="o">/</span> <span class="s2">&quot;job.pkl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">job</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">Progress</span><span class="p">(</span>
+                <span class="n">SpinnerColumn</span><span class="p">(),</span>
+                <span class="n">TextColumn</span><span class="p">(</span><span class="s2">&quot;Transfer progress</span><span class="si">{task.description}</span><span class="s2">&quot;</span><span class="p">),</span>
+                <span class="n">BarColumn</span><span class="p">(),</span>
+                <span class="n">DownloadColumn</span><span class="p">(</span><span class="n">binary_units</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                <span class="n">TransferSpeedColumn</span><span class="p">(),</span>
+                <span class="n">TimeRemainingColumn</span><span class="p">(),</span>
+                <span class="n">disable</span><span class="o">=</span><span class="ow">not</span> <span class="n">show_spinner</span><span class="p">,</span>
+            <span class="p">)</span> <span class="k">as</span> <span class="n">progress</span><span class="p">:</span>
+                <span class="n">copy_task</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="n">total_bytes</span><span class="p">)</span>
+                <span class="k">with</span> <span class="n">Timer</span><span class="p">()</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
+                    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                        <span class="c1"># refresh shutdown status by running noop</span>
+                        <span class="n">do_parallel</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;echo 1&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+                        <span class="c1"># check for errors and exit if there are any (while setting debug flags)</span>
+                        <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_error_logs</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+                            <span class="n">copy_gateway_logs</span> <span class="o">=</span> <span class="kc">True</span>
+                            <span class="n">write_profile</span> <span class="o">=</span> <span class="kc">True</span>
+                            <span class="n">write_socket_profile</span> <span class="o">=</span> <span class="kc">True</span>
+
+                            <span class="k">return</span> <span class="p">{</span>
+                                <span class="s2">&quot;errors&quot;</span><span class="p">:</span> <span class="n">errors</span><span class="p">,</span>
+                                <span class="s2">&quot;monitor_status&quot;</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span>
+                            <span class="p">}</span>
+
+                        <span class="n">log_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_chunk_status_log_df</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">log_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No chunk status log entries yet&quot;</span><span class="p">)</span>
+                            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+                            <span class="k">continue</span>
+
+                        <span class="n">is_complete_rec</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ChunkState</span><span class="o">.</span><span class="n">upload_complete</span>
+                            <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;instance&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">instance</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sinks</span><span class="p">]</span>
+                            <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;region&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">region</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sinks</span><span class="p">]</span>
+                        <span class="p">)</span>
+                        <span class="n">sink_status_df</span> <span class="o">=</span> <span class="n">log_df</span><span class="p">[</span><span class="n">log_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">is_complete_rec</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+                        <span class="n">completed_status</span> <span class="o">=</span> <span class="n">sink_status_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;chunk_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;region&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">sink_regions</span><span class="p">)</span>
+                        <span class="p">)</span>
+                        <span class="n">completed_chunk_ids</span> <span class="o">=</span> <span class="n">completed_status</span><span class="p">[</span><span class="n">completed_status</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+                        <span class="n">completed_bytes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+                            <span class="p">[</span><span class="n">cr</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">chunk_length_bytes</span> <span class="k">for</span> <span class="n">cr</span> <span class="ow">in</span> <span class="n">job</span><span class="o">.</span><span class="n">chunk_requests</span> <span class="k">if</span> <span class="n">cr</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">chunk_id</span> <span class="ow">in</span> <span class="n">completed_chunk_ids</span><span class="p">]</span>
+                        <span class="p">)</span>
+
+                        <span class="c1"># update progress bar</span>
+                        <span class="n">total_runtime_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">log_df</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">log_df</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+                        <span class="n">throughput_gbits</span> <span class="o">=</span> <span class="n">completed_bytes</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">/</span> <span class="n">GB</span> <span class="o">/</span> <span class="n">total_runtime_s</span> <span class="k">if</span> <span class="n">total_runtime_s</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+                        <span class="c1"># make log line</span>
+                        <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                            <span class="n">copy_task</span><span class="p">,</span>
+                            <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">completed_chunk_ids</span><span class="p">)</span><span class="si">}</span><span class="s2"> of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">chunk_requests</span><span class="p">)</span><span class="si">}</span><span class="s2"> chunks)&quot;</span><span class="p">,</span>
+                            <span class="n">completed</span><span class="o">=</span><span class="n">completed_bytes</span><span class="p">,</span>
+                        <span class="p">)</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">completed_chunk_ids</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">chunk_requests</span><span class="p">):</span>
+                            <span class="k">if</span> <span class="n">multipart</span><span class="p">:</span>
+                                <span class="c1"># Complete multi-part uploads</span>
+                                <span class="k">def</span> <span class="nf">complete_upload</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+                                    <span class="n">obj_store_interface</span> <span class="o">=</span> <span class="n">ObjectStoreInterface</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="s2">&quot;region&quot;</span><span class="p">],</span> <span class="n">req</span><span class="p">[</span><span class="s2">&quot;bucket&quot;</span><span class="p">])</span>
+                                    <span class="n">succ</span> <span class="o">=</span> <span class="n">obj_store_interface</span><span class="o">.</span><span class="n">complete_multipart_upload</span><span class="p">(</span><span class="n">req</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">],</span> <span class="n">req</span><span class="p">[</span><span class="s2">&quot;upload_id&quot;</span><span class="p">])</span>
+                                    <span class="k">if</span> <span class="ow">not</span> <span class="n">succ</span><span class="p">:</span>
+                                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to complete upload </span><span class="si">{</span><span class="n">req</span><span class="p">[</span><span class="s1">&#39;upload_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                                <span class="n">do_parallel</span><span class="p">(</span>
+                                    <span class="n">complete_upload</span><span class="p">,</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">multipart_upload_requests</span><span class="p">,</span>
+                                    <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                                    <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Completing multipart uploads&quot;</span><span class="p">,</span>
+                                    <span class="n">spinner</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                <span class="p">)</span>
+                            <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+                                <span class="n">completed_chunk_ids</span><span class="o">=</span><span class="n">completed_chunk_ids</span><span class="p">,</span>
+                                <span class="n">total_runtime_s</span><span class="o">=</span><span class="n">total_runtime_s</span><span class="p">,</span>
+                                <span class="n">throughput_gbits</span><span class="o">=</span><span class="n">throughput_gbits</span><span class="p">,</span>
+                                <span class="n">monitor_status</span><span class="o">=</span><span class="s2">&quot;completed&quot;</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="k">elif</span> <span class="n">time_limit_seconds</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">elapsed</span> <span class="o">&gt;</span> <span class="n">time_limit_seconds</span> <span class="ow">or</span> <span class="n">t</span><span class="o">.</span><span class="n">elapsed</span> <span class="o">&gt;</span> <span class="mi">600</span> <span class="ow">and</span> <span class="n">completed_bytes</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Transfer timed out without progress, please check the debug log!&quot;</span><span class="p">)</span>
+                            <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Transfer timed out! Please retry.&quot;</span><span class="p">)</span>
+                            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Please share debug logs from: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                            <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+                                <span class="n">completed_chunk_ids</span><span class="o">=</span><span class="n">completed_chunk_ids</span><span class="p">,</span>
+                                <span class="n">total_runtime_s</span><span class="o">=</span><span class="n">total_runtime_s</span><span class="p">,</span>
+                                <span class="n">throughput_gbits</span><span class="o">=</span><span class="n">throughput_gbits</span><span class="p">,</span>
+                                <span class="n">monitor_status</span><span class="o">=</span><span class="s2">&quot;timed_out&quot;</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+                            <span class="k">if</span> <span class="n">log_interval_s</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">last_log</span> <span class="ow">or</span> <span class="p">(</span><span class="n">current_time</span> <span class="o">-</span> <span class="n">last_log</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="n">log_interval_s</span><span class="p">)):</span>
+                                <span class="n">last_log</span> <span class="o">=</span> <span class="n">current_time</span>
+                            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span> <span class="k">if</span> <span class="n">show_spinner</span> <span class="k">else</span> <span class="mf">0.25</span><span class="p">)</span>
+        <span class="c1"># always run cleanup, even if there&#39;s an exception</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">Progress</span><span class="p">(</span>
+                <span class="n">SpinnerColumn</span><span class="p">(),</span>
+                <span class="n">TextColumn</span><span class="p">(</span><span class="s2">&quot;Cleaning up after transfer</span><span class="si">{task.description}</span><span class="s2">&quot;</span><span class="p">),</span>
+                <span class="n">transient</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span> <span class="k">as</span> <span class="n">progress</span><span class="p">:</span>
+                <span class="n">cleanup_task</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+                <span class="c1"># get compression ratio information from destination gateways using &quot;/api/v1/profile/compression&quot;</span>
+                <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cleanup_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Getting compression ratio information&quot;</span><span class="p">)</span>
+                <span class="n">total_sent_compressed</span><span class="p">,</span> <span class="n">total_sent_uncompressed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">gateway</span> <span class="ow">in</span> <span class="p">{</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">region_tag</span> <span class="ow">in</span> <span class="n">source_regions</span><span class="p">}:</span>
+                    <span class="n">stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_pool</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gateway</span><span class="o">.</span><span class="n">gateway_api_url</span><span class="si">}</span><span class="s2">/api/v1/profile/compression&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">stats</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                        <span class="n">stats</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+                        <span class="n">total_sent_compressed</span> <span class="o">+=</span> <span class="n">stats</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compressed_bytes_sent&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                        <span class="n">total_sent_uncompressed</span> <span class="o">+=</span> <span class="n">stats</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;uncompressed_bytes_sent&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">compression_ratio</span> <span class="o">=</span> <span class="n">total_sent_compressed</span> <span class="o">/</span> <span class="n">total_sent_uncompressed</span> <span class="k">if</span> <span class="n">total_sent_uncompressed</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="n">compression_ratio</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total compressed bytes sent: </span><span class="si">{</span><span class="n">total_sent_compressed</span> <span class="o">/</span> <span class="n">GB</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">GB&quot;</span><span class="p">)</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total uncompressed bytes sent: </span><span class="si">{</span><span class="n">total_sent_uncompressed</span> <span class="o">/</span> <span class="n">GB</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">GB&quot;</span><span class="p">)</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compression ratio: </span><span class="si">{</span><span class="n">compression_ratio</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">progress</span><span class="o">.</span><span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[bold yellow]Compression saved </span><span class="si">{</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">compression_ratio</span><span class="p">)</span><span class="o">*</span><span class="mf">100.</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% of egress fees&quot;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">copy_gateway_logs</span><span class="p">:</span>
+
+                    <span class="k">def</span> <span class="nf">copy_log</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
+                        <span class="n">instance</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;sudo docker logs -t skyplane_gateway 2&gt; /tmp/gateway.stderr &gt; /tmp/gateway.stdout&quot;</span><span class="p">)</span>
+                        <span class="n">instance</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="s2">&quot;/tmp/gateway.stdout&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;gateway_</span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">uuid</span><span class="p">()</span><span class="si">}</span><span class="s2">.stdout&quot;</span><span class="p">)</span>
+                        <span class="n">instance</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="s2">&quot;/tmp/gateway.stderr&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;gateway_</span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">uuid</span><span class="p">()</span><span class="si">}</span><span class="s2">.stderr&quot;</span><span class="p">)</span>
+
+                    <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cleanup_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Copying gateway logs&quot;</span><span class="p">)</span>
+                    <span class="n">do_parallel</span><span class="p">(</span><span class="n">copy_log</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">write_profile</span><span class="p">:</span>
+                    <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cleanup_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Writing chunk profiles&quot;</span><span class="p">)</span>
+                    <span class="n">chunk_status_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_chunk_status_log_df</span><span class="p">()</span>
+                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span> <span class="o">/</span> <span class="s2">&quot;chunk_status_df.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">chunk_status_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+                    <span class="n">traceevent</span> <span class="o">=</span> <span class="n">status_df_to_traceevent</span><span class="p">(</span><span class="n">chunk_status_df</span><span class="p">)</span>
+                    <span class="n">profile_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;traceevent_</span><span class="si">{</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="si">}</span><span class="s2">.json&quot;</span>
+                    <span class="n">profile_out</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                    <span class="n">profile_out</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">traceevent</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">write_socket_profile</span><span class="p">:</span>
+
+                    <span class="k">def</span> <span class="nf">write_socket_profile</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
+                        <span class="n">receiver_reply</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">http_pool</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">gateway_api_url</span><span class="si">}</span><span class="s2">/api/v1/profile/socket/receiver&quot;</span><span class="p">)</span>
+                        <span class="n">text</span> <span class="o">=</span> <span class="n">receiver_reply</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">receiver_reply</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+                            <span class="n">logger</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                                <span class="sa">f</span><span class="s2">&quot;Failed to get receiver socket profile from </span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">gateway_api_url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">receiver_reply</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span>
+                            <span class="p">)</span>
+                        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transfer_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;receiver_socket_profile_</span><span class="si">{</span><span class="n">instance</span><span class="o">.</span><span class="n">uuid</span><span class="p">()</span><span class="si">}</span><span class="s2">.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+                    <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cleanup_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Writing socket profiles&quot;</span><span class="p">)</span>
+                    <span class="n">do_parallel</span><span class="p">(</span><span class="n">write_socket_profile</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">cleanup_gateway</span><span class="p">:</span>
+
+                    <span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">Server</span><span class="p">):</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">http_pool</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">gateway_api_url</span><span class="si">}</span><span class="s2">/api/v1/shutdown&quot;</span><span class="p">)</span>
+                        <span class="k">except</span><span class="p">:</span>
+                            <span class="k">return</span>  <span class="c1"># ignore connection errors since server may be shutting down</span>
+
+                    <span class="n">do_parallel</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bound_nodes</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cleanup_task</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;: Shutting down gateways&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ReplicatorClient.verify_transfer"><a class="viewcode-back" href="../../../skyplane_internal.html#skyplane.replicate.replicator_client.ReplicatorClient.verify_transfer">[docs]</a>    <span class="k">def</span> <span class="nf">verify_transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job</span><span class="p">:</span> <span class="n">ReplicationJob</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check that all objects to copy are present in the destination&quot;&quot;&quot;</span>
+        <span class="n">src_interface</span> <span class="o">=</span> <span class="n">ObjectStoreInterface</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">source_region</span><span class="p">,</span> <span class="n">job</span><span class="o">.</span><span class="n">source_bucket</span><span class="p">)</span>
+        <span class="n">dst_interface</span> <span class="o">=</span> <span class="n">ObjectStoreInterface</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">dest_region</span><span class="p">,</span> <span class="n">job</span><span class="o">.</span><span class="n">dest_bucket</span><span class="p">)</span>
+
+        <span class="c1"># only check metadata (src.size == dst.size) &amp;&amp; (src.modified &lt;= dst.modified)</span>
+        <span class="k">def</span> <span class="nf">verify</span><span class="p">(</span><span class="n">tup</span><span class="p">):</span>
+            <span class="n">src_key</span><span class="p">,</span> <span class="n">dst_key</span> <span class="o">=</span> <span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">key</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">src_interface</span><span class="o">.</span><span class="n">get_obj_size</span><span class="p">(</span><span class="n">src_key</span><span class="p">)</span> <span class="o">!=</span> <span class="n">dst_interface</span><span class="o">.</span><span class="n">get_obj_size</span><span class="p">(</span><span class="n">dst_key</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+                <span class="k">elif</span> <span class="n">src_interface</span><span class="o">.</span><span class="n">get_obj_last_modified</span><span class="p">(</span><span class="n">src_key</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">dst_interface</span><span class="o">.</span><span class="n">get_obj_last_modified</span><span class="p">(</span><span class="n">dst_key</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">False</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">except</span> <span class="n">NoSuchObjectException</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="c1"># verify that all objects in src_interface are present in dst_interface</span>
+        <span class="n">matches</span> <span class="o">=</span> <span class="n">do_parallel</span><span class="p">(</span><span class="n">verify</span><span class="p">,</span> <span class="n">job</span><span class="o">.</span><span class="n">transfer_pairs</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">spinner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">spinner_persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Verifying transfer&quot;</span><span class="p">)</span>
+        <span class="n">failed_src_objs</span> <span class="o">=</span> <span class="p">[</span><span class="n">src_key</span> <span class="k">for</span> <span class="p">(</span><span class="n">src_key</span><span class="p">,</span> <span class="n">dst_key</span><span class="p">),</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">failed_src_objs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">TransferFailedException</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">failed_src_objs</span><span class="p">)</span><span class="si">}</span><span class="s2"> objects failed verification&quot;</span><span class="p">,</span>
+                <span class="n">failed_src_objs</span><span class="p">,</span>
+            <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="refresh_instance_list"><a class="viewcode-back" href="../../../skyplane_internal.html#skyplane.replicate.replicator_client.refresh_instance_list">[docs]</a><span class="k">def</span> <span class="nf">refresh_instance_list</span><span class="p">(</span><span class="n">provider</span><span class="p">:</span> <span class="n">CloudProvider</span><span class="p">,</span> <span class="n">region_list</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">instance_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Server</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="n">instance_filter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">instance_filter</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;skyplane&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">}}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">do_parallel</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">region</span><span class="p">:</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_matching_instances</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="o">**</span><span class="n">instance_filter</span><span class="p">),</span>
+        <span class="n">region_list</span><span class="p">,</span>
+        <span class="n">spinner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span>
+        <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Querying clouds for active instances&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">r</span><span class="p">:</span> <span class="n">ilist</span> <span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="n">ilist</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">if</span> <span class="n">ilist</span><span class="p">}</span></div>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021, The Skyplane authors
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/scripts/furo.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    </body>
+</html>

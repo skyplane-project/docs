@@ -216,8 +216,80 @@
         <article role="main">
           <section id="internal-package-documentation">
 <h1>Internal package documentation<a class="headerlink" href="#internal-package-documentation" title="Permalink to this heading">#</a></h1>
-<section id="skyplane-replicate-replicator-client-module">
-<h2>skyplane.replicate.replicator_client module<a class="headerlink" href="#skyplane-replicate-replicator-client-module" title="Permalink to this heading">#</a></h2>
+<section id="module-skyplane.replicate.replicator_client">
+<span id="skyplane-replicate-replicator-client-module"></span><h2>skyplane.replicate.replicator_client module<a class="headerlink" href="#module-skyplane.replicate.replicator_client" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyplane.replicate.replicator_client.ReplicatorClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyplane.replicate.replicator_client.</span></span><span class="sig-name descname"><span class="pre">ReplicatorClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topology</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gateway_docker_image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ghcr.io/skyplane-project/skyplane:latest'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aws_instance_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'m5.4xlarge'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azure_instance_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Standard_D2_v5'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_instance_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'n2-standard-16'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcp_use_premium_network</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/replicate/replicator_client.html#ReplicatorClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.replicate.replicator_client.ReplicatorClient" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.replicate.replicator_client.ReplicatorClient.check_error_logs">
+<span class="sig-name descname"><span class="pre">check_error_logs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/replicate/replicator_client.html#ReplicatorClient.check_error_logs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.replicate.replicator_client.ReplicatorClient.check_error_logs" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.replicate.replicator_client.ReplicatorClient.deprovision_gateways">
+<span class="sig-name descname"><span class="pre">deprovision_gateways</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/replicate/replicator_client.html#ReplicatorClient.deprovision_gateways"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.replicate.replicator_client.ReplicatorClient.deprovision_gateways" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.replicate.replicator_client.ReplicatorClient.get_chunk_status_log_df">
+<span class="sig-name descname"><span class="pre">get_chunk_status_log_df</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/replicate/replicator_client.html#ReplicatorClient.get_chunk_status_log_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.replicate.replicator_client.ReplicatorClient.get_chunk_status_log_df" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.replicate.replicator_client.ReplicatorClient.monitor_transfer">
+<span class="sig-name descname"><span class="pre">monitor_transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_spinner</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_interval_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_limit_seconds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cleanup_gateway</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_socket_profile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy_gateway_logs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multipart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/replicate/replicator_client.html#ReplicatorClient.monitor_transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.replicate.replicator_client.ReplicatorClient.monitor_transfer" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.replicate.replicator_client.ReplicatorClient.provision_gateways">
+<span class="sig-name descname"><span class="pre">provision_gateways</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reuse_instances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorize_ssh_pub_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_bbr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_e2ee</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_socket_tls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/replicate/replicator_client.html#ReplicatorClient.provision_gateways"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.replicate.replicator_client.ReplicatorClient.provision_gateways" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.replicate.replicator_client.ReplicatorClient.run_replication_plan">
+<span class="sig-name descname"><span class="pre">run_replication_plan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multipart_enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multipart_max_chunk_size_mb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/replicate/replicator_client.html#ReplicatorClient.run_replication_plan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.replicate.replicator_client.ReplicatorClient.run_replication_plan" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ReplicationJob</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyplane.replicate.replicator_client.ReplicatorClient.verify_transfer">
+<span class="sig-name descname"><span class="pre">verify_transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">job</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/replicate/replicator_client.html#ReplicatorClient.verify_transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.replicate.replicator_client.ReplicatorClient.verify_transfer" title="Permalink to this definition">#</a></dt>
+<dd><p>Check that all objects to copy are present in the destination</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyplane.replicate.replicator_client.refresh_instance_list">
+<span class="sig-prename descclassname"><span class="pre">skyplane.replicate.replicator_client.</span></span><span class="sig-name descname"><span class="pre">refresh_instance_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">provider</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skyplane/replicate/replicator_client.html#refresh_instance_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#skyplane.replicate.replicator_client.refresh_instance_list" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Server</span></code>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-skyplane.chunk">
 <span id="skyplane-chunk-module"></span><h2>skyplane.chunk module<a class="headerlink" href="#module-skyplane.chunk" title="Permalink to this heading">#</a></h2>
@@ -728,7 +800,7 @@ set self.__traceback__ to tb and return self.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Internal package documentation</a><ul>
-<li><a class="reference internal" href="#skyplane-replicate-replicator-client-module">skyplane.replicate.replicator_client module</a></li>
+<li><a class="reference internal" href="#module-skyplane.replicate.replicator_client">skyplane.replicate.replicator_client module</a></li>
 <li><a class="reference internal" href="#module-skyplane.chunk">skyplane.chunk module</a></li>
 <li><a class="reference internal" href="#module-skyplane.config">skyplane.config module</a></li>
 <li><a class="reference internal" href="#module-skyplane.exceptions">skyplane.exceptions module</a></li>

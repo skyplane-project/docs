@@ -139,7 +139,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -208,7 +208,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -216,6 +216,1459 @@
         <article role="main">
           <section id="internal-cli-documentation">
 <h1>Internal CLI documentation<a class="headerlink" href="#internal-cli-documentation" title="Permalink to this heading">#</a></h1>
+<section id="skyplane">
+<h2>skyplane<a class="headerlink" href="#skyplane" title="Permalink to this heading">#</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-install-completion">
+<span class="sig-name descname"><span class="pre">--install-completion</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;install_completion&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-install-completion" title="Permalink to this definition">#</a></dt>
+<dd><p>Install completion for the specified shell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p>bash | zsh | fish | powershell | pwsh</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-show-completion">
+<span class="sig-name descname"><span class="pre">--show-completion</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;show_completion&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-show-completion" title="Permalink to this definition">#</a></dt>
+<dd><p>Show completion for the specified shell, to copy it or customize the installation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><p>bash | zsh | fish | powershell | pwsh</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="skyplane-aws">
+<h3>aws<a class="headerlink" href="#skyplane-aws" title="Permalink to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane aws <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="skyplane-aws-cp-datasync">
+<h4>cp-datasync<a class="headerlink" href="#skyplane-aws-cp-datasync" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane aws cp-datasync <span class="o">[</span>OPTIONS<span class="o">]</span> SRC_BUCKET DST_BUCKET PATH
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-aws-cp-datasync-arg-SRC_BUCKET">
+<span id="cmdoption-skyplane-aws-cp-datasync-arg-src-bucket"></span><span class="sig-name descname"><span class="pre">SRC_BUCKET</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-aws-cp-datasync-arg-SRC_BUCKET" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-aws-cp-datasync-arg-DST_BUCKET">
+<span id="cmdoption-skyplane-aws-cp-datasync-arg-dst-bucket"></span><span class="sig-name descname"><span class="pre">DST_BUCKET</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-aws-cp-datasync-arg-DST_BUCKET" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-aws-cp-datasync-arg-PATH">
+<span id="cmdoption-skyplane-aws-cp-datasync-arg-path"></span><span class="sig-name descname"><span class="pre">PATH</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-aws-cp-datasync-arg-PATH" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="skyplane-aws-vcpu-limits">
+<h4>vcpu-limits<a class="headerlink" href="#skyplane-aws-vcpu-limits" title="Permalink to this heading">#</a></h4>
+<p>List the vCPU limits for each region.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane aws vcpu-limits <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-aws-vcpu-limits-quota-code">
+<span class="sig-name descname"><span class="pre">--quota-code</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;quota_code&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-aws-vcpu-limits-quota-code" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>L-1216C47A</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="skyplane-azure">
+<h3>azure<a class="headerlink" href="#skyplane-azure" title="Permalink to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane azure <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="skyplane-azure-get-valid-skus">
+<h4>get-valid-skus<a class="headerlink" href="#skyplane-azure-get-valid-skus" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane azure get-valid-skus <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-azure-get-valid-skus-r">
+<span id="cmdoption-skyplane-azure-get-valid-skus-regions"></span><span class="sig-name descname"><span class="pre">-r</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--regions</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;regions&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-azure-get-valid-skus-r" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-azure-get-valid-skus-prefix">
+<span class="sig-name descname"><span class="pre">--prefix</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;prefix&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-azure-get-valid-skus-prefix" title="Permalink to this definition">#</a></dt>
+<dd><p>Filter by prefix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-azure-get-valid-skus-top-k">
+<span class="sig-name descname"><span class="pre">--top-k</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;top_k&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-azure-get-valid-skus-top-k" title="Permalink to this definition">#</a></dt>
+<dd><p>Print top k entries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>-1</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="skyplane-config">
+<h3>config<a class="headerlink" href="#skyplane-config" title="Permalink to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane config <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="skyplane-config-get">
+<h4>get<a class="headerlink" href="#skyplane-config-get" title="Permalink to this heading">#</a></h4>
+<p>Get a config value.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane config get <span class="o">[</span>OPTIONS<span class="o">]</span> KEY
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-config-get-arg-KEY">
+<span id="cmdoption-skyplane-config-get-arg-key"></span><span class="sig-name descname"><span class="pre">KEY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-config-get-arg-KEY" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="skyplane-config-list">
+<h4>list<a class="headerlink" href="#skyplane-config-list" title="Permalink to this heading">#</a></h4>
+<p>List all available config keys</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane config list <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="skyplane-config-set">
+<h4>set<a class="headerlink" href="#skyplane-config-set" title="Permalink to this heading">#</a></h4>
+<p>Set a config value.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane config <span class="nb">set</span> <span class="o">[</span>OPTIONS<span class="o">]</span> KEY VALUE
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-config-set-arg-KEY">
+<span id="cmdoption-skyplane-config-set-arg-key"></span><span class="sig-name descname"><span class="pre">KEY</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-config-set-arg-KEY" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-config-set-arg-VALUE">
+<span id="cmdoption-skyplane-config-set-arg-value"></span><span class="sig-name descname"><span class="pre">VALUE</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-config-set-arg-VALUE" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="skyplane-cp">
+<h3>cp<a class="headerlink" href="#skyplane-cp" title="Permalink to this heading">#</a></h3>
+<p><cite>cp</cite> copies a file or folder from one location to another. If the source is on an object store,
+it will copy all objects with that prefix. If it is a local path, it will copy the entire file
+or directory tree.</p>
+<p>By default, it will copy objects using a direct connection between instances. However, if you would
+like to use the solver, call <cite>–solve</cite>. Note that the solver requires a throughput grid file to be
+specified. We provide a default one but it may be out-of-date.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param src</dt>
+<dd class="field-odd"><p>Source prefix to copy from</p>
+</dd>
+<dt class="field-even">type src</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">param dst</dt>
+<dd class="field-odd"><p>The destination of the transfer</p>
+</dd>
+<dt class="field-even">type dst</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">param recursive</dt>
+<dd class="field-odd"><p>If true, will copy objects at folder prefix recursively</p>
+</dd>
+<dt class="field-even">type recursive</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param reuse_gateways</dt>
+<dd class="field-odd"><p>If true, will leave provisioned instances running to be reused. You must run <cite>skyplane deprovision</cite> to clean up.</p>
+</dd>
+<dt class="field-even">type reuse_gateways</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param debug</dt>
+<dd class="field-odd"><p>If true, will write debug information to debug directory.</p>
+</dd>
+<dt class="field-even">type debug</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param multipart</dt>
+<dd class="field-odd"><p>If true, will use multipart uploads.</p>
+</dd>
+<dt class="field-even">type multipart</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param confirm</dt>
+<dd class="field-odd"><p>If true, will not prompt for confirmation of transfer.</p>
+</dd>
+<dt class="field-even">type confirm</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param max_instances</dt>
+<dd class="field-odd"><p>The maximum number of instances to use per region (default: 1)</p>
+</dd>
+<dt class="field-even">type max_instances</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">param solve</dt>
+<dd class="field-odd"><p>If true, will use solver to optimize transfer, else direct path is chosen</p>
+</dd>
+<dt class="field-even">type solve</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param solver_required_throughput_gbits</dt>
+<dd class="field-odd"><p>The required throughput in Gbps when using the solver (default: 4)</p>
+</dd>
+<dt class="field-even">type solver_required_throughput_gbits</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+<dt class="field-odd">param solver_throughput_grid</dt>
+<dd class="field-odd"><p>The throughput grid profile to use for the solver, defaults to author-provided profile</p>
+</dd>
+<dt class="field-even">type solver_throughput_grid</dt>
+<dd class="field-even"><p>Path</p>
+</dd>
+<dt class="field-odd">param solver_verbose</dt>
+<dd class="field-odd"><p>If true, will print out the solver’s output, defaults to False</p>
+</dd>
+<dt class="field-even">type solver_verbose</dt>
+<dd class="field-even"><p>bool (optional)</p>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane cp <span class="o">[</span>OPTIONS<span class="o">]</span> SRC DST
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-r">
+<span id="cmdoption-skyplane-cp-recursive"></span><span class="sig-name descname"><span class="pre">-r</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--recursive</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-cp-r" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will copy objects at folder prefix recursively</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-reuse-gateways">
+<span id="cmdoption-skyplane-cp-no-reuse-gateways"></span><span class="sig-name descname"><span class="pre">--reuse-gateways</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-reuse-gateways</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-cp-reuse-gateways" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will leave provisioned instances running to be reused</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-debug">
+<span id="cmdoption-skyplane-cp-no-debug"></span><span class="sig-name descname"><span class="pre">--debug</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-debug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-cp-debug" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will write debug information to debug directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-multipart">
+<span id="cmdoption-skyplane-cp-no-multipart"></span><span class="sig-name descname"><span class="pre">--multipart</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-multipart</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-cp-multipart" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will use multipart uploads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-y">
+<span id="cmdoption-skyplane-cp-f"></span><span id="cmdoption-skyplane-cp-confirm"></span><span class="sig-name descname"><span class="pre">-y</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-f</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--confirm</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-cp-y" title="Permalink to this definition">#</a></dt>
+<dd><p>Confirm all transfer prompts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-n">
+<span id="cmdoption-skyplane-cp-max-instances"></span><span class="sig-name descname"><span class="pre">-n</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--max-instances</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;max_instances&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-cp-n" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of gateways</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-solve">
+<span id="cmdoption-skyplane-cp-no-solve"></span><span class="sig-name descname"><span class="pre">--solve</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-solve</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-cp-solve" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will use solver to optimize transfer, else direct path is chosen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-solver-required-throughput-gbits">
+<span class="sig-name descname"><span class="pre">--solver-required-throughput-gbits</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;solver_required_throughput_gbits&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-cp-solver-required-throughput-gbits" title="Permalink to this definition">#</a></dt>
+<dd><p>Solver option: Required throughput in Gbps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>4</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-throughput-grid">
+<span class="sig-name descname"><span class="pre">--throughput-grid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;solver_throughput_grid&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-cp-throughput-grid" title="Permalink to this definition">#</a></dt>
+<dd><p>Throughput grid file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>/github/workspace/profiles/throughput.csv</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-solver-verbose">
+<span id="cmdoption-skyplane-cp-no-solver-verbose"></span><span class="sig-name descname"><span class="pre">--solver-verbose</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-solver-verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-cp-solver-verbose" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-arg-SRC">
+<span id="cmdoption-skyplane-cp-arg-src"></span><span class="sig-name descname"><span class="pre">SRC</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-cp-arg-SRC" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-cp-arg-DST">
+<span id="cmdoption-skyplane-cp-arg-dst"></span><span class="sig-name descname"><span class="pre">DST</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-cp-arg-DST" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="skyplane-deprovision">
+<h3>deprovision<a class="headerlink" href="#skyplane-deprovision" title="Permalink to this heading">#</a></h3>
+<p>Deprovision all resources created by skyplane.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane deprovision <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="skyplane-experiments">
+<h3>experiments<a class="headerlink" href="#skyplane-experiments" title="Permalink to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane experiments <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="skyplane-experiments-dump-full-util-cost-grid">
+<h4>dump-full-util-cost-grid<a class="headerlink" href="#skyplane-experiments-dump-full-util-cost-grid" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane experiments dump-full-util-cost-grid <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-dump-full-util-cost-grid-throughput-grid">
+<span class="sig-name descname"><span class="pre">--throughput-grid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;throughput_grid&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-dump-full-util-cost-grid-throughput-grid" title="Permalink to this definition">#</a></dt>
+<dd><p>Throughput grid file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>/github/workspace/profiles/throughput.csv</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="skyplane-experiments-get-max-throughput">
+<h4>get-max-throughput<a class="headerlink" href="#skyplane-experiments-get-max-throughput" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane experiments get-max-throughput <span class="o">[</span>OPTIONS<span class="o">]</span> REGION_TAG
+</pre></div>
+</div>
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-get-max-throughput-arg-REGION_TAG">
+<span id="cmdoption-skyplane-experiments-get-max-throughput-arg-region-tag"></span><span class="sig-name descname"><span class="pre">REGION_TAG</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-get-max-throughput-arg-REGION_TAG" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="skyplane-experiments-latency-grid">
+<h4>latency-grid<a class="headerlink" href="#skyplane-experiments-latency-grid" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane experiments latency-grid <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-aws">
+<span class="sig-name descname"><span class="pre">-aws</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;aws_region_list&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-aws" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-azure">
+<span class="sig-name descname"><span class="pre">-azure</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;azure_region_list&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-azure" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-gcp">
+<span class="sig-name descname"><span class="pre">-gcp</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gcp_region_list&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-gcp" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-gcp-standard">
+<span class="sig-name descname"><span class="pre">-gcp-standard</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gcp_standard_region_list&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-gcp-standard" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-enable-aws">
+<span id="cmdoption-skyplane-experiments-latency-grid-no-enable-aws"></span><span class="sig-name descname"><span class="pre">--enable-aws</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-enable-aws</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-enable-aws" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-enable-azure">
+<span id="cmdoption-skyplane-experiments-latency-grid-no-enable-azure"></span><span class="sig-name descname"><span class="pre">--enable-azure</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-enable-azure</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-enable-azure" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-enable-gcp">
+<span id="cmdoption-skyplane-experiments-latency-grid-no-enable-gcp"></span><span class="sig-name descname"><span class="pre">--enable-gcp</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-enable-gcp</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-enable-gcp" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-enable-gcp-standard">
+<span id="cmdoption-skyplane-experiments-latency-grid-no-enable-gcp-standard"></span><span class="sig-name descname"><span class="pre">--enable-gcp-standard</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-enable-gcp-standard</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-enable-gcp-standard" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-aws-instance-class">
+<span class="sig-name descname"><span class="pre">--aws-instance-class</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;aws_instance_class&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-aws-instance-class" title="Permalink to this definition">#</a></dt>
+<dd><p>AWS instance class to use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>m5.large</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-azure-instance-class">
+<span class="sig-name descname"><span class="pre">--azure-instance-class</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;azure_instance_class&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-azure-instance-class" title="Permalink to this definition">#</a></dt>
+<dd><p>Azure instance class to use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>Standard_D2_v3</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-latency-grid-gcp-instance-class">
+<span class="sig-name descname"><span class="pre">--gcp-instance-class</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gcp_instance_class&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-latency-grid-gcp-instance-class" title="Permalink to this definition">#</a></dt>
+<dd><p>GCP instance class to use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>n2-standard-4</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="skyplane-experiments-throughput-grid">
+<h4>throughput-grid<a class="headerlink" href="#skyplane-experiments-throughput-grid" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane experiments throughput-grid <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-resume">
+<span class="sig-name descname"><span class="pre">--resume</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;resume&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-resume" title="Permalink to this definition">#</a></dt>
+<dd><p>Resume from a past result. Pass the resulting CSV for the past result to resume. Default is None.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-copy-resume-file">
+<span id="cmdoption-skyplane-experiments-throughput-grid-no-copy-resume-file"></span><span class="sig-name descname"><span class="pre">--copy-resume-file</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-copy-resume-file</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-copy-resume-file" title="Permalink to this definition">#</a></dt>
+<dd><p>Copy the resume file to the output CSV. Default is True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-aws">
+<span class="sig-name descname"><span class="pre">-aws</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;aws_region_list&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-aws" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-azure">
+<span class="sig-name descname"><span class="pre">-azure</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;azure_region_list&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-azure" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-gcp">
+<span class="sig-name descname"><span class="pre">-gcp</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gcp_region_list&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-gcp" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-gcp-standard">
+<span class="sig-name descname"><span class="pre">-gcp-standard</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gcp_standard_region_list&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-gcp-standard" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-enable-aws">
+<span id="cmdoption-skyplane-experiments-throughput-grid-no-enable-aws"></span><span class="sig-name descname"><span class="pre">--enable-aws</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-enable-aws</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-enable-aws" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-enable-azure">
+<span id="cmdoption-skyplane-experiments-throughput-grid-no-enable-azure"></span><span class="sig-name descname"><span class="pre">--enable-azure</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-enable-azure</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-enable-azure" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-enable-gcp">
+<span id="cmdoption-skyplane-experiments-throughput-grid-no-enable-gcp"></span><span class="sig-name descname"><span class="pre">--enable-gcp</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-enable-gcp</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-enable-gcp" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-enable-gcp-standard">
+<span id="cmdoption-skyplane-experiments-throughput-grid-no-enable-gcp-standard"></span><span class="sig-name descname"><span class="pre">--enable-gcp-standard</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-enable-gcp-standard</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-enable-gcp-standard" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-aws-instance-class">
+<span class="sig-name descname"><span class="pre">--aws-instance-class</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;aws_instance_class&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-aws-instance-class" title="Permalink to this definition">#</a></dt>
+<dd><p>AWS instance class to use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>m5.8xlarge</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-azure-instance-class">
+<span class="sig-name descname"><span class="pre">--azure-instance-class</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;azure_instance_class&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-azure-instance-class" title="Permalink to this definition">#</a></dt>
+<dd><p>Azure instance class to use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>Standard_D32_v5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-gcp-instance-class">
+<span class="sig-name descname"><span class="pre">--gcp-instance-class</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gcp_instance_class&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-gcp-instance-class" title="Permalink to this definition">#</a></dt>
+<dd><p>GCP instance class to use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>n2-standard-32</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-iperf3-runtime">
+<span class="sig-name descname"><span class="pre">--iperf3-runtime</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;iperf3_runtime&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-iperf3-runtime" title="Permalink to this definition">#</a></dt>
+<dd><p>Runtime for iperf3 in seconds</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-throughput-grid-iperf3-connections">
+<span class="sig-name descname"><span class="pre">--iperf3-connections</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;iperf3_connections&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-throughput-grid-iperf3-connections" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of connections to test</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>64</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="skyplane-experiments-util-grid-cost">
+<h4>util-grid-cost<a class="headerlink" href="#skyplane-experiments-util-grid-cost" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane experiments util-grid-cost <span class="o">[</span>OPTIONS<span class="o">]</span> SRC DEST
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-cost-src-tier">
+<span class="sig-name descname"><span class="pre">--src-tier</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;src_tier&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-cost-src-tier" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>PREMIUM</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-cost-dest-tier">
+<span class="sig-name descname"><span class="pre">--dest-tier</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dest_tier&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-cost-dest-tier" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>PREMIUM</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-cost-throughput-grid">
+<span class="sig-name descname"><span class="pre">--throughput-grid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;throughput_grid&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-cost-throughput-grid" title="Permalink to this definition">#</a></dt>
+<dd><p>Throughput grid file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>/github/workspace/profiles/throughput.csv</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-cost-arg-SRC">
+<span id="cmdoption-skyplane-experiments-util-grid-cost-arg-src"></span><span class="sig-name descname"><span class="pre">SRC</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-cost-arg-SRC" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-cost-arg-DEST">
+<span id="cmdoption-skyplane-experiments-util-grid-cost-arg-dest"></span><span class="sig-name descname"><span class="pre">DEST</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-cost-arg-DEST" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="skyplane-experiments-util-grid-throughput">
+<h4>util-grid-throughput<a class="headerlink" href="#skyplane-experiments-util-grid-throughput" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane experiments util-grid-throughput <span class="o">[</span>OPTIONS<span class="o">]</span> SRC DEST
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-throughput-src-tier">
+<span class="sig-name descname"><span class="pre">--src-tier</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;src_tier&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-throughput-src-tier" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>PREMIUM</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-throughput-dest-tier">
+<span class="sig-name descname"><span class="pre">--dest-tier</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dest_tier&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-throughput-dest-tier" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>PREMIUM</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-throughput-throughput-grid">
+<span class="sig-name descname"><span class="pre">--throughput-grid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;throughput_grid&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-throughput-throughput-grid" title="Permalink to this definition">#</a></dt>
+<dd><p>Throughput grid file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>/github/workspace/profiles/throughput.csv</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-throughput-arg-SRC">
+<span id="cmdoption-skyplane-experiments-util-grid-throughput-arg-src"></span><span class="sig-name descname"><span class="pre">SRC</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-throughput-arg-SRC" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-experiments-util-grid-throughput-arg-DEST">
+<span id="cmdoption-skyplane-experiments-util-grid-throughput-arg-dest"></span><span class="sig-name descname"><span class="pre">DEST</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-experiments-util-grid-throughput-arg-DEST" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="skyplane-init">
+<h3>init<a class="headerlink" href="#skyplane-init" title="Permalink to this heading">#</a></h3>
+<p>It loads the configuration file, and if it doesn’t exist, it creates a default one. Then it creates
+AWS, Azure, and GCP region list configurations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param reinit_azure</dt>
+<dd class="field-odd"><p>If true, will reinitialize the Azure region list and credentials</p>
+</dd>
+<dt class="field-even">type reinit_azure</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param reinit_gcp</dt>
+<dd class="field-odd"><p>If true, will reinitialize the GCP region list and credentials</p>
+</dd>
+<dt class="field-even">type reinit_gcp</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane init <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-init-y">
+<span id="cmdoption-skyplane-init-non-interactive"></span><span class="sig-name descname"><span class="pre">-y</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--non-interactive</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-init-y" title="Permalink to this definition">#</a></dt>
+<dd><p>Run non-interactively</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-init-reinit-azure">
+<span id="cmdoption-skyplane-init-no-reinit-azure"></span><span class="sig-name descname"><span class="pre">--reinit-azure</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-reinit-azure</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-init-reinit-azure" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-init-reinit-gcp">
+<span id="cmdoption-skyplane-init-no-reinit-gcp"></span><span class="sig-name descname"><span class="pre">--reinit-gcp</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-reinit-gcp</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-init-reinit-gcp" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="skyplane-replicate-random">
+<h3>replicate-random<a class="headerlink" href="#skyplane-replicate-random" title="Permalink to this heading">#</a></h3>
+<p>Replicate objects from remote object store to another remote object store.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane replicate-random <span class="o">[</span>OPTIONS<span class="o">]</span> SRC_REGION DST_REGION <span class="o">[</span>INTER_REGION<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-n">
+<span id="cmdoption-skyplane-replicate-random-num-gateways"></span><span class="sig-name descname"><span class="pre">-n</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--num-gateways</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;num_gateways&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-n" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of gateways</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-c">
+<span id="cmdoption-skyplane-replicate-random-num-outgoing-connections"></span><span class="sig-name descname"><span class="pre">-c</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--num-outgoing-connections</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;num_outgoing_connections&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-c" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of outgoing connections between each gateway</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>32</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-s">
+<span id="cmdoption-skyplane-replicate-random-size-total-mb"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--size-total-mb</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;total_transfer_size_mb&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-s" title="Permalink to this definition">#</a></dt>
+<dd><p>Total transfer size in MB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>2048</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-chunk-size-mb">
+<span class="sig-name descname"><span class="pre">--chunk-size-mb</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;chunk_size_mb&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-chunk-size-mb" title="Permalink to this definition">#</a></dt>
+<dd><p>Chunk size in MB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>8</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-use-bbr">
+<span id="cmdoption-skyplane-replicate-random-no-use-bbr"></span><span class="sig-name descname"><span class="pre">--use-bbr</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-use-bbr</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-use-bbr" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will use BBR congestion control</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-reuse-gateways">
+<span id="cmdoption-skyplane-replicate-random-no-reuse-gateways"></span><span class="sig-name descname"><span class="pre">--reuse-gateways</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-reuse-gateways</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-reuse-gateways" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-debug">
+<span id="cmdoption-skyplane-replicate-random-no-debug"></span><span class="sig-name descname"><span class="pre">--debug</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-debug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-debug" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-arg-SRC_REGION">
+<span id="cmdoption-skyplane-replicate-random-arg-src-region"></span><span class="sig-name descname"><span class="pre">SRC_REGION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-arg-SRC_REGION" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-arg-DST_REGION">
+<span id="cmdoption-skyplane-replicate-random-arg-dst-region"></span><span class="sig-name descname"><span class="pre">DST_REGION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-arg-DST_REGION" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-arg-INTER_REGION">
+<span id="cmdoption-skyplane-replicate-random-arg-inter-region"></span><span class="sig-name descname"><span class="pre">INTER_REGION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-arg-INTER_REGION" title="Permalink to this definition">#</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="skyplane-replicate-random-solve">
+<h3>replicate-random-solve<a class="headerlink" href="#skyplane-replicate-random-solve" title="Permalink to this heading">#</a></h3>
+<p>Replicate objects from remote object store to another remote object store.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane replicate-random-solve <span class="o">[</span>OPTIONS<span class="o">]</span> SRC_REGION DST_REGION <span class="o">[</span>INTER_REGION<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-n">
+<span id="cmdoption-skyplane-replicate-random-solve-num-gateways"></span><span class="sig-name descname"><span class="pre">-n</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--num-gateways</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;num_gateways&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-n" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of gateways</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-c">
+<span id="cmdoption-skyplane-replicate-random-solve-num-outgoing-connections"></span><span class="sig-name descname"><span class="pre">-c</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--num-outgoing-connections</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;num_outgoing_connections&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-c" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of outgoing connections between each gateway</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>32</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-s">
+<span id="cmdoption-skyplane-replicate-random-solve-size-total-mb"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--size-total-mb</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;total_transfer_size_mb&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-s" title="Permalink to this definition">#</a></dt>
+<dd><p>Total transfer size in MB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>2048</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-chunk-size-mb">
+<span class="sig-name descname"><span class="pre">--chunk-size-mb</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;chunk_size_mb&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-chunk-size-mb" title="Permalink to this definition">#</a></dt>
+<dd><p>Chunk size in MB.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>8</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-use-bbr">
+<span id="cmdoption-skyplane-replicate-random-solve-no-use-bbr"></span><span class="sig-name descname"><span class="pre">--use-bbr</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-use-bbr</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-use-bbr" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will use BBR congestion control</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-reuse-gateways">
+<span id="cmdoption-skyplane-replicate-random-solve-no-reuse-gateways"></span><span class="sig-name descname"><span class="pre">--reuse-gateways</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-reuse-gateways</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-reuse-gateways" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-solve">
+<span id="cmdoption-skyplane-replicate-random-solve-no-solve"></span><span class="sig-name descname"><span class="pre">--solve</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-solve</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-solve" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will use solver to optimize transfer, else direct path is chosen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-solver-required-throughput-gbits">
+<span class="sig-name descname"><span class="pre">--solver-required-throughput-gbits</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;solver_required_throughput_gbits&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-solver-required-throughput-gbits" title="Permalink to this definition">#</a></dt>
+<dd><p>Solver option: Required throughput in gbps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>2</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-throughput-grid">
+<span class="sig-name descname"><span class="pre">--throughput-grid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;solver_throughput_grid&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-throughput-grid" title="Permalink to this definition">#</a></dt>
+<dd><p>Throughput grid file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>/github/workspace/profiles/throughput.csv</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-solver-verbose">
+<span id="cmdoption-skyplane-replicate-random-solve-no-solver-verbose"></span><span class="sig-name descname"><span class="pre">--solver-verbose</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-solver-verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-solver-verbose" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-debug">
+<span id="cmdoption-skyplane-replicate-random-solve-no-debug"></span><span class="sig-name descname"><span class="pre">--debug</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-debug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-debug" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-arg-SRC_REGION">
+<span id="cmdoption-skyplane-replicate-random-solve-arg-src-region"></span><span class="sig-name descname"><span class="pre">SRC_REGION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-arg-SRC_REGION" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-arg-DST_REGION">
+<span id="cmdoption-skyplane-replicate-random-solve-arg-dst-region"></span><span class="sig-name descname"><span class="pre">DST_REGION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-arg-DST_REGION" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-replicate-random-solve-arg-INTER_REGION">
+<span id="cmdoption-skyplane-replicate-random-solve-arg-inter-region"></span><span class="sig-name descname"><span class="pre">INTER_REGION</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-replicate-random-solve-arg-INTER_REGION" title="Permalink to this definition">#</a></dt>
+<dd><p>Optional argument</p>
+</dd></dl>
+
+</section>
+<section id="skyplane-solver">
+<h3>solver<a class="headerlink" href="#skyplane-solver" title="Permalink to this heading">#</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane solver <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<section id="skyplane-solver-solve-single-hop">
+<h4>solve-single-hop<a class="headerlink" href="#skyplane-solver-solve-single-hop" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane solver solve-single-hop <span class="o">[</span>OPTIONS<span class="o">]</span> SRC DST
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-single-hop-throughput-grid">
+<span class="sig-name descname"><span class="pre">--throughput-grid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;throughput_grid&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-single-hop-throughput-grid" title="Permalink to this definition">#</a></dt>
+<dd><p>Throughput grid file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>/github/workspace/profiles/throughput.csv</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-single-hop-gbyte-to-transfer">
+<span class="sig-name descname"><span class="pre">--gbyte-to-transfer</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gbyte_to_transfer&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-single-hop-gbyte-to-transfer" title="Permalink to this definition">#</a></dt>
+<dd><p>Gigabytes to transfer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-single-hop-o">
+<span id="cmdoption-skyplane-solver-solve-single-hop-out"></span><span class="sig-name descname"><span class="pre">-o</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--out</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;out&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-single-hop-o" title="Permalink to this definition">#</a></dt>
+<dd><p>Output file for path.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-single-hop-arg-SRC">
+<span id="cmdoption-skyplane-solver-solve-single-hop-arg-src"></span><span class="sig-name descname"><span class="pre">SRC</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-single-hop-arg-SRC" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-single-hop-arg-DST">
+<span id="cmdoption-skyplane-solver-solve-single-hop-arg-dst"></span><span class="sig-name descname"><span class="pre">DST</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-single-hop-arg-DST" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+<section id="skyplane-solver-solve-throughput">
+<h4>solve-throughput<a class="headerlink" href="#skyplane-solver-solve-throughput" title="Permalink to this heading">#</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane solver solve-throughput <span class="o">[</span>OPTIONS<span class="o">]</span> SRC DST REQUIRED_THROUGHPUT_GBITS
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-throughput-gbyte-to-transfer">
+<span class="sig-name descname"><span class="pre">--gbyte-to-transfer</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gbyte_to_transfer&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-throughput-gbyte-to-transfer" title="Permalink to this definition">#</a></dt>
+<dd><p>Gigabytes to transfer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-throughput-max-instances">
+<span class="sig-name descname"><span class="pre">--max-instances</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;max_instances&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-throughput-max-instances" title="Permalink to this definition">#</a></dt>
+<dd><p>Max number of instances per overlay region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-throughput-throughput-grid">
+<span class="sig-name descname"><span class="pre">--throughput-grid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;throughput_grid&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-throughput-throughput-grid" title="Permalink to this definition">#</a></dt>
+<dd><p>Throughput grid file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>/github/workspace/profiles/throughput.csv</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-throughput-solver-verbose">
+<span id="cmdoption-skyplane-solver-solve-throughput-no-solver-verbose"></span><span class="sig-name descname"><span class="pre">--solver-verbose</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-solver-verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-throughput-solver-verbose" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-throughput-o">
+<span id="cmdoption-skyplane-solver-solve-throughput-out"></span><span class="sig-name descname"><span class="pre">-o</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--out</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;out&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-throughput-o" title="Permalink to this definition">#</a></dt>
+<dd><p>Output file for path.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-throughput-visualize">
+<span id="cmdoption-skyplane-solver-solve-throughput-no-visualize"></span><span class="sig-name descname"><span class="pre">--visualize</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-visualize</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-throughput-visualize" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-throughput-arg-SRC">
+<span id="cmdoption-skyplane-solver-solve-throughput-arg-src"></span><span class="sig-name descname"><span class="pre">SRC</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-throughput-arg-SRC" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-throughput-arg-DST">
+<span id="cmdoption-skyplane-solver-solve-throughput-arg-dst"></span><span class="sig-name descname"><span class="pre">DST</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-throughput-arg-DST" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-solver-solve-throughput-arg-REQUIRED_THROUGHPUT_GBITS">
+<span id="cmdoption-skyplane-solver-solve-throughput-arg-required-throughput-gbits"></span><span class="sig-name descname"><span class="pre">REQUIRED_THROUGHPUT_GBITS</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-solver-solve-throughput-arg-REQUIRED_THROUGHPUT_GBITS" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+</section>
+<section id="skyplane-ssh">
+<h3>ssh<a class="headerlink" href="#skyplane-ssh" title="Permalink to this heading">#</a></h3>
+<p>SSH into a running gateway.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane ssh <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="skyplane-sync">
+<h3>sync<a class="headerlink" href="#skyplane-sync" title="Permalink to this heading">#</a></h3>
+<p>‘sync` synchronizes files or folders from one location to another. If the source is on an object store,
+it will copy all objects with that prefix. If it is a local path, it will copy the entire file
+or directory tree.</p>
+<p>By default, it will copy objects using a direct connection between instances. However, if you would
+like to use the solver, call <cite>–solve</cite>. Note that the solver requires a throughput grid file to be
+specified. We provide a default one but it may be out-of-date.</p>
+<p>For each file in the source, it is copied over if the file does not exist in the destination, it has
+a different size in the destination, or if the source version of the file was more recently modified
+than the destination. This behavior is similar to ‘aws sync’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">param src</dt>
+<dd class="field-odd"><p>Source prefix to copy from</p>
+</dd>
+<dt class="field-even">type src</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">param dst</dt>
+<dd class="field-odd"><p>The destination of the transfer</p>
+</dd>
+<dt class="field-even">type dst</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">param recursive</dt>
+<dd class="field-odd"><p>If true, will copy objects at folder prefix recursively</p>
+</dd>
+<dt class="field-even">type recursive</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param reuse_gateways</dt>
+<dd class="field-odd"><p>If true, will leave provisioned instances running to be reused. You must run <cite>skyplane deprovision</cite> to clean up.</p>
+</dd>
+<dt class="field-even">type reuse_gateways</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param debug</dt>
+<dd class="field-odd"><p>If true, will write debug information to debug directory.</p>
+</dd>
+<dt class="field-even">type debug</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param multipart</dt>
+<dd class="field-odd"><p>If true, will use multipart uploads.</p>
+</dd>
+<dt class="field-even">type multipart</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param confirm</dt>
+<dd class="field-odd"><p>If true, will not prompt for confirmation of transfer.</p>
+</dd>
+<dt class="field-even">type confirm</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param max_instances</dt>
+<dd class="field-odd"><p>The maximum number of instances to use per region (default: 1)</p>
+</dd>
+<dt class="field-even">type max_instances</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">param solve</dt>
+<dd class="field-odd"><p>If true, will use solver to optimize transfer, else direct path is chosen</p>
+</dd>
+<dt class="field-even">type solve</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">param solver_required_throughput_gbits</dt>
+<dd class="field-odd"><p>The required throughput in Gbps when using the solver (default: 4)</p>
+</dd>
+<dt class="field-even">type solver_required_throughput_gbits</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+<dt class="field-odd">param solver_throughput_grid</dt>
+<dd class="field-odd"><p>The throughput grid profile to use for the solver, defaults to author-provided profile</p>
+</dd>
+<dt class="field-even">type solver_throughput_grid</dt>
+<dd class="field-even"><p>Path</p>
+</dd>
+<dt class="field-odd">param solver_verbose</dt>
+<dd class="field-odd"><p>If true, will print out the solver’s output, defaults to False</p>
+</dd>
+<dt class="field-even">type solver_verbose</dt>
+<dd class="field-even"><p>bool (optional)</p>
+</dd>
+</dl>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>skyplane sync <span class="o">[</span>OPTIONS<span class="o">]</span> SRC DST
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-r">
+<span id="cmdoption-skyplane-sync-recursive"></span><span class="sig-name descname"><span class="pre">-r</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--recursive</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-sync-r" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will copy objects at folder prefix recursively</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-reuse-gateways">
+<span id="cmdoption-skyplane-sync-no-reuse-gateways"></span><span class="sig-name descname"><span class="pre">--reuse-gateways</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-reuse-gateways</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-sync-reuse-gateways" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will leave provisioned instances running to be reused</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-debug">
+<span id="cmdoption-skyplane-sync-no-debug"></span><span class="sig-name descname"><span class="pre">--debug</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-debug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-sync-debug" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will write debug information to debug directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-y">
+<span id="cmdoption-skyplane-sync-f"></span><span id="cmdoption-skyplane-sync-confirm"></span><span class="sig-name descname"><span class="pre">-y</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-f</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--confirm</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-sync-y" title="Permalink to this definition">#</a></dt>
+<dd><p>Confirm all transfer prompts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-n">
+<span id="cmdoption-skyplane-sync-max-instances"></span><span class="sig-name descname"><span class="pre">-n</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--max-instances</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;max_instances&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-sync-n" title="Permalink to this definition">#</a></dt>
+<dd><p>Number of gateways</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-multipart">
+<span id="cmdoption-skyplane-sync-no-multipart"></span><span class="sig-name descname"><span class="pre">--multipart</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-multipart</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-sync-multipart" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will use multipart uploads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-solve">
+<span id="cmdoption-skyplane-sync-no-solve"></span><span class="sig-name descname"><span class="pre">--solve</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-solve</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-sync-solve" title="Permalink to this definition">#</a></dt>
+<dd><p>If true, will use solver to optimize transfer, else direct path is chosen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-solver-required-throughput-gbits">
+<span class="sig-name descname"><span class="pre">--solver-required-throughput-gbits</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;solver_required_throughput_gbits&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-sync-solver-required-throughput-gbits" title="Permalink to this definition">#</a></dt>
+<dd><p>Solver option: Required throughput in Gbps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>4</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-throughput-grid">
+<span class="sig-name descname"><span class="pre">--throughput-grid</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;solver_throughput_grid&gt;</span></span><a class="headerlink" href="#cmdoption-skyplane-sync-throughput-grid" title="Permalink to this definition">#</a></dt>
+<dd><p>Throughput grid file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>/github/workspace/profiles/throughput.csv</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-solver-verbose">
+<span id="cmdoption-skyplane-sync-no-solver-verbose"></span><span class="sig-name descname"><span class="pre">--solver-verbose</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--no-solver-verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-sync-solver-verbose" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-arg-SRC">
+<span id="cmdoption-skyplane-sync-arg-src"></span><span class="sig-name descname"><span class="pre">SRC</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-sync-arg-SRC" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-skyplane-sync-arg-DST">
+<span id="cmdoption-skyplane-sync-arg-dst"></span><span class="sig-name descname"><span class="pre">DST</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-skyplane-sync-arg-DST" title="Permalink to this definition">#</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</section>
+</section>
 </section>
 
         </article>
@@ -263,8 +1716,65 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Internal CLI documentation</a><ul>
+<li><a class="reference internal" href="#skyplane">skyplane</a><ul>
+<li><a class="reference internal" href="#skyplane-aws">aws</a><ul>
+<li><a class="reference internal" href="#skyplane-aws-cp-datasync">cp-datasync</a></li>
+<li><a class="reference internal" href="#skyplane-aws-vcpu-limits">vcpu-limits</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#skyplane-azure">azure</a><ul>
+<li><a class="reference internal" href="#skyplane-azure-get-valid-skus">get-valid-skus</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#skyplane-config">config</a><ul>
+<li><a class="reference internal" href="#skyplane-config-get">get</a></li>
+<li><a class="reference internal" href="#skyplane-config-list">list</a></li>
+<li><a class="reference internal" href="#skyplane-config-set">set</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#skyplane-cp">cp</a></li>
+<li><a class="reference internal" href="#skyplane-deprovision">deprovision</a></li>
+<li><a class="reference internal" href="#skyplane-experiments">experiments</a><ul>
+<li><a class="reference internal" href="#skyplane-experiments-dump-full-util-cost-grid">dump-full-util-cost-grid</a></li>
+<li><a class="reference internal" href="#skyplane-experiments-get-max-throughput">get-max-throughput</a></li>
+<li><a class="reference internal" href="#skyplane-experiments-latency-grid">latency-grid</a></li>
+<li><a class="reference internal" href="#skyplane-experiments-throughput-grid">throughput-grid</a></li>
+<li><a class="reference internal" href="#skyplane-experiments-util-grid-cost">util-grid-cost</a></li>
+<li><a class="reference internal" href="#skyplane-experiments-util-grid-throughput">util-grid-throughput</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#skyplane-init">init</a></li>
+<li><a class="reference internal" href="#skyplane-replicate-random">replicate-random</a></li>
+<li><a class="reference internal" href="#skyplane-replicate-random-solve">replicate-random-solve</a></li>
+<li><a class="reference internal" href="#skyplane-solver">solver</a><ul>
+<li><a class="reference internal" href="#skyplane-solver-solve-single-hop">solve-single-hop</a></li>
+<li><a class="reference internal" href="#skyplane-solver-solve-throughput">solve-throughput</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#skyplane-ssh">ssh</a></li>
+<li><a class="reference internal" href="#skyplane-sync">sync</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
