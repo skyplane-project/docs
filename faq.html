@@ -221,7 +221,19 @@
 <p>Skyplane needs to provision VMs in each cloud to complete a transfer. The VMs read data from the source object store and send it along sockets to the destination.
 By default, Skyplane will provision 1 VM in each region where each VM has 32 vCPUs. If you do not have sufficient quota to provision these VMs, please see <a class="reference internal" href="increase_vcpus.html"><span class="doc std std-doc">our guide to requesting cloud limit increases</span></a>.</p>
 <p>Alternatively, you can <a class="reference internal" href="configure.html"><span class="doc std std-doc">configure Skyplane</span></a> to use fewer resources per transfer. You can reduce the default number of VMs used via <code class="docutils literal notranslate"><span class="pre">max_instances</span></code> and change the instance class for gateways by configuring <code class="docutils literal notranslate"><span class="pre">aws_instance_class</span></code>, <code class="docutils literal notranslate"><span class="pre">azure_instance_class</span></code> or <code class="docutils literal notranslate"><span class="pre">gcp_instance_class</span></code> with a smaller instance class.</p>
-<!-- ## How does Skyplane map object keys from source to destination? -->
+</section>
+<section id="does-skyplane-support-local-transfers">
+<h2>Does Skyplane support local transfers?<a class="headerlink" href="#does-skyplane-support-local-transfers" title="Permalink to this heading">#</a></h2>
+<p>Skyplane does not currently support local transfers. Cloud to cloud transfers are supported.</p>
+</section>
+<section id="how-does-skyplane-map-object-keys-from-source-to-destination">
+<h2>How does Skyplane map object keys from source to destination?<a class="headerlink" href="#how-does-skyplane-map-object-keys-from-source-to-destination" title="Permalink to this heading">#</a></h2>
+<p>In the non-recursive case, Skyplane extracts the key from the full bucket path (s3://[bucket_name]/[key]) and places the object specified at dest_prefix/[key] if the dest_prefix provided is a directory (ends in <code class="docutils literal notranslate"><span class="pre">/</span></code>), or else replaces the object at dest_prefix with the extracted object.</p>
+<p>In the recursive case, Skyplane appends a trailing slash to the source and dest paths if one does not already exist. After extracting the key from the source path, it is appended to the dest prefix to get object keys.</p>
+</section>
+<section id="i-am-unable-to-copy-files-to-a-folder-in-my-destination-bucket-due-to-a-missing-object-error">
+<h2>I am unable to copy files to a folder in my destination bucket due to a Missing Object Error<a class="headerlink" href="#i-am-unable-to-copy-files-to-a-folder-in-my-destination-bucket-due-to-a-missing-object-error" title="Permalink to this heading">#</a></h2>
+<p>Check to make sure your recursive flag is enabled.</p>
 <!-- ## Does Skyplane support VM-to-VM transfers? --></section>
 </section>
 
@@ -284,6 +296,9 @@ By default, Skyplane will provision 1 VM in each region where each VM has 32 vCP
             <ul>
 <li><a class="reference internal" href="#">FAQ</a><ul>
 <li><a class="reference internal" href="#i-get-insufficientvcpuexception-when-running-a-transfer">I get <code class="docutils literal notranslate"><span class="pre">InsufficientVCPUException</span></code> when running a transfer</a></li>
+<li><a class="reference internal" href="#does-skyplane-support-local-transfers">Does Skyplane support local transfers?</a></li>
+<li><a class="reference internal" href="#how-does-skyplane-map-object-keys-from-source-to-destination">How does Skyplane map object keys from source to destination?</a></li>
+<li><a class="reference internal" href="#i-am-unable-to-copy-files-to-a-folder-in-my-destination-bucket-due-to-a-missing-object-error">I am unable to copy files to a folder in my destination bucket due to a Missing Object Error</a></li>
 </ul>
 </li>
 </ul>
