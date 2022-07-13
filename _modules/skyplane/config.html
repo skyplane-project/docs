@@ -323,13 +323,20 @@
             <span class="k">if</span> <span class="s2">&quot;project_id&quot;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;gcp&quot;</span><span class="p">]:</span>
                 <span class="n">gcp_project_id</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;gcp&quot;</span><span class="p">,</span> <span class="s2">&quot;project_id&quot;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">SkyplaneConfig</span><span class="p">(</span>
+        <span class="n">skyplane_config</span> <span class="o">=</span> <span class="n">SkyplaneConfig</span><span class="p">(</span>
             <span class="n">aws_enabled</span><span class="o">=</span><span class="n">aws_enabled</span><span class="p">,</span>
             <span class="n">azure_enabled</span><span class="o">=</span><span class="n">azure_enabled</span><span class="p">,</span>
             <span class="n">gcp_enabled</span><span class="o">=</span><span class="n">gcp_enabled</span><span class="p">,</span>
             <span class="n">azure_subscription_id</span><span class="o">=</span><span class="n">azure_subscription_id</span><span class="p">,</span>
             <span class="n">gcp_project_id</span><span class="o">=</span><span class="n">gcp_project_id</span><span class="p">,</span>
-        <span class="p">)</span></div>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;flags&quot;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">flag_name</span> <span class="ow">in</span> <span class="n">_FLAG_TYPES</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">flag_name</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;flags&quot;</span><span class="p">]:</span>
+                    <span class="n">skyplane_config</span><span class="o">.</span><span class="n">set_flag</span><span class="p">(</span><span class="n">flag_name</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;flags&quot;</span><span class="p">][</span><span class="n">flag_name</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">skyplane_config</span></div>
 
 <div class="viewcode-block" id="SkyplaneConfig.to_config_file"><a class="viewcode-back" href="../../skyplane_internal.html#skyplane.config.SkyplaneConfig.to_config_file">[docs]</a>    <span class="k">def</span> <span class="nf">to_config_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
