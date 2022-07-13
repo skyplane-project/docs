@@ -249,7 +249,7 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">topology</span><span class="p">:</span> <span class="n">ReplicationTopology</span><span class="p">,</span>
-        <span class="n">gateway_docker_image</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ghcr.io/skyplane-project/skyplane:latest&quot;</span><span class="p">,</span>
+        <span class="n">gateway_docker_image</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;public.ecr.aws/s6m1p0n8/skyplane:main&quot;</span><span class="p">,</span>
         <span class="n">aws_instance_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;m5.4xlarge&quot;</span><span class="p">,</span>  <span class="c1"># set to None to disable AWS</span>
         <span class="n">azure_instance_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Standard_D2_v5&quot;</span><span class="p">,</span>  <span class="c1"># set to None to disable Azure</span>
         <span class="n">gcp_instance_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;n2-standard-16&quot;</span><span class="p">,</span>  <span class="c1"># set to None to disable GCP</span>
