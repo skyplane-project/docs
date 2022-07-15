@@ -228,7 +228,7 @@
 <span class="kn">from</span> <span class="nn">rich.progress</span> <span class="kn">import</span> <span class="n">Progress</span><span class="p">,</span> <span class="n">SpinnerColumn</span><span class="p">,</span> <span class="n">TextColumn</span><span class="p">,</span> <span class="n">TimeRemainingColumn</span><span class="p">,</span> <span class="n">DownloadColumn</span><span class="p">,</span> <span class="n">BarColumn</span><span class="p">,</span> <span class="n">TransferSpeedColumn</span>
 <span class="kn">import</span> <span class="nn">urllib3</span>
 
-<span class="kn">from</span> <span class="nn">skyplane</span> <span class="kn">import</span> <span class="n">GB</span><span class="p">,</span> <span class="n">MB</span><span class="p">,</span> <span class="n">tmp_log_dir</span>
+<span class="kn">from</span> <span class="nn">skyplane</span> <span class="kn">import</span> <span class="n">GB</span><span class="p">,</span> <span class="n">MB</span><span class="p">,</span> <span class="n">gateway_docker_image</span><span class="p">,</span> <span class="n">tmp_log_dir</span>
 <span class="kn">from</span> <span class="nn">skyplane</span> <span class="kn">import</span> <span class="n">exceptions</span>
 <span class="kn">from</span> <span class="nn">skyplane.chunk</span> <span class="kn">import</span> <span class="n">Chunk</span><span class="p">,</span> <span class="n">ChunkRequest</span><span class="p">,</span> <span class="n">ChunkState</span>
 <span class="kn">from</span> <span class="nn">skyplane.compute.aws.aws_cloud_provider</span> <span class="kn">import</span> <span class="n">AWSCloudProvider</span>
@@ -249,7 +249,7 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">topology</span><span class="p">:</span> <span class="n">ReplicationTopology</span><span class="p">,</span>
-        <span class="n">gateway_docker_image</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;public.ecr.aws/s6m1p0n8/skyplane:edge&quot;</span><span class="p">,</span>
+        <span class="n">gateway_docker_image</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">gateway_docker_image</span><span class="p">(),</span>
         <span class="n">aws_instance_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;m5.4xlarge&quot;</span><span class="p">,</span>  <span class="c1"># set to None to disable AWS</span>
         <span class="n">azure_instance_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Standard_D2_v5&quot;</span><span class="p">,</span>  <span class="c1"># set to None to disable Azure</span>
         <span class="n">gcp_instance_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;n2-standard-16&quot;</span><span class="p">,</span>  <span class="c1"># set to None to disable GCP</span>
